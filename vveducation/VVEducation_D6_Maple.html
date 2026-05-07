@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VV Education — D-6 Maple Leaf Clip</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#EDEAE4; font-family:'Inter',sans-serif; padding:60px 48px; color:#222; }
+
+.page-header { text-align:center; margin-bottom:52px; }
+.page-eyebrow { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#aaa; margin-bottom:12px; }
+.page-title { font-family:'Montserrat',sans-serif; font-size:24px; font-weight:800; color:#1A3660; margin-bottom:8px; }
+.page-sub { font-size:12px; color:#aaa; letter-spacing:0.06em; }
+.divider-line { width:48px; height:3px; background:#1A3660; margin:14px auto 0; border-radius:2px; }
+
+.section-label {
+  font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+  color:#888; margin-bottom:22px; padding-left:12px;
+  border-left:3px solid #1A3660;
+}
+.section-gap { margin-bottom:48px; }
+
+/* 4열 비교 그리드 */
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+
+.card { border-radius:12px; overflow:hidden; box-shadow:0 3px 24px rgba(0,0,0,0.12); }
+.card-preview {
+  height:200px;
+  display:flex; align-items:center; justify-content:center;
+  padding:32px;
+}
+.bg-offwht { background:#F5F4F1; }
+.bg-white  { background:#FFFFFF; }
+.bg-navy   { background:#1A3660; }
+.bg-light-gray { background:#E8E6E0; }
+
+.card-body { background:#fff; padding:16px 18px 20px; }
+.card-code { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#ccc; margin-bottom:3px; }
+.card-name { font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:4px; }
+.card-desc { font-size:11px; color:#999; line-height:1.6; }
+
+/* 로고 레이아웃 */
+.logo-row { display:flex; align-items:center; gap:16px; }
+.logo-text { display:flex; flex-direction:column; gap:3px; }
+.logo-en {
+  font-family:'Montserrat',sans-serif;
+  font-size:17px; font-weight:800; color:#1A3660;
+  letter-spacing:0.06em; text-transform:uppercase; line-height:1;
+}
+.logo-en .edu { color:#C8102E; font-weight:500; }
+.logo-en-inv { color:#FFFFFF; }
+.logo-kr { font-family:'Inter',sans-serif; font-size:10.5px; font-weight:400; color:#5A6A7A; letter-spacing:0.06em; }
+.logo-kr-inv { color:rgba(255,255,255,0.5); }
+.logo-sub { font-family:'Raleway',sans-serif; font-size:6.5px; font-weight:300; color:#AAA; letter-spacing:0.35em; text-transform:uppercase; margin-top:2px; }
+.logo-sub-inv { color:rgba(255,255,255,0.3); }
+
+/* ── 공통 블록 구조 ── */
+.vv-block {
+  width:62px; height:62px; border-radius:10px;
+  background:#1A3660;
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden; flex-shrink:0;
+  box-shadow:0 5px 20px rgba(26,54,96,0.4);
+}
+.vv-block-vv {
+  font-family:'Montserrat',sans-serif;
+  font-size:27px; font-weight:900; color:#fff;
+  letter-spacing:-0.07em; line-height:1;
+  position:relative; z-index:2;
+}
+
+/* 단풍잎 공통 */
+.maple-svg {
+  position:absolute;
+  bottom:0; right:0;
+  z-index:1;
+}
+
+/* ── REF: 원본 삼각 포인트 ── */
+.ref-corner::after {
+  content:'';
+  position:absolute; bottom:0; right:0;
+  width:0; height:0; border-style:solid;
+  border-width:0 0 14px 14px;
+  border-color:transparent transparent #C8102E transparent;
+  border-radius:0 0 10px 0;
+  z-index:3;
+}
+
+/* ── A: 소형 단풍잎 (살짝 피킹) ── */
+/* SVG 32×30px, bottom:-4px right:-4px → 1/4 정도 노출 */
+
+/* ── B: 중형 단풍잎 ── */
+/* SVG 46×44px, bottom:-10px right:-10px → 1/3 정도 노출 */
+
+/* ── C: 대형 단풍잎 (임팩트) ── */
+/* SVG 64×60px, bottom:-16px right:-16px → 절반 가량 노출 */
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · VV Education · D-6 Maple Clip Variations · April 2026</p>
+  <h1 class="page-title">D-6 — 단풍잎 클리핑 마스크</h1>
+  <p class="page-sub">블록 우하단 · 단풍잎 노출 크기별 비교 4가지</p>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ── 밝은 배경 비교 ── -->
+<div class="section-gap">
+  <div class="section-label">밝은 배경 — 노출 크기 비교</div>
+  <div class="grid-4">
+
+    <!-- REF: 원본 삼각 -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="logo-row">
+          <div class="vv-block ref-corner">
+            <span class="vv-block-vv">VV</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-en">VitVan <span class="edu">Edu</span></div>
+            <div class="logo-kr">빛밴 교육</div>
+            <div class="logo-sub">Canada Immersion · Vancouver BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-6 원본</div>
+        <div class="card-name">삼각 포인트 (기존)</div>
+        <div class="card-desc">기존 레드 삼각. 비교 기준.</div>
+      </div>
+    </div>
+
+    <!-- A: 소형 -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="logo-row">
+          <div class="vv-block">
+            <svg class="maple-svg" width="32" height="30"
+                 viewBox="5 5 90 88" style="bottom:-4px;right:-4px;">
+              <path d="M50,5 L61,30 L80,22 L72,38 L95,36 L80,50 L88,70
+                       L68,62 L56,85 L50,72 L44,85 L32,62 L12,70
+                       L20,50 L5,36 L28,38 L20,22 L39,30 Z"
+                fill="#C8102E"/>
+            </svg>
+            <span class="vv-block-vv">VV</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-en">VitVan <span class="edu">Edu</span></div>
+            <div class="logo-kr">빛밴 교육</div>
+            <div class="logo-sub">Canada Immersion · Vancouver BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-6 · Maple S</div>
+        <div class="card-name">소형 — 살짝 피킹</div>
+        <div class="card-desc">잎 끝만 보이는 미묘한 힌트. 가장 절제된 캐나다 느낌.</div>
+      </div>
+    </div>
+
+    <!-- B: 중형 -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="logo-row">
+          <div class="vv-block">
+            <svg class="maple-svg" width="46" height="43"
+                 viewBox="5 5 90 88" style="bottom:-10px;right:-10px;">
+              <path d="M50,5 L61,30 L80,22 L72,38 L95,36 L80,50 L88,70
+                       L68,62 L56,85 L50,72 L44,85 L32,62 L12,70
+                       L20,50 L5,36 L28,38 L20,22 L39,30 Z"
+                fill="#C8102E"/>
+            </svg>
+            <span class="vv-block-vv">VV</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-en">VitVan <span class="edu">Edu</span></div>
+            <div class="logo-kr">빛밴 교육</div>
+            <div class="logo-sub">Canada Immersion · Vancouver BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-6 · Maple M</div>
+        <div class="card-name">중형 — 1/3 노출</div>
+        <div class="card-desc">단풍잎임을 인지할 수 있는 적정 크기. 캐나다 아이덴티티 + 절제 균형.</div>
+      </div>
+    </div>
+
+    <!-- C: 대형 -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="logo-row">
+          <div class="vv-block">
+            <svg class="maple-svg" width="62" height="58"
+                 viewBox="5 5 90 88" style="bottom:-16px;right:-16px;">
+              <path d="M50,5 L61,30 L80,22 L72,38 L95,36 L80,50 L88,70
+                       L68,62 L56,85 L50,72 L44,85 L32,62 L12,70
+                       L20,50 L5,36 L28,38 L20,22 L39,30 Z"
+                fill="#C8102E"/>
+            </svg>
+            <span class="vv-block-vv">VV</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-en">VitVan <span class="edu">Edu</span></div>
+            <div class="logo-kr">빛밴 교육</div>
+            <div class="logo-sub">Canada Immersion · Vancouver BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-6 · Maple L</div>
+        <div class="card-name">대형 — 절반 노출</div>
+        <div class="card-desc">단풍잎이 적극적으로 드러남. 캐나다 정체성을 강하게 표현. 임팩트 최대.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 어두운 배경 비교 (중형 기준) ── -->
+<div class="section-gap">
+  <div class="section-label">배경 컬러 적용 — 중형(M) 기준</div>
+  <div class="grid-4">
+
+    <!-- 화이트 배경 -->
+    <div class="card">
+      <div class="card-preview bg-white">
+        <div class="logo-row">
+          <div class="vv-block">
+            <svg class="maple-svg" width="46" height="43"
+                 viewBox="5 5 90 88" style="bottom:-10px;right:-10px;">
+              <path d="M50,5 L61,30 L80,22 L72,38 L95,36 L80,50 L88,70
+                       L68,62 L56,85 L50,72 L44,85 L32,62 L12,70
+                       L20,50 L5,36 L28,38 L20,22 L39,30 Z"
+                fill="#C8102E"/>
+            </svg>
+            <span class="vv-block-vv">VV</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-en">VitVan <span class="edu">Edu</span></div>
+            <div class="logo-kr">빛밴 교육</div>
+            <div class="logo-sub">Canada Immersion · Vancouver BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">White BG</div>
+        <div class="card-name">화이트 배경</div>
+        <div class="card-desc">팸플릿·웹 흰 배경에서의 활용.</div>
+      </div>
+    </div>
+
+    <!-- 네이비 배경 -->
+    <div class="card">
+      <div class="card-preview bg-navy">
+        <div class="logo-row">
+          <div class="vv-block">
+            <svg class="maple-svg" width="46" height="43"
+                 viewBox="5 5 90 88" style="bottom:-10px;right:-10px;">
+              <path d="M50,5 L61,30 L80,22 L72,38 L95,36 L80,50 L88,70
+                       L68,62 L56,85 L50,72 L44,85 L32,62 L12,70
+                       L20,50 L5,36 L28,38 L20,22 L39,30 Z"
+                fill="#C8102E"/>
+            </svg>
+            <span class="vv-block-vv">VV</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-en logo-en-inv">VitVan <span class="edu">Edu</span></div>
+            <div class="logo-kr logo-kr-inv">빛밴 교육</div>
+            <div class="logo-sub logo-sub-inv">Canada Immersion · Vancouver BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">Navy BG</div>
+        <div class="card-name">네이비 배경</div>
+        <div class="card-desc">헤더·커버·다크모드 활용. 블록과 배경이 동일 컬러 — 텍스트만 남는 효과.</div>
+      </div>
+    </div>
+
+    <!-- 단풍잎만 강조 (흰 잎) — 네이비 배경용 화이트 버전 -->
+    <div class="card">
+      <div class="card-preview bg-navy">
+        <div class="logo-row">
+          <!-- 흰 잎 버전 (다크 배경 전용) -->
+          <div class="vv-block" style="background:#C8102E;">
+            <svg class="maple-svg" width="46" height="43"
+                 viewBox="5 5 90 88" style="bottom:-10px;right:-10px;">
+              <path d="M50,5 L61,30 L80,22 L72,38 L95,36 L80,50 L88,70
+                       L68,62 L56,85 L50,72 L44,85 L32,62 L12,70
+                       L20,50 L5,36 L28,38 L20,22 L39,30 Z"
+                fill="rgba(255,255,255,0.25)"/>
+            </svg>
+            <span class="vv-block-vv">VV</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-en logo-en-inv">VitVan <span class="edu" style="color:rgba(255,255,255,0.7)">Edu</span></div>
+            <div class="logo-kr logo-kr-inv">빛밴 교육</div>
+            <div class="logo-sub logo-sub-inv">Canada Immersion · Vancouver BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">Inverted</div>
+        <div class="card-name">레드 블록 반전</div>
+        <div class="card-desc">블록을 레드로 뒤집은 버전. 캠페인·이벤트 포스터 강조용.</div>
+      </div>
+    </div>
+
+    <!-- 오프화이트 + 중형 (한번 더 확인용) -->
+    <div class="card">
+      <div class="card-preview bg-light-gray">
+        <div class="logo-row">
+          <div class="vv-block">
+            <svg class="maple-svg" width="46" height="43"
+                 viewBox="5 5 90 88" style="bottom:-10px;right:-10px;">
+              <path d="M50,5 L61,30 L80,22 L72,38 L95,36 L80,50 L88,70
+                       L68,62 L56,85 L50,72 L44,85 L32,62 L12,70
+                       L20,50 L5,36 L28,38 L20,22 L39,30 Z"
+                fill="#C8102E"/>
+            </svg>
+            <span class="vv-block-vv">VV</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-en">VitVan <span class="edu">Edu</span></div>
+            <div class="logo-kr">빛밴 교육</div>
+            <div class="logo-sub">Canada Immersion · Vancouver BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">Gray BG</div>
+        <div class="card-name">그레이 배경</div>
+        <div class="card-desc">Lee & Ko 브랜드 배경(#DEDAD3)과 유사 — 모기업 자료에 쓸 때.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p style="text-align:center;margin-top:12px;font-size:10px;color:#bbb;letter-spacing:0.12em;">
+  CONFIDENTIAL · VV EDUCATION · D-6 MAPLE LEAF CLIP · APRIL 2026
+</p>
+
+</body>
+</html>

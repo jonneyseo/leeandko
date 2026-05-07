@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lee & Ko — Symbol Deep Dive</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Raleway:wght@200;300;400;600&family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#DEDAD3; font-family:'Inter',sans-serif; padding:52px 40px; color:#222; }
+
+.page-header { text-align:center; margin-bottom:52px; }
+.page-eyebrow { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#999; margin-bottom:10px; }
+.page-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:#1a1a1a; margin-bottom:6px; }
+.page-sub { font-size:12px; color:#aaa; letter-spacing:0.05em; }
+
+.section-gap { margin-bottom:52px; }
+.section-label {
+  font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+  color:#888; margin-bottom:20px; padding-left:12px;
+  border-left:3px solid #C9A84C;
+}
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+
+.card { border-radius:10px; overflow:hidden; box-shadow:0 2px 18px rgba(0,0,0,0.1); }
+.card-preview { height:220px; display:flex; align-items:center; justify-content:center; padding:32px; position:relative; }
+.card-body { background:#fff; padding:16px 18px 18px; }
+.card-code { font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#ccc; margin-bottom:3px; }
+.card-name { font-size:12.5px; font-weight:700; color:#1a1a1a; margin-bottom:3px; }
+.card-desc { font-size:11px; color:#999; line-height:1.5; margin-bottom:12px; }
+.swatches { display:flex; gap:6px; }
+.sw { width:20px; height:20px; border-radius:50%; border:2px solid rgba(255,255,255,0.7); box-shadow:0 1px 4px rgba(0,0,0,0.15); }
+
+/* ─────────────────────────────────
+   공통 로고 텍스트 스타일
+───────────────────────────────── */
+.logo-wrap-h { display:flex; align-items:center; gap:16px; }
+.logo-text { display:flex; flex-direction:column; }
+.logo-main { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:#252422; letter-spacing:0.1em; text-transform:uppercase; line-height:1; }
+.logo-dot { color:#C9A84C; font-style:normal; font-size:20px; position:relative; top:-2px; }
+.logo-sub { font-family:'Raleway',sans-serif; font-size:7px; font-weight:300; color:#8A8A88; letter-spacing:0.38em; text-transform:uppercase; margin-top:5px; }
+.bg-light { background:#F5F3EF; }
+.bg-dark  { background:#252422; }
+.logo-main-inv { color:#F5F3EF; }
+.logo-sub-inv  { color:#7A7872; }
+
+/* ═══════════════════════════════════════════
+   M-4  원본  —  상하 반분할 (기존)
+═══════════════════════════════════════════ */
+.sym-m4 {
+  width:50px; height:50px; border-radius:50%;
+  background:#252422; position:relative; overflow:hidden; flex-shrink:0;
+  border:1.5px solid rgba(201,168,76,0.25);
+}
+.sym-m4 .half-t { position:absolute; top:0; left:0; right:0; height:50%; background:#C9A84C; }
+.sym-m4 .in-t   { position:absolute; width:16px; height:16px; border-radius:50%; background:#252422; top:8px; left:50%; transform:translateX(-50%); }
+.sym-m4 .in-b   { position:absolute; width:16px; height:16px; border-radius:50%; background:#C9A84C; bottom:8px; left:50%; transform:translateX(-50%); }
+
+/* ═══════════════════════════════════════════
+   M-4-B  —  태극 S곡선 (CSS 레이어 기법)
+   우반원 골드 + 상단 원 골드 + 하단 원 차콜
+═══════════════════════════════════════════ */
+.sym-m4b {
+  width:50px; height:50px; border-radius:50%;
+  background:#252422; position:relative; overflow:hidden; flex-shrink:0;
+  border:1.5px solid rgba(201,168,76,0.25);
+}
+.sym-m4b .right-half {
+  position:absolute; right:0; top:0;
+  width:50%; height:100%; background:#C9A84C;
+}
+.sym-m4b .top-circle {
+  position:absolute; width:25px; height:25px; border-radius:50%;
+  background:#C9A84C; top:0; left:50%; transform:translateX(-50%);
+}
+.sym-m4b .bot-circle {
+  position:absolute; width:25px; height:25px; border-radius:50%;
+  background:#252422; bottom:0; left:50%; transform:translateX(-50%);
+}
+.sym-m4b .dot-t {
+  position:absolute; width:9px; height:9px; border-radius:50%;
+  background:#252422; top:5px; left:50%; transform:translateX(-50%); z-index:2;
+}
+.sym-m4b .dot-b {
+  position:absolute; width:9px; height:9px; border-radius:50%;
+  background:#C9A84C; bottom:5px; left:50%; transform:translateX(-50%); z-index:2;
+}
+
+/* ═══════════════════════════════════════════
+   M-4-C  —  기하학 태극 (각진 Z형 분할)
+═══════════════════════════════════════════ */
+.sym-m4c {
+  width:50px; height:50px; border-radius:50%;
+  background:#252422; position:relative; overflow:hidden; flex-shrink:0;
+  border:1.5px solid rgba(201,168,76,0.2);
+}
+.sym-m4c .geo-gold {
+  position:absolute; inset:0;
+  background:#C9A84C;
+  clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 50%, 50% 100%, 0% 100%, 0% 50%, 50% 50%);
+}
+/* inner corner accents */
+.sym-m4c .geo-dot-t {
+  position:absolute; width:8px; height:8px; border-radius:50%;
+  background:#252422; top:10px; right:10px; z-index:2;
+}
+.sym-m4c .geo-dot-b {
+  position:absolute; width:8px; height:8px; border-radius:50%;
+  background:#C9A84C; bottom:10px; left:10px; z-index:2;
+}
+
+/* ═══════════════════════════════════════════
+   M-4-D  —  미니멀 아웃라인 (SVG S선만)
+═══════════════════════════════════════════ */
+.sym-m4d { flex-shrink:0; }
+
+/* ─────────────────────────────────
+   S-2 공통 심볼 상단 구조
+───────────────────────────────── */
+.sym-wrap-v { display:flex; flex-direction:column; align-items:center; }
+.logo-main-center { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:#252422; letter-spacing:0.16em; text-transform:uppercase; text-align:center; }
+.s2-amp { color:#C9A84C; }
+.s2-rule-wrap { display:flex; align-items:center; gap:8px; margin:7px 0 6px; width:100%; }
+.s2-rule { flex:1; height:1px; background:#C9A84C; opacity:0.3; }
+.s2-diamond { width:5px; height:5px; background:#C9A84C; transform:rotate(45deg); }
+.logo-sub-center { font-family:'Raleway',sans-serif; font-size:7px; font-weight:300; color:#8A8A88; letter-spacing:0.45em; text-transform:uppercase; }
+
+/* ═══════════════════════════════════════════
+   S-2  원본  —  모깎기 팔각형 + LK
+═══════════════════════════════════════════ */
+.sym-s2 {
+  width:54px; height:54px; background:#252422;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:14px; position:relative; flex-shrink:0;
+  clip-path: polygon(8px 0%,calc(100% - 8px) 0%,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0% calc(100% - 8px),0% 8px);
+}
+.sym-s2 .mono { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:700; color:#F5F3EF; letter-spacing:-0.02em; line-height:1; }
+.sym-s2 .mono-k { color:#C9A84C; }
+
+/* ═══════════════════════════════════════════
+   S-2-B  —  원형 컨테이너 + 겹침 LK
+   K 굵게 / L 아웃라인, 위에 살짝 겹쳐 인터락
+═══════════════════════════════════════════ */
+.sym-s2b {
+  width:58px; height:58px; border-radius:50%;
+  background:#252422; border:2px solid rgba(201,168,76,0.35);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:14px; flex-shrink:0;
+  position:relative; overflow:hidden;
+}
+.sym-s2b .lk-wrap {
+  display:flex; align-items:baseline; gap:0; position:relative;
+}
+.sym-s2b .lk-l {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px; font-weight:600;
+  color:transparent; -webkit-text-stroke:1.2px #F5F3EF;
+  letter-spacing:-0.08em; line-height:1;
+  position:relative; z-index:1;
+}
+.sym-s2b .lk-k {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px; font-weight:700;
+  color:#C9A84C;
+  letter-spacing:0; line-height:1;
+  position:relative; z-index:2;
+  margin-left:-3px;
+}
+.sym-s2b-ring {
+  position:absolute; inset:3px; border-radius:50%;
+  border:1px solid rgba(201,168,76,0.15);
+  pointer-events:none;
+}
+
+/* ═══════════════════════════════════════════
+   S-2-C  —  좌우 반전 스플릿 캡슐 마크
+   L = 골드 배경 + 차콜 텍스트
+   K = 차콜 배경 + 골드 텍스트 (색 반전)
+═══════════════════════════════════════════ */
+.sym-s2c {
+  display:flex; overflow:hidden; border-radius:5px;
+  margin-bottom:14px; flex-shrink:0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.sym-s2c .split-l {
+  width:34px; height:44px;
+  background:#C9A84C;
+  display:flex; align-items:center; justify-content:center;
+}
+.sym-s2c .split-r {
+  width:34px; height:44px;
+  background:#252422;
+  display:flex; align-items:center; justify-content:center;
+}
+.sym-s2c .split-letter {
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px; font-weight:700; line-height:1; letter-spacing:0;
+}
+.sym-s2c .sl-l { color:#252422; }
+.sym-s2c .sl-r { color:#C9A84C; }
+
+/* ═══════════════════════════════════════════
+   A-2  원본  —  실선 / 골드 세로바 / 아웃라인
+═══════════════════════════════════════════ */
+.a2-bg { background:#F5F3EF; }
+.a2-outer { display:flex; flex-direction:column; align-items:flex-start; }
+.a2-row { display:flex; align-items:flex-end; gap:0; }
+.a2-lee { font-family:'Cormorant Garamond',serif; font-size:54px; font-weight:700; color:#252422; letter-spacing:0.04em; text-transform:uppercase; line-height:1; }
+.a2-vbar { width:2px; background:#C9A84C; opacity:0.6; height:44px; margin:0 10px 6px; align-self:flex-end; flex-shrink:0; }
+.a2-ko { font-family:'Cormorant Garamond',serif; font-size:54px; font-weight:600; color:transparent; -webkit-text-stroke:1.5px #3A3835; letter-spacing:0.04em; text-transform:uppercase; line-height:1; opacity:0.5; }
+.a2-sub { font-family:'Raleway',sans-serif; font-size:7px; font-weight:300; color:#8A8A88; letter-spacing:0.4em; text-transform:uppercase; margin-top:8px; }
+
+/* ═══════════════════════════════════════════
+   A-2-B  —  LEE & KO  (앰퍼샌드 삽입)
+   & : 업라이트(비이탤릭), 골드, 약간 작게
+═══════════════════════════════════════════ */
+.a2b-row { display:flex; align-items:flex-end; gap:0; }
+.a2b-lee { font-family:'Cormorant Garamond',serif; font-size:54px; font-weight:700; color:#252422; letter-spacing:0.04em; text-transform:uppercase; line-height:1; }
+.a2b-amp {
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px; font-weight:400; font-style:normal; /* 이탤릭 아님 */
+  color:#C9A84C; line-height:1; margin:0 6px 7px;
+  align-self:flex-end;
+}
+.a2b-ko { font-family:'Cormorant Garamond',serif; font-size:54px; font-weight:600; color:transparent; -webkit-text-stroke:1.5px #3A3835; letter-spacing:0.04em; text-transform:uppercase; line-height:1; opacity:0.5; }
+
+/* ═══════════════════════════════════════════
+   SECONDARY COLOR BRIDGE
+═══════════════════════════════════════════ */
+.bridge-section { margin-top:52px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.07); }
+.bridge-header { background:#252422; padding:18px 28px; display:flex; align-items:baseline; gap:14px; }
+.bridge-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; color:#F5F3EF; letter-spacing:0.04em; }
+.bridge-subtitle { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#7A7872; }
+.bridge-body { padding:28px; }
+.bridge-intro { font-size:12px; color:#666; line-height:1.7; margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid #f0f0f0; }
+.bridge-intro strong { color:#252422; }
+.cc { display:inline-block; width:12px; height:12px; border-radius:2px; background:#252422; vertical-align:middle; margin:0 3px; position:relative; top:-1px; }
+
+.brand-rows { display:flex; flex-direction:column; gap:14px; }
+.brand-row { display:flex; align-items:center; gap:0; border-radius:8px; overflow:hidden; box-shadow:0 1px 6px rgba(0,0,0,0.06); }
+.brand-primary-block { width:200px; flex-shrink:0; padding:16px 20px; display:flex; flex-direction:column; gap:4px; }
+.brand-name-text { font-family:'Inter',sans-serif; font-size:12px; font-weight:700; color:#fff; letter-spacing:0.04em; }
+.brand-desc-text { font-size:10px; color:rgba(255,255,255,0.55); letter-spacing:0.04em; }
+.brand-swatch-zone { flex:1; background:#fafafa; padding:14px 20px; display:flex; align-items:center; gap:12px; }
+.swatch-group { display:flex; flex-direction:column; align-items:center; gap:5px; }
+.swatch-big { width:40px; height:40px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,0.12); }
+.swatch-tag { font-size:8.5px; color:#bbb; letter-spacing:0.06em; text-align:center; }
+.plus-sign { font-size:16px; color:#ddd; font-weight:300; }
+.arrow-sign { font-size:14px; color:#ddd; }
+.applied-preview { margin-left:auto; padding:10px 16px; border-radius:6px; font-size:11px; display:flex; flex-direction:column; gap:3px; min-width:140px; }
+.applied-label { font-size:8.5px; letter-spacing:0.12em; text-transform:uppercase; color:#bbb; margin-bottom:4px; }
+.applied-text { font-weight:600; letter-spacing:0.06em; }
+.applied-subtext { font-size:9px; font-weight:300; opacity:0.6; }
+
+.vitvan-primary  { background:linear-gradient(135deg,#1A4A7A,#2B6CB0); }
+.dak-primary     { background:linear-gradient(135deg,#8B2020,#C0392B); }
+.grizzly-primary { background:linear-gradient(135deg,#6B3A2A,#8B4513); }
+.hulk-primary    { background:linear-gradient(135deg,#1E6B1E,#2E9B2E); } /* 헐크 그린 */
+.pacific-primary { background:linear-gradient(135deg,#1A5276,#2471A3); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · Symbol Deep Dive · April 2026</p>
+  <h1 class="page-title">Lee & Ko Enterprises Inc.</h1>
+  <p class="page-sub">M-4 태극 변형 4가지 · S-2 모노그램 변형 3가지 · A-2 & 삽입 변형</p>
+</div>
+
+<!-- ═══════════════════════════════════
+     M-4 태극 심볼 변형
+═══════════════════════════════════ -->
+<div class="section-gap">
+  <div class="section-label">M-4 — 태극 심볼 변형 4가지</div>
+  <div class="grid-4">
+
+    <!-- M-4 원본 -->
+    <div class="card">
+      <div class="card-preview bg-light">
+        <div class="logo-wrap-h">
+          <div class="sym-m4">
+            <div class="half-t"></div>
+            <div class="in-t"></div>
+            <div class="in-b"></div>
+          </div>
+          <div class="logo-text">
+            <div class="logo-main">LEE <span class="logo-dot">·</span> KO</div>
+            <div class="logo-sub">Enterprises Inc. · Vancouver</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">M-4 원본</div>
+        <div class="card-name">수평 이분할</div>
+        <div class="card-desc">상단 골드 / 하단 차콜. 가장 단순하고 명확한 이분. 원본.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#252422"></div>
+          <div class="sw" style="background:#C9A84C"></div>
+          <div class="sw" style="background:#F5F3EF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-4-B -->
+    <div class="card">
+      <div class="card-preview bg-light">
+        <div class="logo-wrap-h">
+          <div class="sym-m4b">
+            <div class="right-half"></div>
+            <div class="top-circle"></div>
+            <div class="bot-circle"></div>
+            <div class="dot-t"></div>
+            <div class="dot-b"></div>
+          </div>
+          <div class="logo-text">
+            <div class="logo-main">LEE <span class="logo-dot">·</span> KO</div>
+            <div class="logo-sub">Enterprises Inc. · Vancouver</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">M-4-B</div>
+        <div class="card-name">정통 태극 S곡선</div>
+        <div class="card-desc">우반원+상하 소원 레이어로 만든 실제 음양 S곡선. 전통 태극기 형태에 가장 가까움.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#252422"></div>
+          <div class="sw" style="background:#C9A84C"></div>
+          <div class="sw" style="background:#F5F3EF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-4-C -->
+    <div class="card">
+      <div class="card-preview bg-light">
+        <div class="logo-wrap-h">
+          <div class="sym-m4c">
+            <div class="geo-gold"></div>
+            <div class="geo-dot-t"></div>
+            <div class="geo-dot-b"></div>
+          </div>
+          <div class="logo-text">
+            <div class="logo-main">LEE <span class="logo-dot">·</span> KO</div>
+            <div class="logo-sub">Enterprises Inc. · Vancouver</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">M-4-C</div>
+        <div class="card-name">기하학 태극 (각진 Z형)</div>
+        <div class="card-desc">곡선 대신 직선으로 분할한 현대적 재해석. 위 우측 + 아래 좌측을 골드로. 대담하고 선명.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#252422"></div>
+          <div class="sw" style="background:#C9A84C"></div>
+          <div class="sw" style="background:#F5F3EF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M-4-D -->
+    <div class="card">
+      <div class="card-preview bg-dark">
+        <div class="logo-wrap-h">
+          <div class="sym-m4d">
+            <svg width="50" height="50" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="47" fill="none" stroke="#C9A84C" stroke-width="2.5"/>
+              <!-- S곡선: 상단 오른쪽 불룩 → 하단 왼쪽 불룩 -->
+              <path d="M50,3 A23.5,23.5 0 0,1 50,50 A23.5,23.5 0 0,0 50,97"
+                    fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.9"/>
+              <!-- 내부 점 힌트 -->
+              <circle cx="50" cy="26" r="5.5" fill="#C9A84C" opacity="0.55"/>
+              <circle cx="50" cy="74" r="5.5" fill="#C9A84C" opacity="0.25"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <div class="logo-main logo-main-inv">LEE <span class="logo-dot">·</span> KO</div>
+            <div class="logo-sub logo-sub-inv">Enterprises Inc. · Vancouver</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">M-4-D</div>
+        <div class="card-name">미니멀 아웃라인 태극</div>
+        <div class="card-desc">원 테두리 + S선만 남긴 가장 절제된 버전. 어두운 배경에서 골드 라인이 부각. 각인·엠보싱에 최적.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#252422"></div>
+          <div class="sw" style="background:#C9A84C"></div>
+          <div class="sw" style="background:rgba(201,168,76,0.25);border-color:#888"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     S-2 모노그램 변형
+═══════════════════════════════════ -->
+<div class="section-gap">
+  <div class="section-label">S-2 — LK 모노그램 변형 3가지</div>
+  <div class="grid-3">
+
+    <!-- S-2 원본 -->
+    <div class="card">
+      <div class="card-preview bg-light">
+        <div class="sym-wrap-v">
+          <div class="sym-s2">
+            <span class="mono">L<span class="mono-k">K</span></span>
+          </div>
+          <div class="logo-main-center">LEE <span class="s2-amp">&</span> KO</div>
+          <div class="s2-rule-wrap"><div class="s2-rule"></div><div class="s2-diamond"></div><div class="s2-rule"></div></div>
+          <div class="logo-sub-center">Enterprises Inc. · Vancouver</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">S-2 원본</div>
+        <div class="card-name">팔각 블록 모노그램</div>
+        <div class="card-desc">모깎기 팔각형 안에 LK. L 흰색 / K 골드. 원본.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#252422"></div>
+          <div class="sw" style="background:#C9A84C"></div>
+          <div class="sw" style="background:#F5F3EF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S-2-B -->
+    <div class="card">
+      <div class="card-preview bg-dark">
+        <div class="sym-wrap-v">
+          <div class="sym-s2b">
+            <div class="sym-s2b-ring"></div>
+            <div class="lk-wrap">
+              <span class="lk-l">L</span>
+              <span class="lk-k">K</span>
+            </div>
+          </div>
+          <div class="logo-main-center" style="color:#F5F3EF;">LEE <span class="s2-amp">&</span> KO</div>
+          <div class="s2-rule-wrap"><div class="s2-rule"></div><div class="s2-diamond"></div><div class="s2-rule"></div></div>
+          <div class="logo-sub-center">Enterprises Inc. · Vancouver</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">S-2-B</div>
+        <div class="card-name">원형 인터락 모노그램</div>
+        <div class="card-desc">원형 컨테이너 + L(아웃라인)과 K(골드 솔리드)가 겹쳐 인터락 효과. 두 요소가 하나로 합쳐지는 느낌.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#252422"></div>
+          <div class="sw" style="background:#C9A84C"></div>
+          <div class="sw" style="background:rgba(255,255,255,0.15);border-color:#666"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S-2-C -->
+    <div class="card">
+      <div class="card-preview bg-light">
+        <div class="sym-wrap-v">
+          <div class="sym-s2c">
+            <div class="split-l">
+              <span class="split-letter sl-l">L</span>
+            </div>
+            <div class="split-r">
+              <span class="split-letter sl-r">K</span>
+            </div>
+          </div>
+          <div class="logo-main-center">LEE <span class="s2-amp">&</span> KO</div>
+          <div class="s2-rule-wrap"><div class="s2-rule"></div><div class="s2-diamond"></div><div class="s2-rule"></div></div>
+          <div class="logo-sub-center">Enterprises Inc. · Vancouver</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">S-2-C</div>
+        <div class="card-name">반전 스플릿 캡슐</div>
+        <div class="card-desc">좌 = 골드 배경 + 차콜 L / 우 = 차콜 배경 + 골드 K. 같은 두 글자가 색을 맞바꿈. LEE(실체)와 KO(정체성)의 반전 관계를 색으로 표현.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#252422"></div>
+          <div class="sw" style="background:#C9A84C"></div>
+          <div class="sw" style="background:#F5F3EF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     A-2 변형
+═══════════════════════════════════ -->
+<div class="section-gap">
+  <div class="section-label">A-2 — LEE 실선 / KO 아웃라인 변형</div>
+  <div class="grid-2">
+
+    <!-- A-2 원본 -->
+    <div class="card">
+      <div class="card-preview a2-bg">
+        <div class="a2-outer">
+          <div class="a2-row">
+            <div class="a2-lee">LEE</div>
+            <div class="a2-vbar"></div>
+            <div class="a2-ko">KO</div>
+          </div>
+          <div class="a2-sub">Enterprises Inc. · Vancouver, BC</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">A-2 원본</div>
+        <div class="card-name">골드 세로선 분리</div>
+        <div class="card-desc">LEE 실선 / KO 아웃라인을 골드 세로선이 구분. 원본.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#252422"></div>
+          <div class="sw" style="background:#C9A84C"></div>
+          <div class="sw" style="background:#3A3835"></div>
+          <div class="sw" style="background:#F5F3EF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A-2-B -->
+    <div class="card">
+      <div class="card-preview a2-bg">
+        <div class="a2-outer">
+          <div class="a2b-row">
+            <div class="a2b-lee">LEE</div>
+            <div class="a2b-amp">&</div>
+            <div class="a2b-ko">KO</div>
+          </div>
+          <div class="a2-sub">Enterprises Inc. · Vancouver, BC</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">A-2-B</div>
+        <div class="card-name">"리 앤 코" 로 읽히는 버전</div>
+        <div class="card-desc">& 를 업라이트(비이탤릭) 세리프로, 골드, 살짝 작게. "Lee & Ko" 로 자연스럽게 읽히면서도 LEE 실선 / KO 아웃라인 대비는 유지.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#252422"></div>
+          <div class="sw" style="background:#C9A84C"></div>
+          <div class="sw" style="background:#3A3835"></div>
+          <div class="sw" style="background:#F5F3EF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECONDARY COLOR BRIDGE (헐크 그린 업데이트)
+═══════════════════════════════════════════ -->
+<div class="bridge-section">
+  <div class="bridge-header">
+    <span class="bridge-title">Secondary Color Strategy</span>
+    <span class="bridge-subtitle">차콜이 5개 서브 브랜드를 조용히 묶는 방법</span>
+  </div>
+  <div class="bridge-body">
+    <p class="bridge-intro">
+      <strong>Lee & Ko 차콜 <span class="cc"></span> #252422</strong>를 각 서브 브랜드의 secondary color로 적용.
+      서체, 서브텍스트, 보조 배경에 반복 노출해 "같은 우산 아래"라는 통일감을 형성합니다.
+    </p>
+    <div class="brand-rows">
+
+      <div class="brand-row">
+        <div class="brand-primary-block vitvan-primary">
+          <span class="brand-name-text">VitVan Education</span>
+          <span class="brand-desc-text">빛밴 에듀케이션</span>
+        </div>
+        <div class="brand-swatch-zone">
+          <div class="swatch-group"><div class="swatch-big" style="background:#1A4A7A"></div><span class="swatch-tag">Primary<br>#1A4A7A</span></div>
+          <span class="plus-sign">+</span>
+          <div class="swatch-group"><div class="swatch-big" style="background:#252422"></div><span class="swatch-tag">Secondary<br>#252422</span></div>
+          <span class="arrow-sign">→</span>
+          <div class="applied-preview" style="background:#EEF2F8;">
+            <span class="applied-label">적용 예</span>
+            <span class="applied-text" style="color:#1A4A7A;">VitVan Education</span>
+            <span class="applied-subtext" style="color:#252422;">Operated by Lee &amp; Ko</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-row">
+        <div class="brand-primary-block dak-primary">
+          <span class="brand-name-text">통나무집 닭갈비</span>
+          <span class="brand-desc-text">춘천식 밀키트</span>
+        </div>
+        <div class="brand-swatch-zone">
+          <div class="swatch-group"><div class="swatch-big" style="background:#8B2020"></div><span class="swatch-tag">Primary<br>#8B2020</span></div>
+          <span class="plus-sign">+</span>
+          <div class="swatch-group"><div class="swatch-big" style="background:#252422"></div><span class="swatch-tag">Secondary<br>#252422</span></div>
+          <span class="arrow-sign">→</span>
+          <div class="applied-preview" style="background:#FAF0F0;">
+            <span class="applied-label">적용 예</span>
+            <span class="applied-text" style="color:#8B2020;">통나무집 닭갈비</span>
+            <span class="applied-subtext" style="color:#252422;">춘천 · Lee &amp; Ko</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-row">
+        <div class="brand-primary-block grizzly-primary">
+          <span class="brand-name-text">그리즐리 컬렉션</span>
+          <span class="brand-desc-text">캐나다 직구·공구</span>
+        </div>
+        <div class="brand-swatch-zone">
+          <div class="swatch-group"><div class="swatch-big" style="background:#6B3A2A"></div><span class="swatch-tag">Primary<br>#6B3A2A</span></div>
+          <span class="plus-sign">+</span>
+          <div class="swatch-group"><div class="swatch-big" style="background:#252422"></div><span class="swatch-tag">Secondary<br>#252422</span></div>
+          <span class="arrow-sign">→</span>
+          <div class="applied-preview" style="background:#F5EFE8;">
+            <span class="applied-label">적용 예</span>
+            <span class="applied-text" style="color:#6B3A2A;">Grizzly Collection</span>
+            <span class="applied-subtext" style="color:#252422;">A Lee &amp; Ko Brand</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-row">
+        <div class="brand-primary-block hulk-primary">
+          <span class="brand-name-text">헐크서비스</span>
+          <span class="brand-desc-text">이사·청소·정크</span>
+        </div>
+        <div class="brand-swatch-zone">
+          <div class="swatch-group"><div class="swatch-big" style="background:#2E9B2E"></div><span class="swatch-tag">Primary<br>#2E9B2E</span></div>
+          <span class="plus-sign">+</span>
+          <div class="swatch-group"><div class="swatch-big" style="background:#252422"></div><span class="swatch-tag">Secondary<br>#252422</span></div>
+          <span class="arrow-sign">→</span>
+          <div class="applied-preview" style="background:#EEF7EE;">
+            <span class="applied-label">적용 예</span>
+            <span class="applied-text" style="color:#252422;background:#2E9B2E;padding:1px 8px;border-radius:2px;display:inline-block;color:#fff;">HULK</span>
+            <span class="applied-subtext" style="color:#252422;margin-top:3px;display:block;">Services · Lee &amp; Ko</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-row">
+        <div class="brand-primary-block pacific-primary">
+          <span class="brand-name-text">Pacific Upholstery</span>
+          <span class="brand-desc-text">태평양 소파&amp;천막</span>
+        </div>
+        <div class="brand-swatch-zone">
+          <div class="swatch-group"><div class="swatch-big" style="background:#1A5276"></div><span class="swatch-tag">Primary<br>#1A5276</span></div>
+          <span class="plus-sign">+</span>
+          <div class="swatch-group"><div class="swatch-big" style="background:#252422"></div><span class="swatch-tag">Secondary<br>#252422</span></div>
+          <span class="arrow-sign">→</span>
+          <div class="applied-preview" style="background:#EAF2F8;">
+            <span class="applied-label">적용 예</span>
+            <span class="applied-text" style="color:#1A5276;">Pacific Upholstery</span>
+            <span class="applied-subtext" style="color:#252422;">태평양 소파&amp;천막</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center;margin-top:40px;font-size:10px;color:#bbb;letter-spacing:0.12em;">
+  CONFIDENTIAL · LEE & KO ENTERPRISES INC. · SYMBOL DEEP DIVE · APRIL 2026
+</p>
+
+</body>
+</html>

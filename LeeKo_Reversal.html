@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lee & Ko — Reversal Series</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=Raleway:wght@200;300;400;600&family=Inter:wght@300;400;700;900&family=Montserrat:wght@300;400;700;800&family=Nanum+Brush+Script&family=Noto+Serif+KR:wght@300;400;600&family=Black+Han+Sans&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#E2DFD8; font-family:'Inter',sans-serif; padding:52px 40px; color:#222; }
+
+  .page-header { text-align:center; margin-bottom:16px; }
+  .page-eyebrow { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#999; margin-bottom:10px; }
+  .page-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:#1a1a1a; margin-bottom:6px; }
+  .page-sub { font-size:12px; color:#aaa; letter-spacing:0.05em; }
+
+  /* ref mini */
+  .ref-bar {
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin:28px 0 48px;
+  }
+  .ref-label { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#bbb; }
+  .ref-box { background:#fff; border-radius:6px; padding:10px 18px; box-shadow:0 1px 6px rgba(0,0,0,0.07); display:flex; align-items:center; gap:10px; }
+  .ref-a2-lee { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:#0D1F3C; letter-spacing:0.04em; }
+  .ref-a2-conn { font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; color:#C9A84C; margin:0 4px; }
+  .ref-a2-ko { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:transparent; -webkit-text-stroke:1.5px #1B2F5E; letter-spacing:0.04em; opacity:0.55; }
+  .arrow { font-size:16px; color:#ccc; }
+
+  /* grid */
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:20px; }
+  .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-bottom:20px; }
+
+  .card { border-radius:10px; overflow:hidden; box-shadow:0 2px 18px rgba(0,0,0,0.1); }
+  .card-preview { height:230px; display:flex; align-items:center; justify-content:center; padding:36px; position:relative; }
+  .card-body { background:#fff; padding:16px 18px 18px; }
+  .card-code { font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#ccc; margin-bottom:3px; }
+  .card-name { font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:3px; }
+  .card-desc { font-size:11px; color:#999; line-height:1.55; margin-bottom:12px; }
+  .swatches { display:flex; gap:6px; }
+  .sw { width:20px; height:20px; border-radius:50%; border:2px solid rgba(255,255,255,0.7); box-shadow:0 1px 4px rgba(0,0,0,0.15); }
+
+  /* ══════════════════════════════════
+     R-1: 세리프 실선 / 붓글씨 KO
+  ══════════════════════════════════ */
+  .r1-bg { background:#F7F6F2; }
+  .r1-wrap { text-align:left; }
+  .r1-main-row { display:flex; align-items:baseline; gap:0; line-height:1; }
+  .r1-lee {
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px; font-weight:700;
+    color:#0D1F3C; letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .r1-conn {
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px; font-weight:300; font-style:italic;
+    color:#C9A84C; margin:0 8px; align-self:center;
+  }
+  .r1-ko {
+    font-family:'Nanum Brush Script', cursive;
+    font-size:62px;
+    color:#0D1F3C;
+    line-height:0.9;
+    letter-spacing:-0.02em;
+  }
+  .r1-sub {
+    font-family:'Raleway',sans-serif;
+    font-size:7px; font-weight:300;
+    color:#8A9BB0; letter-spacing:0.4em; text-transform:uppercase;
+    margin-top:10px;
+  }
+
+  /* ══════════════════════════════════
+     R-2: 네이비 텍스트 / KO 주홍 도장
+  ══════════════════════════════════ */
+  .r2-bg { background:#F5F3EE; }
+  .r2-wrap { display:flex; align-items:center; gap:20px; }
+  .r2-text-group { display:flex; flex-direction:column; }
+  .r2-lee {
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px; font-weight:700;
+    color:#0D1F3C; letter-spacing:0.08em; text-transform:uppercase;
+    line-height:1;
+  }
+  .r2-sub {
+    font-family:'Raleway',sans-serif;
+    font-size:7px; font-weight:300;
+    color:#8A9BB0; letter-spacing:0.4em; text-transform:uppercase;
+    margin-top:6px;
+  }
+  /* 도장 stamp */
+  .r2-stamp {
+    width:72px; height:72px;
+    border:2.5px solid #8B2020;
+    border-radius:4px;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    position:relative;
+    flex-shrink:0;
+    transform:rotate(-6deg);
+    opacity:0.88;
+  }
+  .r2-stamp::before {
+    content:'';
+    position:absolute; inset:3px;
+    border:1px solid rgba(139,32,32,0.3);
+    border-radius:2px;
+  }
+  .r2-stamp-ko {
+    font-family:'Noto Serif KR',serif;
+    font-size:28px; font-weight:600;
+    color:#8B2020; letter-spacing:0.05em;
+    line-height:1;
+  }
+  .r2-stamp-sub {
+    font-family:'Noto Serif KR',serif;
+    font-size:7px; font-weight:300;
+    color:#8B2020; letter-spacing:0.15em;
+    text-transform:uppercase; margin-top:2px;
+    opacity:0.7;
+  }
+
+  /* ══════════════════════════════════
+     R-3: LEE 가로 / KO 세로 (방향 반전)
+  ══════════════════════════════════ */
+  .r3-bg { background:#0D1F3C; }
+  .r3-wrap { display:flex; align-items:center; gap:16px; }
+  .r3-left { display:flex; flex-direction:column; align-items:flex-start; }
+  .r3-lee {
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px; font-weight:700;
+    color:#F7F8FA; letter-spacing:0.08em; text-transform:uppercase;
+    line-height:1;
+  }
+  .r3-rule { width:100%; height:1px; background:rgba(201,168,76,0.4); margin:8px 0; }
+  .r3-sub {
+    font-family:'Raleway',sans-serif;
+    font-size:7px; font-weight:300;
+    color:#8A9BB0; letter-spacing:0.4em; text-transform:uppercase;
+  }
+  .r3-divider { width:1px; height:80px; background:rgba(201,168,76,0.25); flex-shrink:0; }
+  .r3-right { display:flex; flex-direction:column; align-items:center; gap:3px; padding:4px 0; }
+  .r3-conn-v {
+    font-family:'Cormorant Garamond',serif;
+    font-size:11px; font-style:italic; color:rgba(201,168,76,0.6);
+  }
+  .r3-ko-v {
+    writing-mode:vertical-rl;
+    text-orientation:mixed;
+    font-family:'Noto Serif KR',serif;
+    font-size:26px; font-weight:600;
+    color:#C9A84C; letter-spacing:0.1em;
+    line-height:1;
+  }
+
+  /* ══════════════════════════════════
+     R-4: LEE 블록 반전 / KO 오픈
+  ══════════════════════════════════ */
+  .r4-bg { background:#ECEAE4; }
+  .r4-wrap { display:flex; align-items:center; gap:0; }
+  .r4-lee-block {
+    background:#0D1F3C;
+    padding:14px 22px;
+  }
+  .r4-lee {
+    font-family:'Montserrat',sans-serif;
+    font-size:30px; font-weight:800;
+    color:#F7F8FA; letter-spacing:0.08em; text-transform:uppercase;
+    line-height:1;
+  }
+  .r4-mid { display:flex; flex-direction:column; align-items:center; padding:0 12px; }
+  .r4-conn {
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px; font-style:italic; font-weight:300;
+    color:#C9A84C; line-height:1;
+  }
+  .r4-right { display:flex; flex-direction:column; align-items:flex-start; }
+  .r4-ko {
+    font-family:'Montserrat',sans-serif;
+    font-size:30px; font-weight:800;
+    color:#0D1F3C; letter-spacing:0.08em; text-transform:uppercase;
+    line-height:1;
+  }
+  .r4-sub {
+    font-family:'Raleway',sans-serif;
+    font-size:6.5px; font-weight:300;
+    color:#8A9BB0; letter-spacing:0.4em; text-transform:uppercase;
+    margin-top:4px;
+  }
+
+  /* ══════════════════════════════════
+     R-5: 극단 굵기 반전 (헤비 / 극세)
+  ══════════════════════════════════ */
+  .r5-bg { background:#0D1F3C; }
+  .r5-wrap { display:flex; flex-direction:column; align-items:flex-start; }
+  .r5-row { display:flex; align-items:baseline; gap:10px; }
+  .r5-lee {
+    font-family:'Black Han Sans',sans-serif;
+    font-size:56px;
+    color:#F7F8FA; letter-spacing:0.04em; text-transform:uppercase;
+    line-height:1;
+  }
+  .r5-conn {
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px; font-style:italic; font-weight:300;
+    color:#C9A84C; align-self:center;
+  }
+  .r5-ko {
+    font-family:'Cormorant Garamond',serif;
+    font-size:56px; font-weight:300;
+    color:rgba(247,248,250,0.35);
+    letter-spacing:0.04em; text-transform:uppercase;
+    line-height:1;
+  }
+  .r5-rule { width:100%; height:1px; background:linear-gradient(90deg,rgba(201,168,76,0.5),transparent); margin:10px 0 6px; }
+  .r5-sub {
+    font-family:'Raleway',sans-serif;
+    font-size:7px; font-weight:300;
+    color:rgba(255,255,255,0.2); letter-spacing:0.4em; text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · Reversal Series · April 2026</p>
+  <h1 class="page-title">Lee & Ko Enterprises Inc.</h1>
+  <p class="page-sub">A-2 아이디어 확장 — LEE와 KO를 대비적으로, KO에 한국적 감성 가미</p>
+</div>
+
+<!-- ref bar -->
+<div class="ref-bar">
+  <span class="ref-label">기준 A-2</span>
+  <div class="ref-box">
+    <span class="ref-a2-lee">LEE</span>
+    <span class="ref-a2-conn">&</span>
+    <span class="ref-a2-ko">KO</span>
+  </div>
+  <span class="arrow">→ 반전 요소 확장 →</span>
+</div>
+
+<div class="grid-3">
+
+  <!-- R-1 -->
+  <div class="card">
+    <div class="card-preview r1-bg">
+      <div class="r1-wrap">
+        <div class="r1-main-row">
+          <span class="r1-lee">LEE</span>
+          <span class="r1-conn">&</span>
+          <span class="r1-ko">Ko</span>
+        </div>
+        <div class="r1-sub">Enterprises Inc. · Vancouver, BC</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">R-1</div>
+      <div class="card-name">세리프 × 붓글씨</div>
+      <div class="card-desc">LEE는 정제된 로마 세리프, KO는 붓으로 쓴 것 같은 필기체. 서양 타이포그래피 vs 동아시아 서예 전통의 충돌.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:#8A9BB0"></div>
+        <div class="sw" style="background:#F7F6F2;border-color:#ddd"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- R-2 -->
+  <div class="card">
+    <div class="card-preview r2-bg">
+      <div class="r2-wrap">
+        <div class="r2-text-group">
+          <div class="r2-lee">LEE</div>
+          <div class="r2-sub">Enterprises Inc.<br>Vancouver, BC</div>
+        </div>
+        <div class="r2-stamp">
+          <div class="r2-stamp-ko">KO</div>
+          <div class="r2-stamp-sub">Est. Van.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">R-2</div>
+      <div class="card-name">텍스트 × 주홍 도장</div>
+      <div class="card-desc">LEE는 정갈한 세리프 텍스트, KO는 약간 기울어진 주홍 낙관(落款). 이름에 도장을 찍듯 — 한국 문서·서화 전통에서 온 감각.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#8B2020"></div>
+        <div class="sw" style="background:#8A9BB0"></div>
+        <div class="sw" style="background:#F5F3EE;border-color:#ddd"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- R-3 -->
+  <div class="card">
+    <div class="card-preview r3-bg">
+      <div class="r3-wrap">
+        <div class="r3-left">
+          <div class="r3-lee">LEE</div>
+          <div class="r3-rule"></div>
+          <div class="r3-sub">Enterprises Inc.<br>Vancouver, BC</div>
+        </div>
+        <div class="r3-divider"></div>
+        <div class="r3-right">
+          <span class="r3-conn-v">&</span>
+          <span class="r3-ko-v">KO</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">R-3</div>
+      <div class="card-name">가로 × 세로 (문자 방향 반전)</div>
+      <div class="card-desc">LEE는 서양식 가로쓰기, KO는 전통 동아시아 세로쓰기. 텍스트 방향 자체가 정체성의 차이를 말함.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:#8A9BB0"></div>
+        <div class="sw" style="background:rgba(255,255,255,0.15);border-color:#555"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="grid-2">
+
+  <!-- R-4 -->
+  <div class="card">
+    <div class="card-preview r4-bg">
+      <div class="r4-wrap">
+        <div class="r4-lee-block">
+          <div class="r4-lee">LEE</div>
+        </div>
+        <div class="r4-mid">
+          <div class="r4-conn">&</div>
+        </div>
+        <div class="r4-right">
+          <div class="r4-ko">KO</div>
+          <div class="r4-sub">Enterprises Inc. · Vancouver</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">R-4</div>
+      <div class="card-name">블록 배경 × 오픈 텍스트</div>
+      <div class="card-desc">LEE는 네이비 블록 안에 갇혀(정착·뿌리내림), KO는 배경 없이 자유롭게 떠있음(열린 정체성). 같은 산세리프, 같은 크기인데 공간 처리가 정반대.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:#8A9BB0"></div>
+        <div class="sw" style="background:#ECEAE4;border-color:#ddd"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- R-5 -->
+  <div class="card">
+    <div class="card-preview r5-bg">
+      <div class="r5-wrap">
+        <div class="r5-row">
+          <span class="r5-lee">LEE</span>
+          <span class="r5-conn">&</span>
+          <span class="r5-ko">KO</span>
+        </div>
+        <div class="r5-rule"></div>
+        <div class="r5-sub">Enterprises Inc. · Vancouver, BC</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">R-5</div>
+      <div class="card-name">극太 × 극細 (굵기 반전)</div>
+      <div class="card-desc">LEE는 가장 굵은 블랙 웨이트, KO는 가장 얇은 씬 웨이트 + 반투명. 같은 크기이지만 LEE는 실재하고 KO는 배경처럼 물러나 있는 느낌.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:rgba(247,248,250,0.35);border-color:#555"></div>
+        <div class="sw" style="background:#F7F8FA;border-color:#ddd"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p style="text-align:center;margin-top:40px;font-size:10px;color:#bbb;letter-spacing:0.12em;">
+  CONFIDENTIAL · LEE & KO ENTERPRISES INC. · REVERSAL SERIES · APRIL 2026
+</p>
+
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lee & Ko — Identity as Meaning</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Raleway:wght@200;300;400;600;700&family=Inter:wght@300;400;600;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: #E5E2DB;
+    font-family: 'Inter', sans-serif;
+    padding: 52px 40px;
+    color: #222;
+  }
+
+  .page-header { text-align:center; margin-bottom:20px; }
+  .page-eyebrow { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:#999; margin-bottom:10px; }
+  .page-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:#1a1a1a; margin-bottom:6px; }
+  .page-sub { font-size:12px; color:#aaa; letter-spacing:0.05em; line-height:1.7; }
+
+  /* concept note */
+  .concept-note {
+    background: #fff;
+    border-left: 3px solid #C9A84C;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 28px 0 48px;
+    font-size: 12.5px;
+    color: #555;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+  .concept-note strong { color: #0D1F3C; }
+  .concept-note .ko-tag {
+    display: inline-block;
+    background: #E8EDF5;
+    color: #1B2F5E;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin: 0 2px;
+  }
+
+  /* grid */
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-bottom:22px; }
+  .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-bottom:22px; }
+
+  .card { border-radius:10px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.09); }
+  .card-preview {
+    height:220px;
+    display:flex; align-items:center; justify-content:center;
+    padding:36px; position:relative;
+  }
+  .card-body { background:#fff; padding:18px 20px 20px; }
+  .card-code { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#bbb; margin-bottom:4px; }
+  .card-name { font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:4px; }
+  .card-desc { font-size:11.5px; color:#888; line-height:1.55; margin-bottom:14px; }
+  .swatches { display:flex; gap:7px; }
+  .sw { width:22px; height:22px; border-radius:50%; border:2px solid rgba(255,255,255,0.7); box-shadow:0 1px 4px rgba(0,0,0,0.15); }
+
+  /* ══════════════════════════
+     M-1: KO 국가코드 태그
+  ══════════════════════════ */
+  .m1-bg { background: #0D1F3C; }
+  .m1-wrap { display:flex; flex-direction:column; align-items:flex-start; }
+  .m1-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 600;
+    color: #F7F8FA;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .m1-tag-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  .m1-rule { width:36px; height:1px; background:#C9A84C; opacity:0.5; }
+  .m1-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #C9A84C;
+  }
+  .m1-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 7px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  /* ══════════════════════════
+     M-2: 한글 이 + 영문 병기
+  ══════════════════════════ */
+  .m2-bg { background: #F7F8FA; }
+  .m2-wrap { text-align:center; }
+  .m2-korean {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #8A9BB0;
+    letter-spacing: 0.3em;
+    margin-bottom: 4px;
+  }
+  .m2-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: #0D1F3C;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .m2-amp {
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    color: #C9A84C;
+    margin: 0 6px;
+  }
+  .m2-ko-word {
+    font-size: 28px;
+    color: #1B2F5E;
+    opacity: 0.5;
+  }
+  .m2-underline {
+    width: 40px;
+    height: 2px;
+    background: #C9A84C;
+    margin: 10px auto 8px;
+    border-radius: 2px;
+  }
+  .m2-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 7px;
+    font-weight: 300;
+    color: #8A9BB0;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+  }
+
+  /* ══════════════════════════
+     M-3: KO = Korean 명시 버전
+  ══════════════════════════ */
+  .m3-bg { background: #0D1F3C; }
+  .m3-wrap { text-align:center; }
+  .m3-top-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 10px;
+  }
+  .m3-main-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0;
+  }
+  .m3-lee {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    color: #F7F8FA;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .m3-connector {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 300;
+    font-style: italic;
+    color: #C9A84C;
+    margin: 0 8px;
+    line-height: 1;
+  }
+  .m3-ko-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  .m3-ko-full {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #C9A84C;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 1px;
+  }
+  .m3-ko {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    color: #F7F8FA;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+    opacity: 0.35;
+  }
+  .m3-rule {
+    width: 60px;
+    height: 1px;
+    background: rgba(201,168,76,0.3);
+    margin: 12px auto 8px;
+  }
+  .m3-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 7px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+  }
+
+  /* ══════════════════════════
+     M-4: 태극 마이크로 심볼
+  ══════════════════════════ */
+  .m4-bg { background: #F7F8FA; }
+  .m4-wrap { display:flex; align-items:center; gap:16px; }
+  .m4-symbol {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .m4-circle-bg {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #0D1F3C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  /* taeguk-inspired yin-yang style in navy/gold */
+  .m4-half-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 50%;
+    background: #C9A84C;
+    border-radius: 22px 22px 0 0;
+  }
+  .m4-half-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: #0D1F3C;
+  }
+  .m4-inner-top {
+    position: absolute;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #0D1F3C;
+    top: 8px; left: 50%; transform: translateX(-50%);
+  }
+  .m4-inner-bottom {
+    position: absolute;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #C9A84C;
+    bottom: 8px; left: 50%; transform: translateX(-50%);
+  }
+  .m4-text-group { display:flex; flex-direction:column; }
+  .m4-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #0D1F3C;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .m4-amp {
+    color: #C9A84C;
+    font-style: italic;
+  }
+  .m4-sub-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 5px;
+  }
+  .m4-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 7px;
+    font-weight: 400;
+    color: #8A9BB0;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .m4-dot { width:3px; height:3px; border-radius:50%; background:#C9A84C; opacity:0.6; }
+
+  /* ══════════════════════════
+     M-5: LEE 크게 / KO 작게 (비대칭 위계)
+  ══════════════════════════ */
+  .m5-bg { background: #0D1F3C; }
+  .m5-wrap { display:flex; flex-direction:column; align-items:center; text-align:center; }
+  .m5-top-micro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #C9A84C;
+    margin-bottom: 4px;
+  }
+  .m5-lee {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: #F7F8FA;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+  .m5-ko-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .m5-ko-line { flex:1; height:1px; background:rgba(201,168,76,0.3); }
+  .m5-ko-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.7);
+  }
+  .m5-enterprises {
+    font-family: 'Raleway', sans-serif;
+    font-size: 7px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · Identity as Meaning · April 2026</p>
+  <h1 class="page-title">Lee & Ko Enterprises Inc.</h1>
+  <p class="page-sub">
+    LEE = 성씨 (surname) &nbsp;·&nbsp; KO = Korean (정체성·뿌리)<br>
+    두 사람이 아닌 — 한 사람의 이름과 정체성
+  </p>
+</div>
+
+<div class="concept-note">
+  <strong>디자인 전제:</strong>
+  <span class="ko-tag">LEE</span>는 고유명사(성씨), <span class="ko-tag">KO</span>는 Korean — 정체성·출신을 나타내는 수식어입니다.
+  두 사람 파트너십이 아닌, <em>한 사람의 이름과 뿌리</em>가 나란히 놓인 구조입니다.
+  시각적으로 LEE와 KO의 <strong>위계·스타일·크기를 달리</strong>해서 이 관계를 드러내는 방향들입니다.
+</div>
+
+<div class="grid-3">
+
+  <!-- M-1 -->
+  <div class="card">
+    <div class="card-preview m1-bg">
+      <div class="m1-wrap">
+        <div class="m1-name">LEE</div>
+        <div class="m1-tag-row">
+          <div class="m1-rule"></div>
+          <div class="m1-tag">& Korean · KO</div>
+        </div>
+        <div class="m1-sub">Enterprises Inc. · Vancouver, BC</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">M-1</div>
+      <div class="card-name">KO 국가코드 태그</div>
+      <div class="card-desc">LEE 크게, & Korean · KO 를 작은 태그처럼. 국가코드(.KR, ISO처럼) 느낌으로 KO의 의미를 직관적으로 전달.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:#8A9BB0"></div>
+        <div class="sw" style="background:#F7F8FA;border-color:#ddd"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- M-2 -->
+  <div class="card">
+    <div class="card-preview m2-bg">
+      <div class="m2-wrap">
+        <div class="m2-korean">이 씨 · 한국인</div>
+        <div class="m2-main">LEE <span class="m2-amp">&</span> <span class="m2-ko-word">KO</span></div>
+        <div class="m2-underline"></div>
+        <div class="m2-sub">Enterprises Inc. · Vancouver</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">M-2</div>
+      <div class="card-name">한글 서브타이틀 버전</div>
+      <div class="card-desc">상단에 '이 씨 · 한국인' 한글 레이블. KO는 반투명으로 흐리게 — 이름보다 배경적 정체성임을 암시.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:#8A9BB0"></div>
+        <div class="sw" style="background:#F7F8FA;border-color:#ddd"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- M-3 -->
+  <div class="card">
+    <div class="card-preview m3-bg">
+      <div class="m3-wrap">
+        <div class="m3-top-label">Lee Enterprises · Korean · Canadian</div>
+        <div class="m3-main-row">
+          <div class="m3-lee">LEE</div>
+          <div class="m3-connector">&</div>
+          <div class="m3-ko-group">
+            <div class="m3-ko-full">Korean</div>
+            <div class="m3-ko">KO</div>
+          </div>
+        </div>
+        <div class="m3-rule"></div>
+        <div class="m3-sub">Enterprises Inc. · Vancouver, BC</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">M-3</div>
+      <div class="card-name">KO 위에 "Korean" 레이블</div>
+      <div class="card-desc">KO 바로 위에 작게 "Korean" 표기. KO가 무슨 뜻인지 로고 안에서 직접 설명. KO는 흐릿하게 처리.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:rgba(255,255,255,0.2);border-color:#666"></div>
+        <div class="sw" style="background:#8A9BB0"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="grid-2">
+
+  <!-- M-4 -->
+  <div class="card">
+    <div class="card-preview m4-bg">
+      <div class="m4-wrap">
+        <div class="m4-symbol">
+          <div class="m4-circle-bg">
+            <div class="m4-half-top"></div>
+            <div class="m4-half-bottom"></div>
+            <div class="m4-inner-top"></div>
+            <div class="m4-inner-bottom"></div>
+          </div>
+        </div>
+        <div class="m4-text-group">
+          <div class="m4-main">LEE <span class="m4-amp">&</span> KO</div>
+          <div class="m4-sub-row">
+            <div class="m4-sub">Enterprises</div>
+            <div class="m4-dot"></div>
+            <div class="m4-sub">Inc.</div>
+            <div class="m4-dot"></div>
+            <div class="m4-sub">Vancouver</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">M-4</div>
+      <div class="card-name">태극 심볼 (네이비 + 골드)</div>
+      <div class="card-desc">태극 구조를 네이비+골드로 재해석한 마이크로 심볼. 한국 정체성을 직접 가져오되 원색 태극기 느낌은 피하고 기업 톤으로 재해석. KO의 의미를 심볼 하나로 전달.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:#8A9BB0"></div>
+        <div class="sw" style="background:#F7F8FA;border-color:#ddd"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- M-5 -->
+  <div class="card">
+    <div class="card-preview m5-bg">
+      <div class="m5-wrap">
+        <div class="m5-top-micro">· Korean Enterprises ·</div>
+        <div class="m5-lee">LEE</div>
+        <div class="m5-ko-row">
+          <div class="m5-ko-line"></div>
+          <div class="m5-ko-label">KO · Korean</div>
+          <div class="m5-ko-line"></div>
+        </div>
+        <div class="m5-enterprises">Enterprises Inc. · Vancouver, BC</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-code">M-5</div>
+      <div class="card-name">LEE 크게 / KO 수평 밴드</div>
+      <div class="card-desc">LEE를 압도적으로 크게 — 이름이 주인공. KO · Korean은 얇은 수평 밴드로 아래를 지탱. "나는 이씨, 나는 한국인" 이라는 위계가 그대로 드러남.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#0D1F3C"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:rgba(201,168,76,0.3);border-color:#888"></div>
+        <div class="sw" style="background:#F7F8FA;border-color:#ddd"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p style="text-align:center;margin-top:40px;font-size:10px;color:#bbb;letter-spacing:0.12em;">
+  CONFIDENTIAL · LEE & KO ENTERPRISES INC. · IDENTITY EXPLORATIONS · APRIL 2026
+</p>
+
+</body>
+</html>

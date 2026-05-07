@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VV Education — 레퍼런스 4가지 재현</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#EDEAE4; font-family:'Montserrat',sans-serif; padding:60px 48px; }
+
+.page-header { text-align:center; margin-bottom:52px; }
+.page-eyebrow { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#aaa; margin-bottom:12px; }
+.page-title { font-size:24px; font-weight:800; color:#1A3660; margin-bottom:8px; }
+.page-sub { font-size:12px; color:#aaa; letter-spacing:0.06em; }
+.divider { width:48px; height:3px; background:#1A3660; margin:14px auto 0; border-radius:2px; }
+
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+
+.card { border-radius:14px; overflow:hidden; box-shadow:0 4px 28px rgba(0,0,0,0.13); }
+.card-preview { height:320px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:36px; }
+.card-body { background:#fff; padding:18px 22px 22px; }
+.card-ref  { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#C8102E; margin-bottom:3px; font-weight:600; }
+.card-name { font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:4px; }
+.card-desc { font-size:11px; color:#999; line-height:1.6; }
+
+.bg-dark    { background:#1A3660; }
+.bg-light   { background:#F5F4F1; }
+.bg-white   { background:#FFFFFF; }
+
+/* 마크 하단 워드마크 */
+.wm-dark  { font-size:13px; font-weight:800; color:#FFFFFF;       letter-spacing:0.22em; text-transform:uppercase; }
+.wm-dark  .edu { color:#C8102E; font-weight:500; }
+.wm-light { font-size:13px; font-weight:800; color:#1A3660;       letter-spacing:0.22em; text-transform:uppercase; }
+.wm-light .edu { color:#C8102E; font-weight:500; }
+.sub-dark  { font-size:7px; font-weight:300; color:rgba(255,255,255,0.35); letter-spacing:0.35em; text-transform:uppercase; margin-top:4px; text-align:center; }
+.sub-light { font-size:7px; font-weight:300; color:#aaa;          letter-spacing:0.35em; text-transform:uppercase; margin-top:4px; text-align:center; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · VV Education · W Mark · April 2026</p>
+  <h1 class="page-title">레퍼런스 4가지 — 폴리곤 재현</h1>
+  <p class="page-sub">Navy #1A3660 · Red #C8102E · SVG Polygon</p>
+  <div class="divider"></div>
+</div>
+
+<div class="grid-2">
+
+  <!-- ══════════════════════════════
+       REF 1 — 다크 배경 + 화이트 W + 사선 컷
+  ══════════════════════════════ -->
+  <div class="card">
+    <div class="card-preview bg-dark">
+      <svg width="252" height="166" viewBox="30 30 700 470">
+        <!-- 화이트 W: 4개 팔 (parallelogram) -->
+        <!-- ARM 1: 좌외곽 (우하향) -->
+        <polygon points="40,40 160,40 244,460 124,460" fill="white"/>
+        <!-- ARM 2: 중앙좌 (좌하향) -->
+        <polygon points="292,40 412,40 244,460 124,460" fill="white"/>
+        <!-- ARM 3: 중앙우 (우하향) -->
+        <polygon points="348,40 468,40 516,460 396,460" fill="white"/>
+        <!-- ARM 4: 우외곽 (좌하향) -->
+        <polygon points="516,40 636,40 516,460 396,460" fill="white"/>
+        <!-- 다크 사선 스트라이프 (ARM2/3 교차 영역 컷) -->
+        <polygon points="318,40 350,40 400,460 368,460" fill="#1A3660"/>
+        <polygon points="360,40 392,40 442,460 410,460" fill="#1A3660"/>
+        <polygon points="402,40 434,40 484,460 452,460" fill="#1A3660"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-dark">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-dark">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Ref 1 재현</div>
+      <div class="card-name">다크 W + 사선 컷</div>
+      <div class="card-desc">딥 네이비 배경에 화이트 W, 대각선 스트라이프 3개가 중앙을 가름. 강렬하고 기하학적.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       REF 2 — 이탤릭 투톤 W (흑+적 → 네이비+레드)
+  ══════════════════════════════ -->
+  <div class="card">
+    <div class="card-preview bg-white">
+      <svg width="240" height="146" viewBox="-6 -6 412 252">
+        <!--
+          강한 이탤릭 W. 모든 팔이 오른쪽으로 기울어짐.
+          viewBox: 400×240
+          왼쪽 V = Teacher = Navy, 오른쪽 V = Student = Red
+          lean: +80px over 240px height (오른쪽으로)
+        -->
+        <!-- P1: 좌외곽 팔 (Navy) -->
+        <polygon points="0,0 60,0 140,240 80,240" fill="#1A3660"/>
+        <!-- P2: 중앙좌 팔 (Navy) -->
+        <polygon points="160,0 220,0 140,240 80,240" fill="#1A3660"/>
+        <!-- P3: 중앙우 팔 (Red) -->
+        <polygon points="160,0 220,0 300,240 240,240" fill="#C8102E"/>
+        <!-- P4: 우외곽 팔 (Red) -->
+        <polygon points="320,0 380,0 300,240 240,240" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Ref 2 재현</div>
+      <div class="card-name">이탤릭 투톤 W</div>
+      <div class="card-desc">강한 오른쪽 기울기. 네이비 Teacher V + 레드 Student V가 중앙 피크에서 맞닿음. 가장 역동적.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       REF 3 — 컬러 스플릿 (상단 네이비 / 하단 레드)
+  ══════════════════════════════ -->
+  <div class="card">
+    <div class="card-preview bg-white">
+      <svg width="224" height="162" viewBox="-6 -6 292 212">
+        <!--
+          표준 W (viewBox 280×200).
+          각 팔을 y=120 (60%) 지점에서 상하 분할.
+          상단 = Navy, 하단 = Red
+        -->
+        <!-- ARM 1 상단 (Navy) -->
+        <polygon points="0,0 44,0 78,120 34,120" fill="#1A3660"/>
+        <!-- ARM 1 하단 (Red) -->
+        <polygon points="34,120 78,120 100,200 56,200" fill="#C8102E"/>
+        <!-- ARM 2 상단 (Navy) -->
+        <polygon points="118,0 162,0 125,120 81,120" fill="#1A3660"/>
+        <!-- ARM 2 하단 (Red) -->
+        <polygon points="81,120 125,120 100,200 56,200" fill="#C8102E"/>
+        <!-- ARM 3 상단 (Navy) -->
+        <polygon points="118,0 162,0 199,120 155,120" fill="#1A3660"/>
+        <!-- ARM 3 하단 (Red) -->
+        <polygon points="155,120 199,120 224,200 180,200" fill="#C8102E"/>
+        <!-- ARM 4 상단 (Navy) -->
+        <polygon points="236,0 280,0 246,120 202,120" fill="#1A3660"/>
+        <!-- ARM 4 하단 (Red) -->
+        <polygon points="202,120 246,120 224,200 180,200" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Ref 3 재현</div>
+      <div class="card-name">컬러 스플릿 W</div>
+      <div class="card-desc">W 전체가 네이비(상단 60%) + 레드(하단 40%)로 분할. 대각 분할선이 W 팔을 따라 흘러 자연스럽게 대각선처럼 보임.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       REF 4 — 큰 V (Teacher) + 작은 W (Student) 겹침
+  ══════════════════════════════ -->
+  <div class="card">
+    <div class="card-preview bg-light">
+      <svg width="240" height="146" viewBox="-6 -6 492 302">
+        <!--
+          viewBox: 480×290
+          Layer 1 (뒤): 큰 V = Teacher = 밝은 네이비 #3D6299
+          Layer 2 (앞): 컴팩트 W = Student side = 딥 네이비 #1A3660 + 레드 #C8102E
+        -->
+        <!-- 큰 Teacher V (뒤, 밝은 네이비) -->
+        <polygon points="10,10 100,10 165,280 75,280" fill="#3D6299"/>
+        <polygon points="75,280 165,280 235,10 145,10" fill="#3D6299"/>
+
+        <!-- 컴팩트 W (앞, 다크+레드) -->
+        <!-- CW-1: 좌팔 (Navy) -->
+        <polygon points="120,10 174,10 214,280 160,280" fill="#1A3660"/>
+        <!-- CW-2: 중앙좌 (Navy) -->
+        <polygon points="218,10 272,10 214,280 160,280" fill="#1A3660"/>
+        <!-- CW-3: 중앙우 (Red) -->
+        <polygon points="218,10 272,10 308,280 254,280" fill="#C8102E"/>
+        <!-- CW-4: 우팔 (Red) -->
+        <polygon points="312,10 366,10 308,280 254,280" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Ref 4 재현</div>
+      <div class="card-name">큰 V + 작은 W 오버랩</div>
+      <div class="card-desc">밝은 네이비 큰 V(Teacher)가 뒤에서 감싸고, 딥 네이비+레드 컴팩트 W(Student)가 앞에서 겹침. VV가 두 V로 명확히 읽힘.</div>
+    </div>
+  </div>
+
+</div>
+
+<p style="text-align:center;margin-top:32px;font-size:10px;color:#bbb;letter-spacing:0.12em;">
+  CONFIDENTIAL · VV EDUCATION · W MARK · REF RECREATION · APRIL 2026
+</p>
+
+</body>
+</html>

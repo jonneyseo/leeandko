@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VV Education — Ref 2 Variants</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#EDEAE4; font-family:'Montserrat',sans-serif; padding:60px 48px; }
+
+.page-header { text-align:center; margin-bottom:52px; }
+.page-eyebrow { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#aaa; margin-bottom:12px; }
+.page-title { font-size:24px; font-weight:800; color:#1A3660; margin-bottom:8px; }
+.page-sub { font-size:12px; color:#aaa; letter-spacing:0.06em; }
+.divider { width:48px; height:3px; background:#1A3660; margin:14px auto 0; border-radius:2px; }
+
+.section-label {
+  font-size:9px; letter-spacing:0.3em; text-transform:uppercase;
+  color:#C8102E; font-weight:700; margin:40px 0 16px;
+}
+
+/* 3-col grid */
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; }
+/* 2-col grid */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+
+.card { border-radius:14px; overflow:hidden; box-shadow:0 4px 28px rgba(0,0,0,0.13); }
+.card-preview {
+  height:300px; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:18px; padding:32px;
+}
+.card-body { background:#fff; padding:16px 20px 20px; }
+.card-ref  { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#C8102E; margin-bottom:3px; font-weight:600; }
+.card-name { font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:4px; }
+.card-desc { font-size:11px; color:#999; line-height:1.6; }
+
+.bg-white  { background:#FFFFFF; }
+.bg-dark   { background:#1A3660; }
+.bg-cream  { background:#F5F4F1; }
+.bg-offwhite { background:#F8F7F4; }
+
+.wm-dark  { font-size:12px; font-weight:800; color:#FFFFFF; letter-spacing:0.22em; text-transform:uppercase; }
+.wm-dark  .edu { color:#C8102E; font-weight:500; }
+.wm-light { font-size:12px; font-weight:800; color:#1A3660; letter-spacing:0.22em; text-transform:uppercase; }
+.wm-light .edu { color:#C8102E; font-weight:500; }
+.sub-dark  { font-size:7px; font-weight:300; color:rgba(255,255,255,0.35); letter-spacing:0.32em; text-transform:uppercase; margin-top:3px; text-align:center; }
+.sub-light { font-size:7px; font-weight:300; color:#bbb; letter-spacing:0.32em; text-transform:uppercase; margin-top:3px; text-align:center; }
+
+/* BASE tag */
+.base-tag {
+  display:inline-block; font-size:8px; letter-spacing:0.15em; text-transform:uppercase;
+  background:#1A3660; color:#fff; padding:3px 8px; border-radius:3px; margin-bottom:14px;
+  font-weight:600;
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · VV Education · W Mark · April 2026</p>
+  <h1 class="page-title">Ref 2 Base → Uniqueness Variants</h1>
+  <p class="page-sub">이탤릭 투톤 W 기반 · 6가지 방향 탐색</p>
+  <div class="divider"></div>
+</div>
+
+<!-- BASE 원본 -->
+<p class="section-label">Base (Ref 2 원본)</p>
+<div style="max-width:320px; margin-bottom:40px;">
+  <div class="card">
+    <div class="card-preview bg-white">
+      <span class="base-tag">Base · Ref 2</span>
+      <svg width="220" height="134" viewBox="-6 -6 412 252">
+        <polygon points="0,0 60,0 140,240 80,240" fill="#1A3660"/>
+        <polygon points="160,0 220,0 140,240 80,240" fill="#1A3660"/>
+        <polygon points="160,0 220,0 300,240 240,240" fill="#C8102E"/>
+        <polygon points="320,0 380,0 300,240 240,240" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Base</div>
+      <div class="card-name">이탤릭 투톤 W (원본)</div>
+      <div class="card-desc">강한 오른쪽 기울기. 심심하다는 피드백 기반으로 아래 6가지 변형 탐색.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VARIANTS -->
+<p class="section-label">Variants — 6가지 방향</p>
+<div class="grid-3">
+
+  <!-- ══ V-A: CENTER GAP ══ -->
+  <div class="card">
+    <div class="card-preview bg-white">
+      <svg width="220" height="134" viewBox="-6 -6 412 252">
+        <!--
+          두 V 사이 12px 흰 갭.
+          Navy V: x 0~208, Red V: x 192~400 (gap 16px at top)
+          gap이 기울기 따라 대각으로 흘러 날렵하게 보임
+          Base lean: +80/240
+          Navy arms end at x=140 bottom; Red starts x=156 bottom (gap=16)
+        -->
+        <!-- Navy P1 -->
+        <polygon points="0,0 60,0 140,240 80,240" fill="#1A3660"/>
+        <!-- Navy P2: 피크 오른쪽 끝 x=208 (원본 220→208) -->
+        <polygon points="152,0 208,0 140,240 80,240" fill="#1A3660"/>
+        <!-- Red P3: 피크 왼쪽 시작 x=220 (원본 160→220) -->
+        <polygon points="220,0 276,0 308,240 248,240" fill="#C8102E"/>
+        <!-- Red P4 -->
+        <polygon points="328,0 388,0 308,240 248,240" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Variant A</div>
+      <div class="card-name">Center Gap (숨결 틈)</div>
+      <div class="card-desc">두 V 사이 좁은 흰 공간. W가 두 개의 V로 읽히고 Teacher / Student 분리감 명확.</div>
+    </div>
+  </div>
+
+  <!-- ══ V-B: PEAK ACCENT ══ -->
+  <div class="card">
+    <div class="card-preview bg-white">
+      <svg width="220" height="134" viewBox="-6 -6 412 252">
+        <!--
+          Base W 그대로 + 중앙 피크 아래에 레드 삼각 다이아 포인트 삽입
+          피크 좌표: x=140(bottom navy), 피크 위치 상단 y=0 x=160~220
+          diamond: 피크에서 아래로 뾰족한 레드 삼각형
+        -->
+        <!-- Navy -->
+        <polygon points="0,0 60,0 140,240 80,240" fill="#1A3660"/>
+        <polygon points="160,0 220,0 140,240 80,240" fill="#1A3660"/>
+        <!-- Red -->
+        <polygon points="160,0 220,0 300,240 240,240" fill="#C8102E"/>
+        <polygon points="320,0 380,0 300,240 240,240" fill="#C8102E"/>
+        <!-- Peak accent: 피크 상단에 레드 다이아몬드 -->
+        <!-- 피크 영역: 상단 x=160~220, y=0 → 하단 교차점 x=140, y=240 근방
+             작은 역삼각형을 피크 상단에 놓음 -->
+        <polygon points="162,0 218,0 190,52" fill="#C8102E"/>
+        <!-- 그 위에 흰 작은 마름모 (선명한 포인트) -->
+        <polygon points="175,0 205,0 218,0 190,38 162,0" fill="white" opacity="0.0"/>
+        <!-- 피크 상단 화이트 노치: 삼각 컷으로 포인트 강조 -->
+        <polygon points="168,0 212,0 190,44" fill="white"/>
+        <!-- 그 위 레드 포인트 -->
+        <polygon points="174,0 206,0 190,32" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Variant B</div>
+      <div class="card-name">Peak Accent (피크 포인트)</div>
+      <div class="card-desc">W 중앙 피크 상단에 화이트 노치 + 레드 포인트 삽입. 접점에 시선 집중, 만남의 상징.</div>
+    </div>
+  </div>
+
+  <!-- ══ V-C: STAGGERED HEIGHT ══ -->
+  <div class="card">
+    <div class="card-preview bg-white">
+      <svg width="220" height="134" viewBox="-6 -6 412 272">
+        <!--
+          Teacher V (Navy): 상단 y=0, 하단 y=260 (전체 높이)
+          Student V (Red): 상단 y=40 (40px 낮게 시작), 하단 y=260
+          → 좌상단이 비어 보이고 우하단이 꽉 차는 비대칭
+          기울기 유지: +80/260
+        -->
+        <!-- Navy P1: y=0~260 -->
+        <polygon points="0,0 60,0 147,260 87,260" fill="#1A3660"/>
+        <!-- Navy P2: y=0~260 -->
+        <polygon points="164,0 224,0 147,260 87,260" fill="#1A3660"/>
+        <!-- Red P3: y=40~260 (40px 낮게 시작) -->
+        <polygon points="237,40 297,40 327,260 267,260" fill="#C8102E"/>
+        <!-- Red P4: y=40~260 -->
+        <polygon points="344,40 404,40 327,260 267,260" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Variant C</div>
+      <div class="card-name">Staggered Height (계단 시작)</div>
+      <div class="card-desc">Student V가 40px 낮게 시작. 비대칭 에너지, "성장" 또는 "합류" 내러티브. 좌우 높이차가 리듬감 생성.</div>
+    </div>
+  </div>
+
+  <!-- ══ V-D: TAPERED ARMS (아래로 뾰족) ══ -->
+  <div class="card">
+    <div class="card-preview bg-white">
+      <svg width="220" height="134" viewBox="-6 -6 412 252">
+        <!--
+          각 팔의 폭이 상단 60px → 하단 20px로 테이퍼됨 (날카로운 V 느낌)
+          lean: +80/240
+          ARM 폭: top=60, bottom=20
+          ARM 1 Navy: top-left x=0, top-right x=60; bottom 20px wide
+            top: 0,0 ~ 60,0
+            bottom: lean offset=80, center bottom ≈ x=(0+60)/2+80=110 → 100,240~120,240
+          ARM 2 Navy: top 160~220 → bottom peak 80,240~100,240 wait...
+
+          더 명확하게:
+          각 팔: 상단 center Cx, top-width 60; 하단 center Cx+80, bottom-width 20
+          ARM1: top-cx=30, bot-cx=110 → top(0,0)(60,0) bot(100,240)(120,240)
+          ARM2: top-cx=190, bot-cx=270 → but shared bottom with ARM1 at peak...
+
+          사실 W의 피크는 두 팔이 만나는 곳.
+          테이퍼를 자연스럽게:
+          ARM1: (0,0)(60,0)(110,240)(90,240) — 폭60→20
+          ARM2: (156,0)(216,0)(110,240)(90,240) — 피크 공유
+          ARM3: (156,0)(216,0)(290,240)(270,240)
+          ARM4: (330,0)(390,0)(290,240)(270,240)
+        -->
+        <polygon points="0,0 60,0 110,240 90,240" fill="#1A3660"/>
+        <polygon points="156,0 216,0 110,240 90,240" fill="#1A3660"/>
+        <polygon points="156,0 216,0 290,240 270,240" fill="#C8102E"/>
+        <polygon points="330,0 390,0 290,240 270,240" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Variant D</div>
+      <div class="card-name">Tapered Arms (테이퍼 팔)</div>
+      <div class="card-desc">팔 폭이 상단 60 → 하단 20으로 좁아짐. 날카로운 삼각 에너지, 더 공격적이고 스포티한 인상.</div>
+    </div>
+  </div>
+
+  <!-- ══ V-E: BOLD + THIN (Teacher 두껍게, Student 얇게) ══ -->
+  <div class="card">
+    <div class="card-preview bg-white">
+      <svg width="220" height="134" viewBox="-6 -6 412 252">
+        <!--
+          Teacher V (Navy): 팔 폭 80px (두껍고 안정적)
+          Student V (Red): 팔 폭 44px (얇고 날렵)
+          lean: +80/240
+          총 너비 균형: Navy(80+gap+80) + gap + Red(44+gap+44)
+
+          Navy ARM1: (0,0)(80,0)(160,240)(80,240) — 폭80
+          Navy ARM2: (170,0)(250,0)(160,240)(80,240)
+          Red  ARM3: (258,0)(302,0)(350,240)(306,240) — 폭44
+          Red  ARM4: (346,0)(390,0)(350,240)(306,240)
+
+          lean offset: 80px
+          ARM1 bottom: cx=80+80=160, width=80 → (120,240)(200,240) hmm
+
+          다시 심플하게:
+          Navy: 폭 76px (원본 60 → 76)
+          Red:  폭 44px (원본 60 → 44)
+
+          ARM1 Navy: top(0,0)(76,0) bottom-center lean=bottom_start + 80
+            → lean 80px right for 240 height
+            bottom: x_left = 0+80=80, x_right = 80+76=156 → (80,240)(156,240)
+          ARM2 Navy: shared bottom (80,240)(156,240)
+            → top-center = bottom-center - 80 = (80+156)/2-80=38
+            → top(38-38, 0)(38+38, 0)= (0,0)..wait this overlaps
+
+          Let me use a cleaner approach. Keep same lean ratio.
+          Base lean factor: 80/240 = 1/3 (bottom is 80px right of top)
+
+          Navy wide (76px arms), Red narrow (40px arms), gap=12
+
+          ARM1 top-left=0, top-right=76, bot-left=80, bot-right=156
+          ARM2 bot=(80,240)~(156,240) shared, top = bot-lean top = (80-80,0)~(156-80,0) = (0,0)~(76,0) same as ARM1?
+          No — ARM2 top should be to the right.
+
+          ARM1: outer left arm of V1
+          ARM2: inner right arm of V1 (they share bottom)
+
+          W shape: two V shapes.
+          V1 bottom tip at (118, 240) (for standard), V2 bottom tip at (262, 240)
+
+          Let me just do it visually:
+          Navy THICK V: arms width=76
+            Left arm:  top(0,0)(76,0)   bottom(76,240)(152,240)
+            Right arm: top(168,0)(244,0) bottom(76,240)(152,240)
+
+          Red THIN V: arms width=40
+            Left arm:  top(256,0)(296,0) bottom(320,240)(360,240)
+            Right arm: top(360,0)(400,0) bottom(320,240)(360,240)
+
+          Lean: (bot_left - top_left) should = 80 for 240px height
+          Left arm bot_left = top_left + 80
+          Left arm bot_right = top_right + 80 + arm_width... no
+
+          OK much simpler. Just adjust the original points:
+
+          Original Navy: arm width = 60, lean = 80
+          ARM1: (0,0)(60,0)(140,240)(80,240) ✓ width=60 top, width=60 bot (parallelogram)
+          ARM2: (160,0)(220,0)(140,240)(80,240) ✓
+
+          BOLD Navy (width=80):
+          ARM1: (0,0)(80,0)(160,240)(80,240)
+          ARM2: (150,0)(230,0)(160,240)(80,240)
+
+          THIN Red (width=40):
+          ARM3: (242,0)(282,0)(362,240)(322,240)
+          ARM4: (362,0)(402,0)(362,240)(322,240) — wait ARM3 ARM4 share same bottom
+            ARM3 bottom: (322,240)(362,240), ARM4 bottom: same → shared ✓
+            ARM3 top: 282-242=40 ✓
+            ARM4 top: 402-362=40 ✓
+            ARM3: (242,0)(282,0)(362,240)(322,240)
+              lean: bot_left - top_left = 322-242=80 ✓
+            ARM4: (362,0)(402,0)(362,240)(322,240)
+              lean: 322-362 = -40 ← wrong, should be 80
+              ARM4 should lean right too:
+              ARM4: top(332,0)(372,0) → bot(332+80,240)(372+80,240)=(412,240)(452,240)
+              But that's too wide...
+
+          Let me reconsider. In a W, ARM4 is the rightmost outer arm that goes from outer-top-right DOWN to bottom-right. It leans LEFT (bottom is to the LEFT of top in standard W). With italic lean, it still leans left but less.
+
+          In the base ref2:
+          ARM4: (320,0)(380,0)(300,240)(240,240)
+          lean: bot_left(240) - top_left(320) = -80 (leans left 80px)
+
+          So lean is actually: left arms lean RIGHT (+80), right arms lean LEFT (-80)?
+
+          ARM1: top(0,60) → bot(80,140) lean RIGHT +80 ✓
+          ARM2: top(160,220) → bot(80,140) lean LEFT -80?
+            ARM2 top_left=160, bot_left=80: 80-160=-80 leans LEFT ✓ (inner arm of left V)
+          ARM3: top(160,220) → bot(240,300)
+            ARM3 top_left=160, bot_left=240: +80 leans RIGHT ✓
+          ARM4: top(320,380) → bot(240,300)
+            ARM4 top_left=320, bot_left=240: -80 leans LEFT ✓
+
+          OK so the pattern is: outer arms lean RIGHT, inner arms lean LEFT relative to same V.
+
+          BOLD Navy V (arm width=76):
+          ARM1: top(0,76) → bot(80,156): (0,0)(76,0)(156,240)(80,240)
+          ARM2: shared bottom (80,240)(156,240)
+            top: bot_left+80=160, bot_right+80=236? No: lean is -80 for ARM2
+            ARM2 top_left = bot_left - (-80)?
+            ARM2: top_left = bot_left + 80 (reverse lean), top_right = bot_right + 80
+            → top_left = 80+80=160, top_right = 156+80=236
+            ARM2: (160,0)(236,0)(156,240)(80,240) ✓ width=76 ✓
+
+          THIN Red V (arm width=40):
+          Gap between navy and red: 248-236=12px
+          ARM3: top_left=248, top_right=288
+            bot_left = 248+80=328, bot_right=288+80=368
+            ARM3: (248,0)(288,0)(368,240)(328,240)
+          ARM4: shared bottom (328,240)(368,240)
+            top_left=328+80=408... that's out of bounds
+
+          Hmm the viewbox is 412 wide so 408 is near the edge. Let me shrink:
+
+          THIN Red V (arm width=36):
+          ARM3: (248,0)(284,0)(328,240)(292,240) lean+80 ✓
+          ARM4: top_left=292+80=372, top_right=328+80=408
+            ARM4: (372,0)(408,0)(328,240)(292,240) lean-80 ✓ width=36 ✓
+
+          So final:
+          Navy BOLD: ARM1(0,0)(76,0)(156,240)(80,240) ARM2(160,0)(236,0)(156,240)(80,240)
+          Red THIN:  ARM3(248,0)(284,0)(364,240)(328,240) ARM4(372,0)(408,0)(364,240)(328,240)
+
+          Check ARM3: lean=328-248=80 ✓, width=284-248=36 top, 364-328=36 bot ✓
+          Check ARM4: lean=328-372=-44... not -80. Problem.
+
+          ARM4 should have lean -80 (leans left):
+          ARM4: top_left=T, bot_left=B, B-T=-80 → T=B+80
+          Bottom shared with ARM3: (328,240)(364,240)
+          ARM4 top: left=328+80=408, right=364+80=444 — way out of bounds
+
+          The issue: for a W mark, the rightmost outer arm actually DOES lean left hard. In ref2 base:
+          ARM4 top(320,380) to bot(240,300): the right arm's BOTTOM is far left of its top.
+
+          For thin red V, the bottom tip should be positioned so things fit in viewBox.
+
+          Let me use viewBox 0 0 480 260 and recalculate.
+
+          Lean factor: L=80/240 ≈ 0.333 per unit height. For height 260: lean = 86px.
+
+          Navy BOLD (width=76, lean=86):
+          ARM1: (0,0)(76,0)(86,260)(10,260) — hmm left edge goes to 10, not 0+86=86?
+
+          Actually in the base mark (viewbox 400x240):
+          ARM1: (0,0)(60,0)(140,240)(80,240)
+            left edge: top=0, bot=80 → lean=+80 ✓
+            right edge: top=60, bot=140 → lean=+80 ✓
+            width: top=60, bot=60 ✓ (parallelogram)
+          ARM2: (160,0)(220,0)(140,240)(80,240)
+            left edge: top=160, bot=80 → lean=-80 ✓
+            right edge: top=220, bot=140 → lean=-80 ✓
+          ARM3: (160,0)(220,0)(300,240)(240,240)
+            left: top=160, bot=240 → lean=+80 ✓
+            right: top=220, bot=300 → lean=+80 ✓
+          ARM4: (320,0)(380,0)(300,240)(240,240)
+            left: top=320, bot=240 → lean=-80 ✓
+            right: top=380, bot=300 → lean=-80 ✓
+
+          Total width: 0 to 380 (top), 80 to 300 (bottom) → effectively 380px wide
+
+          Now BOLD(76)+THIN(40) with same lean=80:
+          Navy V tip (bottom shared): let's say at (x_min, x_max) = (80, 156) [=80+76]
+          ARM1: (0,0)(76,0)(156,240)(80,240) ✓
+          ARM2: bottom(80,240)(156,240); top = (80+80, 156+80) = (160,0)(236,0)
+            ARM2: (160,0)(236,0)(156,240)(80,240) ✓
+
+          Red V tip: (x_min, x_max) at bottom = (316, 356) [width=40]
+          ARM3 bottom (316,356), ARM3 lean=+80: top = (316-80, 356-80) = (236, 276)
+            ARM3: (236,0)(276,0)(316,240)(236+80=316... wait
+
+          ARM3: top_left=T, lean=+80: bot_left=T+80
+            If bot_left=316: T=236. top_right=276. bot_right=356.
+            ARM3: (236,0)(276,0)(356,240)(316,240) ✓ width=40 ✓
+
+          ARM4: bottom(316,240)(356,240); lean=-80: top=(316+80,356+80)=(396,0)(436,0)
+            ARM4: (396,0)(436,0)(356,240)(316,240)
+            lean check: bot_left(316)-top_left(396)=-80 ✓ width=40 ✓
+
+          Total width: 0 to 436 (top), fits in viewBox 450x250
+
+          Gap between Navy and Red: top gap = 236-236=0... ARM2 ends at x=236, ARM3 starts at x=236. No gap at top.
+          Let me add gap=16: ARM3 starts at x=252:
+          ARM3: (252,0)(292,0)(332,240)(252+80=332... bot_left=252+80=332) → (252,0)(292,0)(372,240)(332,240) width=40
+          ARM4: top=(332+80,372+80)=(412,0)(452,0) → (412,0)(452,0)(372,240)(332,240)
+
+          ViewBox: 0 0 460 250
+
+          OK let me just write this out cleanly now.
+        -->
+        <!-- Navy BOLD V (arm width=76) -->
+        <polygon points="0,0 76,0 156,240 80,240" fill="#1A3660"/>
+        <polygon points="160,0 236,0 156,240 80,240" fill="#1A3660"/>
+        <!-- Red THIN V (arm width=40, gap=16 from navy) -->
+        <polygon points="252,0 292,0 372,240 332,240" fill="#C8102E"/>
+        <polygon points="412,0 452,0 372,240 332,240" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Variant E</div>
+      <div class="card-name">Bold + Thin (무게 대비)</div>
+      <div class="card-desc">Teacher V는 두껍고(76px), Student V는 얇고 날렵(40px). 지도·피지도 관계의 시각적 위계.</div>
+    </div>
+  </div>
+
+  <!-- ══ V-F: NOTCH CUT (하단 노치) ══ -->
+  <div class="card">
+    <div class="card-preview bg-white">
+      <svg width="220" height="134" viewBox="-6 -6 412 252">
+        <!--
+          Base W 그대로 + 각 팔 하단 끝에 삼각 노치 컷.
+          노치: 각 arm의 바텀 엣지 중앙에서 40px 위로 삼각형 컷 (흰 삼각형 오버레이)
+
+          ARM1 bottom edge: (80,240)~(140,240). Center bottom x=110.
+          노치 삼각형: (80,240)(140,240)(110,200) 흰색으로 오버레이
+          → 팔 끝이 두 발톱처럼 갈라짐
+
+          ARM2 bottom: same as ARM1 (80,240)(140,240) - 공유 엣지이므로 ARM1 노치와 같음
+          ARM3/ARM4 bottom: (240,240)(300,240), center=270
+          노치: (240,240)(300,240)(270,200)
+        -->
+        <!-- Base W -->
+        <polygon points="0,0 60,0 140,240 80,240" fill="#1A3660"/>
+        <polygon points="160,0 220,0 140,240 80,240" fill="#1A3660"/>
+        <polygon points="160,0 220,0 300,240 240,240" fill="#C8102E"/>
+        <polygon points="320,0 380,0 300,240 240,240" fill="#C8102E"/>
+        <!-- 노치 컷: 흰 삼각형으로 하단 삭제 -->
+        <!-- Navy V 바텀 노치 -->
+        <polygon points="80,240 140,240 110,196" fill="white"/>
+        <!-- Red V 바텀 노치 -->
+        <polygon points="240,240 300,240 270,196" fill="white"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Variant F</div>
+      <div class="card-name">Bottom Notch (발톱 컷)</div>
+      <div class="card-desc">각 V 하단에 삼각 노치 컷. 발톱처럼 갈라진 끝. 날카롭고 공격적인 인상, 독특한 실루엣.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- COMBO: A+B 병합 -->
+<p class="section-label" style="margin-top:48px;">Combo — A + B 병합 시도</p>
+<div class="grid-2">
+
+  <!-- GAP + PEAK ACCENT -->
+  <div class="card">
+    <div class="card-preview bg-white">
+      <svg width="220" height="134" viewBox="-6 -6 412 252">
+        <!-- Center Gap + Peak Accent -->
+        <!-- Navy with gap -->
+        <polygon points="0,0 60,0 140,240 80,240" fill="#1A3660"/>
+        <polygon points="152,0 208,0 140,240 80,240" fill="#1A3660"/>
+        <!-- Red with gap -->
+        <polygon points="220,0 276,0 308,240 248,240" fill="#C8102E"/>
+        <polygon points="328,0 388,0 308,240 248,240" fill="#C8102E"/>
+        <!-- Peak accent between gap: 흰 삼각형 + 레드 포인트 -->
+        <!-- Gap top: x=208~220, gap bottom: x=140(navy)~248(red) wait no,
+             center gap 상단: navy ends 208, red starts 220 (gap=12)
+             gap 하단: navy bottom x=140(right edge), red bottom x=248(left edge)
+             중간 삼각 공간을 이용해 포인트 삽입은 안됨 (배경이 흰색이면 보임)
+             대신 갭 상단 중앙(214, 0)에서 아래로 뾰족한 레드 포인트 -->
+        <polygon points="208,0 220,0 214,30" fill="#C8102E"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-light">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-light">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Combo A+B</div>
+      <div class="card-name">Gap + 피크 레드 포인트</div>
+      <div class="card-desc">두 V 사이 흰 갭 + 상단 갭에 레드 포인트 삼각형. W 분리감 + 접점 포인트 동시 적용.</div>
+    </div>
+  </div>
+
+  <!-- GAP + NOTCH -->
+  <div class="card">
+    <div class="card-preview bg-dark">
+      <svg width="220" height="134" viewBox="-6 -6 412 252">
+        <!-- Dark bg → white W + gap + notch. 가장 독특한 조합 -->
+        <!-- Navy → White on dark bg -->
+        <polygon points="0,0 60,0 140,240 80,240" fill="white"/>
+        <polygon points="152,0 208,0 140,240 80,240" fill="white"/>
+        <polygon points="220,0 276,0 308,240 248,240" fill="#C8102E"/>
+        <polygon points="328,0 388,0 308,240 248,240" fill="#C8102E"/>
+        <!-- 노치 컷: 다크 배경이므로 navy 색으로 -->
+        <polygon points="80,240 140,240 110,196" fill="#1A3660"/>
+        <polygon points="248,240 308,240 278,196" fill="#1A3660"/>
+        <!-- Peak pointer: gap 상단 삼각 (navy bg color) -->
+        <polygon points="208,0 220,0 214,32" fill="#1A3660"/>
+      </svg>
+      <div style="text-align:center;">
+        <div class="wm-dark">VV <span class="edu">EDUCATION</span></div>
+        <div class="sub-dark">VitVan · Canada Language Immersion</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Combo A+F (Dark)</div>
+      <div class="card-name">Dark · Gap + Notch</div>
+      <div class="card-desc">다크 배경에 화이트+레드 조합. Gap과 Notch 동시 적용. 가장 독특한 실루엣.</div>
+    </div>
+  </div>
+
+</div>
+
+<p style="text-align:center;margin-top:40px;font-size:10px;color:#bbb;letter-spacing:0.12em;">
+  CONFIDENTIAL · VV EDUCATION · W MARK VARIANTS · APRIL 2026
+</p>
+
+</body>
+</html>

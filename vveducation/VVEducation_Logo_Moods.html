@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VV Education — Logo Moods</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Raleway:wght@200;300;400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#EDEAE4; font-family:'Inter',sans-serif; padding:60px 48px; color:#222; }
+
+/* ── REVISED PALETTE ──
+   Primary Navy  : #1A3660  ← 메인
+   Mid Navy      : #2E4A7A
+   Light Navy    : #3D6299
+   Accent Red    : #C8102E  ← 세컨더리
+   White         : #FFFFFF
+   Off-white     : #F5F4F1
+   Gold (L&K)    : #C9A84C
+─────────────────────── */
+
+.page-header { text-align:center; margin-bottom:56px; }
+.page-eyebrow { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#aaa; margin-bottom:12px; }
+.page-title { font-family:'Montserrat',sans-serif; font-size:28px; font-weight:700; color:#1a1a1a; margin-bottom:8px; letter-spacing:0.02em; }
+.page-sub { font-size:12px; color:#aaa; letter-spacing:0.06em; }
+.divider-line { width:48px; height:3px; background:#1A3660; margin:16px auto 0; border-radius:2px; }
+
+.section-gap { margin-bottom:52px; }
+.section-label {
+  font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+  color:#888; margin-bottom:20px; padding-left:12px;
+  border-left:3px solid #1A3660;
+}
+
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+
+.card { border-radius:12px; overflow:hidden; box-shadow:0 3px 24px rgba(0,0,0,0.12); }
+.card-preview { height:240px; display:flex; align-items:center; justify-content:center; padding:36px; position:relative; }
+.card-body { background:#fff; padding:18px 20px 22px; }
+.card-code { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#ccc; margin-bottom:3px; }
+.card-name { font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:4px; }
+.card-desc { font-size:11px; color:#999; line-height:1.6; margin-bottom:12px; }
+.swatches { display:flex; gap:6px; }
+.sw { width:20px; height:20px; border-radius:50%; border:2px solid rgba(255,255,255,0.7); box-shadow:0 1px 4px rgba(0,0,0,0.15); }
+
+.bg-white  { background:#FFFFFF; }
+.bg-offwht { background:#F5F4F1; }
+.bg-navy   { background:#1A3660; }
+.bg-midnav { background:#2E4A7A; }
+
+/* ════════════════════════════════════════
+   V-1  더블 V 심볼
+   슬레이트 V + 레드 V (레드는 오른쪽 포인트)
+════════════════════════════════════════ */
+.v1-wrap { display:flex; flex-direction:column; align-items:center; gap:14px; }
+.v1-text { text-align:center; }
+.v1-main {
+  font-family:'Montserrat',sans-serif;
+  font-size:22px; font-weight:800; color:#1A3660;
+  letter-spacing:0.18em; text-transform:uppercase; line-height:1;
+}
+.v1-main .accent { color:#C8102E; }
+.v1-sub {
+  font-family:'Raleway',sans-serif;
+  font-size:7.5px; font-weight:400; color:#8A8A88;
+  letter-spacing:0.38em; text-transform:uppercase; margin-top:5px;
+}
+
+/* ════════════════════════════════════════
+   V-2  메이플리프 + 워드마크
+   네이비 배경, 화이트 텍스트, 레드 메이플
+════════════════════════════════════════ */
+.v2-wrap { display:flex; align-items:center; gap:18px; }
+.v2-text { display:flex; flex-direction:column; }
+.v2-main {
+  font-family:'Montserrat',sans-serif;
+  font-size:20px; font-weight:800; color:#FFFFFF;
+  letter-spacing:0.06em; text-transform:uppercase; line-height:1;
+}
+.v2-main .edu { font-weight:300; letter-spacing:0.15em; font-size:16px; opacity:0.85; }
+.v2-sub {
+  font-family:'Raleway',sans-serif;
+  font-size:6.5px; font-weight:300; color:rgba(255,255,255,0.45);
+  letter-spacing:0.38em; text-transform:uppercase; margin-top:6px;
+}
+
+/* ════════════════════════════════════════
+   V-3  VV 배지
+   네이비 배지, 레드 언더라인 포인트
+════════════════════════════════════════ */
+.v3-wrap { display:flex; flex-direction:column; align-items:center; gap:14px; }
+.v3-badge {
+  width:64px; height:64px; background:#1A3660;
+  border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  box-shadow:0 4px 20px rgba(26,54,96,0.4);
+}
+.v3-badge::after {
+  content:'';
+  position:absolute; bottom:-4px; left:50%; transform:translateX(-50%);
+  width:32px; height:4px; background:#C8102E; border-radius:2px;
+}
+.v3-badge-inner {
+  font-family:'Montserrat',sans-serif;
+  font-size:28px; font-weight:900; color:#fff;
+  letter-spacing:-0.04em; line-height:1;
+}
+.v3-text { text-align:center; }
+.v3-main {
+  font-family:'Montserrat',sans-serif;
+  font-size:16px; font-weight:700; color:#1A3660;
+  letter-spacing:0.12em; text-transform:uppercase; line-height:1;
+}
+.v3-main .edu { color:#C8102E; font-weight:400; }
+.v3-sub {
+  font-family:'Raleway',sans-serif;
+  font-size:7px; font-weight:300; color:#888;
+  letter-spacing:0.35em; text-transform:uppercase; margin-top:6px;
+}
+
+/* ════════════════════════════════════════
+   V-4  타입 워드마크
+   네이비 메인, 레드 언더바
+════════════════════════════════════════ */
+.v4-wrap { text-align:center; }
+.v4-main {
+  font-family:'Montserrat',sans-serif;
+  font-size:32px; font-weight:900; color:#1A3660;
+  letter-spacing:-0.01em; line-height:1; text-transform:uppercase;
+}
+.v4-main .red { color:#C8102E; }
+.v4-rule {
+  display:flex; align-items:center; gap:0;
+  margin:10px auto; width:fit-content;
+}
+.v4-rule-l { width:24px; height:1px; background:#1A3660; opacity:0.25; }
+.v4-rule-c { width:56px; height:2px; background:#C8102E; border-radius:1px; }
+.v4-rule-r { width:24px; height:1px; background:#1A3660; opacity:0.25; }
+.v4-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:9px; font-weight:500; color:#1A3660;
+  letter-spacing:0.32em; text-transform:uppercase; opacity:0.5;
+}
+
+/* ════════════════════════════════════════
+   V-5  네이비 엠블럼
+   원형 테두리 네이비, VV 레드 포인트
+════════════════════════════════════════ */
+.v5-wrap { text-align:center; }
+.v5-emblem {
+  width:62px; height:62px; margin:0 auto 14px;
+  border:2.5px solid rgba(255,255,255,0.5);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.v5-emblem::after {
+  content:''; position:absolute;
+  inset:5px; border-radius:50%;
+  border:1px solid rgba(255,255,255,0.2);
+}
+.v5-vv {
+  font-family:'Montserrat',sans-serif;
+  font-size:22px; font-weight:900; color:#C8102E;
+  letter-spacing:-0.04em; line-height:1;
+}
+.v5-main {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px; font-weight:700; color:#FFFFFF;
+  letter-spacing:0.22em; text-transform:uppercase; line-height:1;
+}
+.v5-line { width:36px; height:2px; background:#C8102E; margin:8px auto; border-radius:1px; opacity:0.8; }
+.v5-sub {
+  font-family:'Raleway',sans-serif;
+  font-size:7px; font-weight:300; color:rgba(255,255,255,0.4);
+  letter-spacing:0.38em; text-transform:uppercase;
+}
+
+/* ════════════════════════════════════════
+   V-6  한/영 병기
+   네이비 블록 + 레드 도트 포인트
+════════════════════════════════════════ */
+.v6-wrap { display:flex; align-items:center; gap:18px; }
+.v6-sym {
+  flex-shrink:0;
+  width:56px; height:56px;
+  background:#1A3660; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  box-shadow:0 4px 18px rgba(26,54,96,0.35);
+}
+.v6-sym::after {
+  content:'';
+  position:absolute; top:6px; right:6px;
+  width:8px; height:8px; border-radius:50%;
+  background:#C8102E;
+}
+.v6-vv {
+  font-family:'Montserrat',sans-serif;
+  font-size:26px; font-weight:900; color:#fff;
+  letter-spacing:-0.05em; line-height:1;
+}
+.v6-text { display:flex; flex-direction:column; gap:3px; }
+.v6-en {
+  font-family:'Montserrat',sans-serif;
+  font-size:19px; font-weight:700; color:#1A3660;
+  letter-spacing:0.08em; text-transform:uppercase; line-height:1;
+}
+.v6-en .edu { color:#C8102E; font-weight:400; }
+.v6-kr {
+  font-family:'Inter',sans-serif;
+  font-size:11px; font-weight:400; color:#5A6A7A;
+  letter-spacing:0.08em; line-height:1.3;
+}
+.v6-sub {
+  font-family:'Raleway',sans-serif;
+  font-size:6.5px; font-weight:300; color:#AAA;
+  letter-spacing:0.35em; text-transform:uppercase; margin-top:3px;
+}
+
+/* ════════════════════════════════════════
+   팔레트 바
+════════════════════════════════════════ */
+.palette-bar {
+  background:#fff; border-radius:12px;
+  padding:22px 28px;
+  box-shadow:0 2px 16px rgba(0,0,0,0.07);
+  display:flex; align-items:center; gap:24px; flex-wrap:wrap;
+}
+.palette-title { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#888; flex-shrink:0; }
+.pal-item { display:flex; flex-direction:column; align-items:center; gap:5px; }
+.pal-chip { width:44px; height:44px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.12); }
+.pal-hex { font-size:9px; color:#bbb; letter-spacing:0.05em; }
+.pal-role { font-size:8px; font-weight:700; letter-spacing:0.05em; }
+.pal-divider { width:1px; height:44px; background:#eee; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · VV Education · Logo Mood Exploration · April 2026</p>
+  <h1 class="page-title">VV Education</h1>
+  <p class="page-sub">VitVan Education · 로고 무드 탐색 — Blue Primary / Red Secondary</p>
+  <div class="divider-line"></div>
+</div>
+
+<!-- 팔레트 -->
+<div style="margin-bottom:44px;">
+  <div class="palette-bar">
+    <span class="palette-title">컬러 히어라키</span>
+    <div class="pal-item">
+      <div class="pal-chip" style="background:#1A3660"></div>
+      <span class="pal-hex">#1A3660</span>
+      <span class="pal-role" style="color:#1A3660;">PRIMARY</span>
+    </div>
+    <div class="pal-item">
+      <div class="pal-chip" style="background:#2E4A7A"></div>
+      <span class="pal-hex">#2E4A7A</span>
+      <span class="pal-role" style="color:#2E4A7A;">Navy Mid</span>
+    </div>
+    <div class="pal-item">
+      <div class="pal-chip" style="background:#3D6299"></div>
+      <span class="pal-hex">#3D6299</span>
+      <span class="pal-role" style="color:#3D6299;">Navy Light</span>
+    </div>
+    <div class="pal-divider"></div>
+    <div class="pal-item">
+      <div class="pal-chip" style="background:#C8102E"></div>
+      <span class="pal-hex">#C8102E</span>
+      <span class="pal-role" style="color:#C8102E;">ACCENT</span>
+    </div>
+    <div class="pal-divider"></div>
+    <div class="pal-item">
+      <div class="pal-chip" style="background:#C9A84C"></div>
+      <span class="pal-hex">#C9A84C</span>
+      <span class="pal-role" style="color:#C9A84C;">Gold (L&K)</span>
+    </div>
+    <div class="pal-item">
+      <div class="pal-chip" style="background:#F5F4F1;border:1px solid #eee"></div>
+      <span class="pal-hex">#F5F4F1</span>
+      <span class="pal-role" style="color:#aaa;">Off-white</span>
+    </div>
+  </div>
+</div>
+
+<!-- 상단 3 -->
+<div class="section-gap">
+  <div class="section-label">V-1 · V-2 · V-3</div>
+  <div class="grid-3">
+
+    <!-- V-1 -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="v1-wrap">
+          <svg width="54" height="46" viewBox="0 0 54 46">
+            <!-- 왼쪽 V: 네이비 -->
+            <polyline points="1,4 12,38 23,4"
+              fill="none" stroke="#1A3660" stroke-width="6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- 오른쪽 V: 레드 (포인트) -->
+            <polyline points="18,4 29,38 40,4"
+              fill="none" stroke="#C8102E" stroke-width="6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- 레드 점 -->
+            <circle cx="29" cy="43" r="3" fill="#C8102E" opacity="0.6"/>
+          </svg>
+          <div class="v1-text">
+            <div class="v1-main">VV <span class="accent">EDU</span></div>
+            <div class="v1-sub">VitVan Education · Vancouver</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">V-1</div>
+        <div class="card-name">더블 V 심볼</div>
+        <div class="card-desc">네이비 V + 레드 V가 겹쳐 성취·체크 이미지. 레드가 오른쪽 포인트 역할로 자연스럽게 빠짐.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#F5F4F1;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V-2 -->
+    <div class="card">
+      <div class="card-preview bg-navy">
+        <div class="v2-wrap">
+          <!-- 메이플리프: 레드 (포인트) -->
+          <svg width="42" height="42" viewBox="0 0 100 100" flex-shrink="0" style="flex-shrink:0">
+            <path d="M50,5 L58,28 L78,22 L68,40 L90,38 L75,52 L82,72 L62,62 L50,88 L38,62 L18,72 L25,52 L10,38 L32,40 L22,22 L42,28 Z"
+              fill="#C8102E" opacity="0.85"/>
+          </svg>
+          <div class="v2-text">
+            <div class="v2-main">VitVan <span class="edu">Education</span></div>
+            <div class="v2-sub">Canada Language Immersion Program</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">V-2</div>
+        <div class="card-name">네이비 + 메이플 포인트</div>
+        <div class="card-desc">네이비 배경 위 레드 메이플리프가 "캐나다 교육"을 한번에 전달. 레드가 아이콘으로만 쓰여 과하지 않음.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#FFFFFF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V-3 -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="v3-wrap">
+          <div class="v3-badge">
+            <span class="v3-badge-inner">VV</span>
+          </div>
+          <div class="v3-text">
+            <div class="v3-main">VitVan <span class="edu">Education</span></div>
+            <div class="v3-sub">Canada Language Immersion</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">V-3</div>
+        <div class="card-name">네이비 배지 + 레드 언더바</div>
+        <div class="card-desc">네이비 배지에 레드 언더바가 포인트. 배지만 분리해서 아이콘으로도 활용 가능. 앱·각인에 최적.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#F5F4F1;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 하단 3 -->
+<div class="section-gap">
+  <div class="section-label">V-4 · V-5 · V-6</div>
+  <div class="grid-3">
+
+    <!-- V-4 -->
+    <div class="card">
+      <div class="card-preview bg-white">
+        <div class="v4-wrap">
+          <div class="v4-main">VV <span class="red">EDU</span></div>
+          <div class="v4-rule">
+            <div class="v4-rule-l"></div>
+            <div class="v4-rule-c"></div>
+            <div class="v4-rule-r"></div>
+          </div>
+          <div class="v4-sub">VitVan Education · Vancouver BC</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">V-4</div>
+        <div class="card-name">타입 워드마크</div>
+        <div class="card-desc">VV 네이비 + EDU 레드 포인트. 레드 언더바가 강조선 역할. 약식 "VV Edu" 버전에 딱 맞음.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#FFFFFF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V-5 -->
+    <div class="card">
+      <div class="card-preview bg-navy">
+        <div class="v5-wrap">
+          <div class="v5-emblem">
+            <span class="v5-vv">VV</span>
+          </div>
+          <div class="v5-main">VitVan Education</div>
+          <div class="v5-line"></div>
+          <div class="v5-sub">Canada Language Immersion Program</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">V-5</div>
+        <div class="card-name">네이비 엠블럼</div>
+        <div class="card-desc">네이비 배경 + 원형 엠블럼, VV는 레드 포인트만. 대학·기관 무드. 부모 신뢰감 최고.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:rgba(255,255,255,0.2);border-color:#666"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V-6 -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="v6-wrap">
+          <div class="v6-sym">
+            <span class="v6-vv">VV</span>
+          </div>
+          <div class="v6-text">
+            <div class="v6-en">VitVan <span class="edu">Edu</span></div>
+            <div class="v6-kr">빛밴 교육 · 캐나다 몰입형 영어</div>
+            <div class="v6-sub">Vancouver · Richmond BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">V-6</div>
+        <div class="card-name">한/영 병기 로고</div>
+        <div class="card-desc">네이비 블록에 레드 도트 포인트. 영문/한글 동시 표기로 학부모 채널에 최적. SNS·팸플릿 한국어 버전 전용.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#5A6A7A"></div>
+          <div class="sw" style="background:#F5F4F1;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p style="text-align:center;margin-top:12px;font-size:10px;color:#bbb;letter-spacing:0.12em;">
+  CONFIDENTIAL · VV EDUCATION (VITVAN EDUCATION) · LOGO MOODS VOL.1 · APRIL 2026
+</p>
+
+</body>
+</html>

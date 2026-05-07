@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lee & Ko — Logo Refinement</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@200;300;400;600&family=Inter:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:wght@400;700&family=Barlow:wght@300;400;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #ECEAE5;
+    font-family: 'Inter', sans-serif;
+    padding: 52px 40px;
+    color: #222;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .page-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 10px;
+  }
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+  }
+  .page-sub {
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 72px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .section-tag {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .tag-c1 { background: #D6E2F0; color: #1B2F5E; }
+  .tag-n2 { background: #E8E4DC; color: #5A4A2A; }
+  .section-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  .section-note {
+    font-size: 12px;
+    color: #aaa;
+    margin-left: auto;
+  }
+
+  /* ── GRID ── */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+  }
+  .card-preview {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    position: relative;
+  }
+  .card-body {
+    background: #ffffff;
+    padding: 18px 20px 20px;
+  }
+  .card-code {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 4px;
+  }
+  .card-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .card-desc {
+    font-size: 11.5px;
+    color: #888;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .swatches {
+    display: flex;
+    gap: 7px;
+  }
+  .sw {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.7);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+
+  /* ════════════════════════════════════════
+     C-1 VARIANTS  (Framed Wordmark · Navy)
+  ════════════════════════════════════════ */
+
+  /* C-1a: 딥네이비 다크 (Dark bg, gold frame + corner dots) */
+  .c1a-bg { background: #0D1F3C; }
+  .c1a-frame {
+    border: 1.5px solid #C9A84C;
+    padding: 18px 36px;
+    position: relative;
+    text-align: center;
+  }
+  .c1a-dot {
+    position: absolute;
+    width: 7px; height: 7px;
+    background: #C9A84C;
+    border-radius: 50%;
+  }
+  .c1a-dot.tl { top:-3.5px; left:-3.5px; }
+  .c1a-dot.tr { top:-3.5px; right:-3.5px; }
+  .c1a-dot.bl { bottom:-3.5px; left:-3.5px; }
+  .c1a-dot.br { bottom:-3.5px; right:-3.5px; }
+  .c1a-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #F7F8FA;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .c1a-amp { color: #C9A84C; }
+  .c1a-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C9A84C55, transparent);
+    margin: 7px 0;
+  }
+  .c1a-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 7px;
+    font-weight: 300;
+    color: #8A9BB0;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+  }
+
+  /* C-1b: 라이트 인버스 (White bg, navy frame, gold dots) */
+  .c1b-bg { background: #F7F8FA; }
+  .c1b-frame {
+    border: 2px solid #1B2F5E;
+    padding: 18px 36px;
+    position: relative;
+    text-align: center;
+    background: #fff;
+  }
+  .c1b-dot {
+    position: absolute;
+    width: 7px; height: 7px;
+    background: #1B2F5E;
+    border-radius: 50%;
+  }
+  .c1b-dot.tl { top:-3.5px; left:-3.5px; }
+  .c1b-dot.tr { top:-3.5px; right:-3.5px; }
+  .c1b-dot.bl { bottom:-3.5px; left:-3.5px; }
+  .c1b-dot.br { bottom:-3.5px; right:-3.5px; }
+  .c1b-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #0D1F3C;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .c1b-amp { color: #C9A84C; }
+  .c1b-line {
+    height: 1px;
+    background: #C9A84C;
+    margin: 7px 0;
+    opacity: 0.6;
+  }
+  .c1b-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 7px;
+    font-weight: 400;
+    color: #6B7C93;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+  }
+
+  /* C-1c: 더블라인 프레임 (Double border, no dots, refined) */
+  .c1c-bg { background: #0D1F3C; }
+  .c1c-outer {
+    border: 1px solid #4A6A8A;
+    padding: 4px;
+  }
+  .c1c-inner {
+    border: 1.5px solid #C9A84C;
+    padding: 16px 34px;
+    text-align: center;
+  }
+  .c1c-main {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #F0EDE6;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .c1c-amp { color: #C9A84C; }
+  .c1c-ornament {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+  }
+  .c1c-ornline {
+    flex: 1;
+    height: 1px;
+    background: #C9A84C;
+    opacity: 0.4;
+  }
+  .c1c-diamond {
+    width: 5px; height: 5px;
+    background: #C9A84C;
+    transform: rotate(45deg);
+    opacity: 0.8;
+  }
+  .c1c-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 6.5px;
+    font-weight: 300;
+    color: #8A9BB0;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+  }
+
+  /* ════════════════════════════════════════
+     N-2 VARIANTS  (Horizontal Badge)
+  ════════════════════════════════════════ */
+
+  /* N-2a: 수직 분할 배지 (LEE | KO vertical divider) */
+  .n2a-bg { background: #EEE9E0; }
+  .n2a-badge {
+    border: 2px solid #1B2F5E;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+  .n2a-left {
+    background: #1B2F5E;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .n2a-left-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #F0EDE6;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .n2a-amp-small {
+    font-size: 14px;
+    color: #D4890A;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    line-height: 1;
+    margin: 2px 0;
+  }
+  .n2a-right {
+    padding: 12px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .n2a-right-main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    color: #1B2F5E;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .n2a-right-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5px;
+    font-weight: 300;
+    color: #8A9BB0;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* N-2b: 네이비 필 배지 (Navy bg, white/amber) */
+  .n2b-bg { background: #F0EDE6; }
+  .n2b-badge {
+    background: #1B2F5E;
+    padding: 18px 36px;
+    text-align: center;
+    position: relative;
+  }
+  .n2b-main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .n2b-amp { color: #D4890A; }
+  .n2b-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+  }
+  .n2b-divline { flex: 1; height: 1px; background: rgba(255,255,255,0.2); }
+  .n2b-divdot { width: 4px; height: 4px; background: #D4890A; border-radius: 50%; }
+  .n2b-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  /* N-2c: 라운드 모서리 + 슬로건 배지 */
+  .n2c-bg { background: #F7F8FA; }
+  .n2c-badge {
+    border: 2px solid #1B2F5E;
+    border-radius: 6px;
+    padding: 16px 30px;
+    text-align: center;
+    background: #fff;
+    position: relative;
+  }
+  .n2c-accent-top {
+    position: absolute;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 3px;
+    background: #D4890A;
+    border-radius: 0 0 3px 3px;
+  }
+  .n2c-main {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1B2F5E;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .n2c-amp { color: #D4890A; }
+  .n2c-rule {
+    height: 1px;
+    background: #E0E6F0;
+    margin: 8px 0;
+  }
+  .n2c-sub-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  .n2c-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 7px;
+    font-weight: 400;
+    color: #8A9BB0;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+  .n2c-dot-sep {
+    width: 3px; height: 3px;
+    background: #D4890A;
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    margin-top: 48px;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.12em;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · Brand Refinement · April 2026</p>
+  <h1 class="page-title">Lee & Ko Enterprises Inc.</h1>
+  <p class="page-sub">C-1 · N-2 세부 탐색 — 각 3가지 변형</p>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- C-1 SECTION -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag tag-c1">C-1 계열</span>
+    <span class="section-label">프레임 워드마크 — 네이비 베이스</span>
+    <span class="section-note">Cormorant Garamond + Raleway</span>
+  </div>
+  <div class="grid-3">
+
+    <!-- C-1a -->
+    <div class="card">
+      <div class="card-preview c1a-bg">
+        <div class="c1a-frame">
+          <div class="c1a-dot tl"></div><div class="c1a-dot tr"></div>
+          <div class="c1a-dot bl"></div><div class="c1a-dot br"></div>
+          <div class="c1a-main">LEE <span class="c1a-amp">&</span> KO</div>
+          <div class="c1a-line"></div>
+          <div class="c1a-sub">Enterprises Inc.</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">C-1a</div>
+        <div class="card-name">딥네이비 다크</div>
+        <div class="card-desc">원래 C-1 구조에 네이비 배경 적용. 골드 테두리·코너 점. 어두운 버전.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#0D1F3C" title="#0D1F3C"></div>
+          <div class="sw" style="background:#C9A84C" title="#C9A84C"></div>
+          <div class="sw" style="background:#8A9BB0" title="#8A9BB0"></div>
+          <div class="sw" style="background:#F7F8FA;border-color:#ddd" title="#F7F8FA"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C-1b -->
+    <div class="card">
+      <div class="card-preview c1b-bg">
+        <div class="c1b-frame">
+          <div class="c1b-dot tl"></div><div class="c1b-dot tr"></div>
+          <div class="c1b-dot bl"></div><div class="c1b-dot br"></div>
+          <div class="c1b-main">LEE <span class="c1b-amp">&</span> KO</div>
+          <div class="c1b-line"></div>
+          <div class="c1b-sub">Enterprises Inc.</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">C-1b</div>
+        <div class="card-name">라이트 인버스</div>
+        <div class="card-desc">흰 배경에 네이비 테두리. 골드 코너 점 유지. 인쇄물·레터헤드 친화적.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1B2F5E" title="#1B2F5E"></div>
+          <div class="sw" style="background:#C9A84C" title="#C9A84C"></div>
+          <div class="sw" style="background:#6B7C93" title="#6B7C93"></div>
+          <div class="sw" style="background:#F7F8FA;border-color:#ddd" title="#F7F8FA"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C-1c -->
+    <div class="card">
+      <div class="card-preview c1c-bg">
+        <div class="c1c-outer">
+          <div class="c1c-inner">
+            <div class="c1c-main">LEE <span class="c1c-amp">&</span> KO</div>
+            <div class="c1c-ornament">
+              <div class="c1c-ornline"></div>
+              <div class="c1c-diamond"></div>
+              <div class="c1c-ornline"></div>
+            </div>
+            <div class="c1c-sub">Enterprises Inc.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">C-1c</div>
+        <div class="card-name">더블라인 + 다이아몬드</div>
+        <div class="card-desc">이중 테두리 + 골드 다이아몬드 구분선. 코너 점 없이 더 정제된 느낌.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#0D1F3C" title="#0D1F3C"></div>
+          <div class="sw" style="background:#4A6A8A" title="#4A6A8A"></div>
+          <div class="sw" style="background:#C9A84C" title="#C9A84C"></div>
+          <div class="sw" style="background:#F0EDE6;border-color:#ddd" title="#F0EDE6"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- N-2 SECTION -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag tag-n2">N-2 계열</span>
+    <span class="section-label">수평선 배지 — 네이비 + 앰버</span>
+    <span class="section-note">Montserrat + Inter</span>
+  </div>
+  <div class="grid-3">
+
+    <!-- N-2a -->
+    <div class="card">
+      <div class="card-preview n2a-bg">
+        <div class="n2a-badge">
+          <div class="n2a-left">
+            <div>
+              <div class="n2a-left-text">LEE</div>
+              <div class="n2a-amp-small">&</div>
+              <div class="n2a-left-text">KO</div>
+            </div>
+          </div>
+          <div class="n2a-right">
+            <div class="n2a-right-main">Enterprises</div>
+            <div class="n2a-right-main">Inc.</div>
+            <div class="n2a-right-sub">Vancouver · BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">N-2a</div>
+        <div class="card-name">좌우 분할 배지</div>
+        <div class="card-desc">좌측 네이비 블록에 LEE&KO, 우측 흰 블록에 서브텍스트. 두 파트너가 나란히.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1B2F5E" title="#1B2F5E"></div>
+          <div class="sw" style="background:#D4890A" title="#D4890A"></div>
+          <div class="sw" style="background:#8A9BB0" title="#8A9BB0"></div>
+          <div class="sw" style="background:#EEE9E0;border-color:#ddd" title="#EEE9E0"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- N-2b -->
+    <div class="card">
+      <div class="card-preview n2b-bg">
+        <div class="n2b-badge">
+          <div class="n2b-main">LEE <span class="n2b-amp">&</span> KO</div>
+          <div class="n2b-divider">
+            <div class="n2b-divline"></div>
+            <div class="n2b-divdot"></div>
+            <div class="n2b-divline"></div>
+          </div>
+          <div class="n2b-sub">Enterprises Inc. · Vancouver, BC</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">N-2b</div>
+        <div class="card-name">네이비 필 배지</div>
+        <div class="card-desc">배지 전체를 네이비로 채움. 흰 텍스트 + 앰버 도트 구분선. 강하고 통일감 있음.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1B2F5E" title="#1B2F5E"></div>
+          <div class="sw" style="background:#D4890A" title="#D4890A"></div>
+          <div class="sw" style="background:rgba(255,255,255,0.5);border-color:#ddd" title="White"></div>
+          <div class="sw" style="background:#F0EDE6;border-color:#ddd" title="#F0EDE6"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- N-2c -->
+    <div class="card">
+      <div class="card-preview n2c-bg">
+        <div class="n2c-badge">
+          <div class="n2c-accent-top"></div>
+          <div class="n2c-main">LEE <span class="n2c-amp">&</span> KO</div>
+          <div class="n2c-rule"></div>
+          <div class="n2c-sub-row">
+            <span class="n2c-sub">Enterprises</span>
+            <div class="n2c-dot-sep"></div>
+            <span class="n2c-sub">Inc.</span>
+            <div class="n2c-dot-sep"></div>
+            <span class="n2c-sub">Vancouver</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">N-2c</div>
+        <div class="card-name">라운드 배지 + 상단 액센트</div>
+        <div class="card-desc">모서리 둥글게 + 상단 앰버 강조선. 더 부드럽고 현대적인 배지 느낌.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1B2F5E" title="#1B2F5E"></div>
+          <div class="sw" style="background:#D4890A" title="#D4890A"></div>
+          <div class="sw" style="background:#8A9BB0" title="#8A9BB0"></div>
+          <div class="sw" style="background:#F7F8FA;border-color:#ddd" title="#F7F8FA"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p class="footer">CONFIDENTIAL · LEE & KO ENTERPRISES INC. · BRAND REFINEMENT · APRIL 2026</p>
+
+</body>
+</html>

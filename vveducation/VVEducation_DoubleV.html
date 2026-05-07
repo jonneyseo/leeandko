@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VV Education — Double V Deep Dive</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#EDEAE4; font-family:'Inter',sans-serif; padding:60px 48px; color:#222; }
+
+.page-header { text-align:center; margin-bottom:44px; }
+.page-eyebrow { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#aaa; margin-bottom:12px; }
+.page-title { font-family:'Montserrat',sans-serif; font-size:26px; font-weight:800; color:#1A3660; margin-bottom:8px; }
+.page-sub { font-size:12px; color:#aaa; letter-spacing:0.06em; }
+.divider-line { width:48px; height:3px; background:#1A3660; margin:14px auto 0; border-radius:2px; }
+
+/* 컨셉 배너 */
+.concept-banner {
+  background:#1A3660; border-radius:12px;
+  padding:22px 32px; margin-bottom:44px;
+  display:flex; align-items:center; gap:32px;
+}
+.concept-sym {
+  display:flex; align-items:center; gap:0; flex-shrink:0;
+}
+.concept-v {
+  font-family:'Montserrat',sans-serif;
+  font-size:42px; font-weight:900; line-height:1; letter-spacing:-0.04em;
+}
+.concept-v.teacher { color:#FFFFFF; }
+.concept-v.student { color:#C8102E; }
+.concept-eq {
+  font-family:'Montserrat',sans-serif;
+  font-size:26px; font-weight:300; color:rgba(255,255,255,0.3);
+  margin:0 18px; line-height:1;
+}
+.concept-w {
+  font-family:'Montserrat',sans-serif;
+  font-size:42px; font-weight:900; color:#FFFFFF; line-height:1;
+  letter-spacing:-0.04em;
+}
+.concept-win {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px; font-weight:600; color:#C8102E;
+  letter-spacing:0.12em; text-transform:uppercase;
+  margin-left:6px; align-self:flex-end; padding-bottom:6px;
+}
+.concept-text { border-left:2px solid rgba(255,255,255,0.15); padding-left:28px; }
+.concept-headline {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px; font-weight:700; color:#FFFFFF;
+  letter-spacing:0.04em; margin-bottom:6px;
+}
+.concept-body {
+  font-size:11.5px; color:rgba(255,255,255,0.5);
+  line-height:1.7; letter-spacing:0.02em;
+}
+.concept-body strong { color:rgba(255,255,255,0.8); font-weight:600; }
+
+.section-gap { margin-bottom:44px; }
+.section-label {
+  font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+  color:#888; margin-bottom:20px; padding-left:12px;
+  border-left:3px solid #1A3660;
+}
+
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+
+.card { border-radius:12px; overflow:hidden; box-shadow:0 3px 24px rgba(0,0,0,0.12); }
+.card-preview { height:260px; display:flex; align-items:center; justify-content:center; padding:36px; }
+.card-body { background:#fff; padding:18px 20px 22px; }
+.card-code { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#ccc; margin-bottom:3px; }
+.card-name { font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:4px; }
+.card-desc { font-size:11px; color:#999; line-height:1.6; margin-bottom:12px; }
+.swatches { display:flex; gap:6px; }
+.sw { width:20px; height:20px; border-radius:50%; border:2px solid rgba(255,255,255,0.7); box-shadow:0 1px 4px rgba(0,0,0,0.15); }
+
+.bg-offwht { background:#F5F4F1; }
+.bg-white  { background:#FFFFFF; }
+.bg-navy   { background:#1A3660; }
+
+/* 공통 텍스트 */
+.logo-col { display:flex; flex-direction:column; align-items:center; gap:14px; }
+.wordmark {
+  font-family:'Montserrat',sans-serif;
+  font-size:19px; font-weight:800; color:#1A3660;
+  letter-spacing:0.16em; text-transform:uppercase; line-height:1;
+  text-align:center;
+}
+.wordmark .edu { color:#C8102E; font-weight:500; }
+.wordmark-inv { color:#FFFFFF; }
+.wordmark-inv .edu { color:#C8102E; }
+.subtext {
+  font-family:'Raleway',sans-serif;
+  font-size:7px; font-weight:300; color:#9A9A98;
+  letter-spacing:0.38em; text-transform:uppercase; text-align:center;
+}
+.subtext-inv { color:rgba(255,255,255,0.35); }
+
+/* ══════════════════════════════
+   D-6  블록 한/영 병기  (유지)
+══════════════════════════════ */
+.d6-row { display:flex; align-items:center; gap:18px; }
+.d6-block {
+  width:60px; height:60px; background:#1A3660; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  position:relative; flex-shrink:0;
+  box-shadow:0 5px 20px rgba(26,54,96,0.4);
+}
+.d6-block::after {
+  content:''; position:absolute; bottom:0; right:0;
+  width:0; height:0; border-style:solid;
+  border-width:0 0 14px 14px;
+  border-color:transparent transparent #C8102E transparent;
+  border-radius:0 0 10px 0;
+}
+.d6-vv {
+  font-family:'Montserrat',sans-serif;
+  font-size:27px; font-weight:900; color:#fff;
+  letter-spacing:-0.06em; line-height:1;
+}
+.d6-text { display:flex; flex-direction:column; gap:3px; }
+.d6-en {
+  font-family:'Montserrat',sans-serif;
+  font-size:18px; font-weight:800; color:#1A3660;
+  letter-spacing:0.06em; text-transform:uppercase; line-height:1;
+}
+.d6-en .edu { color:#C8102E; font-weight:500; }
+.d6-kr { font-family:'Inter',sans-serif; font-size:11px; font-weight:400; color:#5A6A7A; letter-spacing:0.06em; }
+.d6-sub { font-family:'Raleway',sans-serif; font-size:6.5px; font-weight:300; color:#AAA; letter-spacing:0.35em; text-transform:uppercase; margin-top:2px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · VV Education · Double V Deep Dive · April 2026</p>
+  <h1 class="page-title">Double V — Student + Teacher = Win</h1>
+  <p class="page-sub">굵은 W형 심볼 집중 탐색 · D-6 유지</p>
+  <div class="divider-line"></div>
+</div>
+
+<!-- 컨셉 배너 -->
+<div class="concept-banner">
+  <div class="concept-sym">
+    <span class="concept-v teacher">V</span>
+    <span class="concept-v student">V</span>
+    <span class="concept-eq">=</span>
+    <span class="concept-w">W</span>
+    <span class="concept-win">WIN</span>
+  </div>
+  <div class="concept-text">
+    <div class="concept-headline">선생과 학생, 두 V가 만나 W(Win)가 된다</div>
+    <div class="concept-body">
+      <strong>하나의 V는 선생(Teacher)</strong> — 방향을 제시하고 이끄는 존재<br>
+      <strong>하나의 V는 학생(Student)</strong> — 성장하고 나아가는 존재<br>
+      두 V가 맞닿아 <strong>W</strong>를 이룰 때, 비로소 <strong>Win</strong>이 완성된다
+    </div>
+  </div>
+</div>
+
+<!-- Row 1 -->
+<div class="section-gap">
+  <div class="section-label">D-1 · D-2 · D-3 — W 심볼 형태 변주</div>
+  <div class="grid-3">
+
+    <!-- D-1: 모노 W + 레드 접점 -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="logo-col">
+          <svg width="84" height="58" viewBox="-6 -6 96 64" overflow="visible">
+            <!-- Teacher V (왼): 네이비 솔리드 -->
+            <polyline points="6,4 26,52 46,4"
+              fill="none" stroke="#1A3660" stroke-width="14"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Student V (오른): 네이비 솔리드 -->
+            <polyline points="46,4 66,52 86,4"
+              fill="none" stroke="#1A3660" stroke-width="14"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- 접점 레드 하이라이트 -->
+            <circle cx="46" cy="4" r="6" fill="#C8102E"/>
+          </svg>
+          <div class="wordmark">VV <span class="edu">EDUCATION</span></div>
+          <div class="subtext">VitVan · Canada Immersion Program</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-1</div>
+        <div class="card-name">모노 W + 레드 접점</div>
+        <div class="card-desc">두 V 모두 진한 네이비로 통일. 만나는 꼭짓점만 레드 닷으로 표시 — "두 존재가 만나는 순간"을 가장 절제된 방식으로 표현.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#F5F4F1;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D-2: 투톤 W (선생 네이비 + 학생 레드) -->
+    <div class="card">
+      <div class="card-preview bg-white">
+        <div class="logo-col">
+          <svg width="84" height="58" viewBox="-6 -6 96 64" overflow="visible">
+            <!-- Teacher V (왼): 네이비 -->
+            <polyline points="6,4 26,52 46,4"
+              fill="none" stroke="#1A3660" stroke-width="14"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Student V (오른): 레드 -->
+            <polyline points="46,4 66,52 86,4"
+              fill="none" stroke="#C8102E" stroke-width="14"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="wordmark">VV <span class="edu">EDUCATION</span></div>
+          <div class="subtext">VitVan · Canada Immersion Program</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-2</div>
+        <div class="card-name">투톤 W (선생 · 학생)</div>
+        <div class="card-desc">선생(네이비) + 학생(레드)이 완전히 맞닿아 하나의 W를 이룸. 컬러가 두 역할을 직관적으로 분리. 가장 명확한 스토리텔링.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#FFFFFF;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D-3: 높이 차이 (선생이 더 큰 V) -->
+    <div class="card">
+      <div class="card-preview bg-navy">
+        <div class="logo-col">
+          <svg width="84" height="66" viewBox="-6 -8 96 78" overflow="visible">
+            <!-- Teacher V (왼): 화이트, 더 크고 높음 -->
+            <polyline points="6,4 26,60 46,4"
+              fill="none" stroke="rgba(255,255,255,0.95)" stroke-width="14"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Student V (오른): 레드, 살짝 짧음 -->
+            <polyline points="46,16 66,60 86,16"
+              fill="none" stroke="#C8102E" stroke-width="14"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="wordmark wordmark-inv">VV <span class="edu">EDUCATION</span></div>
+          <div class="subtext subtext-inv">VitVan · Canada Immersion Program</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-3</div>
+        <div class="card-name">높이 차이 (인도·성장)</div>
+        <div class="card-desc">선생 V가 학생 V보다 높게 시작 — 앞서 이끄는 관계. 레드 학생 V는 점점 선생의 높이를 따라가는 여정. 다크 배경에서 강렬.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:rgba(255,255,255,0.4);border-color:#888"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Row 2 -->
+<div class="section-gap">
+  <div class="section-label">D-4 · D-5 · D-6 — 형태 확장 & 블록 버전 유지</div>
+  <div class="grid-3">
+
+    <!-- D-4: 솔리드 + 아웃라인 (선생 실선, 학생 윤곽) -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="logo-col">
+          <svg width="84" height="58" viewBox="-6 -6 96 64" overflow="visible">
+            <!-- Teacher V (왼): 솔리드 네이비 — 확립된 존재 -->
+            <polyline points="6,4 26,52 46,4"
+              fill="none" stroke="#1A3660" stroke-width="14"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Student V (오른): 아웃라인 레드 — 성장 중인 존재 -->
+            <polyline points="46,4 66,52 86,4"
+              fill="none" stroke="#C8102E" stroke-width="14"
+              stroke-linecap="round" stroke-linejoin="round"
+              opacity="0.25"/>
+            <polyline points="46,4 66,52 86,4"
+              fill="none" stroke="#C8102E" stroke-width="3.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="wordmark">VV <span class="edu">EDUCATION</span></div>
+          <div class="subtext">VitVan · Canada Immersion Program</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-4</div>
+        <div class="card-name">솔리드 · 아웃라인 (완성 · 성장)</div>
+        <div class="card-desc">선생 V = 굵은 솔리드(완성된 존재), 학생 V = 윤곽선(채워가는 존재). A-2의 LEE/KO 구조와 같은 Lee & Ko DNA를 서브브랜드에 계승.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#F5F4F1;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D-5: 네거티브 스페이스 블록 -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="logo-col">
+          <svg width="96" height="66" viewBox="0 0 96 66">
+            <defs>
+              <mask id="w-cut">
+                <rect width="96" height="66" rx="10" fill="white"/>
+                <!-- W 컷아웃 -->
+                <polyline points="10,8 28,56 46,8 64,56 82,8"
+                  fill="none" stroke="black" stroke-width="13"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </mask>
+            </defs>
+            <!-- 네이비 블록 전체 -->
+            <rect width="96" height="66" rx="10" fill="#1A3660" mask="url(#w-cut)"/>
+            <!-- 레드: 오른쪽 Student V 영역 하이라이트 (오른 절반) -->
+            <rect x="48" y="0" width="48" height="66" rx="0" fill="#C8102E" mask="url(#w-cut)" opacity="0.85"/>
+            <!-- 오른쪽만 radius -->
+            <rect x="48" y="0" width="48" height="66" rx="0" fill="none"/>
+          </svg>
+          <div class="wordmark">VV <span class="edu">EDUCATION</span></div>
+          <div class="subtext">VitVan · Canada Immersion Program</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-5</div>
+        <div class="card-name">네거티브 스페이스 블록</div>
+        <div class="card-desc">블록에서 W를 컷아웃. 왼(선생)=네이비, 오른(학생)=레드로 블록 자체가 두 영역으로 분리. D-6과 같은 블록 계열 — 아이콘 전용.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#F5F4F1;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D-6: 블록 한/영 병기 (유지) -->
+    <div class="card">
+      <div class="card-preview bg-offwht">
+        <div class="d6-row">
+          <div class="d6-block">
+            <span class="d6-vv">VV</span>
+          </div>
+          <div class="d6-text">
+            <div class="d6-en">VitVan <span class="edu">Edu</span></div>
+            <div class="d6-kr">빛밴 교육</div>
+            <div class="d6-sub">Canada Immersion · Vancouver BC</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-code">D-6 ★ Keep</div>
+        <div class="card-name">블록 한/영 병기</div>
+        <div class="card-desc">네이비 블록 + 레드 코너 포인트. VitVan Edu 영문 + 한글 병기. 팸플릿·SNS 한국어 채널에 최적. 이전 라운드에서 유지 결정.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#1A3660"></div>
+          <div class="sw" style="background:#C8102E"></div>
+          <div class="sw" style="background:#5A6A7A"></div>
+          <div class="sw" style="background:#F5F4F1;border-color:#ddd"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p style="text-align:center;margin-top:12px;font-size:10px;color:#bbb;letter-spacing:0.12em;">
+  CONFIDENTIAL · VV EDUCATION (VITVAN EDUCATION) · DOUBLE V DEEP DIVE VOL.2 · APRIL 2026
+</p>
+
+</body>
+</html>
