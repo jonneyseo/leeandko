@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통나무집 — 브랜드 오버뷰</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'BM Euljiro';
+  src: url('BMEULJIROTTF.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --red:     #A31621;
+  --red-dim: rgba(163,22,33,0.12);
+  --ink:     #1C1A18;
+  --cream:   #F5EFE4;
+  --warm:    #EDE4D3;
+  --muted:   #8A7E6E;
+  --border:  #DDD3C0;
+  --white:   #FFFFFF;
+}
+
+body {
+  background: var(--cream);
+  font-family: 'Noto Serif KR', serif;
+  width: 1080px;
+  margin: 0 auto;
+  padding: 64px 64px 80px;
+  color: var(--ink);
+}
+
+/* ─── PAGE HEADER ─── */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 20px;
+  margin-bottom: 52px;
+}
+.brand-eyebrow {
+  font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px; font-family: 'Nanum Gothic', sans-serif;
+}
+.brand-title {
+  font-family: 'BM Euljiro', cursive;
+  font-size: 56px; font-weight: 400; color: var(--ink); line-height: 1;
+}
+.brand-title span { color: var(--red); }
+.brand-sub {
+  font-size: 11px; color: var(--muted); margin-top: 6px;
+  letter-spacing: 0.14em; font-family: 'Nanum Gothic', sans-serif;
+}
+.doc-meta {
+  text-align: right; font-size: 9px; color: var(--muted);
+  letter-spacing: 0.12em; line-height: 1.9; text-transform: uppercase;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* ─── SECTION LABEL ─── */
+.sec-label {
+  font-size: 8px; font-weight: 800; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 16px;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+.sec-label-dark { color: rgba(163,22,33,0.85); }
+
+/* ─── 시안 비교 섹션 ─── */
+.layout-candidates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.candidate-col { display: flex; flex-direction: column; gap: 14px; }
+
+.candidate-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.candidate-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+.badge-num {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #fff;
+}
+.badge-style {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 9px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em;
+}
+.badge-sep { width: 1px; height: 10px; background: rgba(255,255,255,0.2); }
+
+/* 메인 로고 카드 */
+.logo-main-card {
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 18px rgba(0,0,0,0.08);
+}
+.logo-main-img {
+  position: relative;
+  width: 100%;
+  padding-top: 80%;
+  background: #fff;
+}
+.logo-main-img img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: contain;
+  padding: 28px;
+}
+.logo-card-label {
+  padding: 10px 16px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+/* 서브 변형 (닭꼬치 / 닭갈비) */
+.sub-variants {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.variant-card {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.variant-img {
+  position: relative;
+  width: 100%;
+  padding-top: 55%;
+  background: #fff;
+}
+.variant-img img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: contain;
+  padding: 14px;
+}
+.variant-label {
+  padding: 7px 12px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 8.5px; font-weight: 700; letter-spacing: 0.14em;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+/* ─── 브랜드 컨셉 ─── */
+.concept-block {
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 40px 48px;
+  color: white;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+.concept-title {
+  font-family: 'BM Euljiro', cursive;
+  font-size: 44px; font-weight: 400; color: white; margin-bottom: 16px; line-height: 1.2;
+}
+.concept-title em { color: var(--red); font-style: normal; }
+.concept-desc {
+  font-size: 12px; color: rgba(255,255,255,0.65);
+  line-height: 2; margin-bottom: 24px;
+  font-family: 'Noto Serif KR', serif;
+}
+.concept-formula { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.formula-pill {
+  padding: 6px 13px; border-radius: 5px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; font-weight: 800; letter-spacing: 0.1em;
+}
+.pill-red   { background: var(--red); color: white; }
+.pill-dark  { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); }
+.formula-op { color: rgba(255,255,255,0.25); font-size: 14px; }
+.concept-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 20px 0; }
+.concept-values { display: flex; gap: 7px; flex-wrap: wrap; }
+.val-tag {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; letter-spacing: 0.08em;
+  padding: 5px 10px; border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.13); color: rgba(255,255,255,0.55);
+}
+
+/* 메뉴 리스트 */
+.menu-list { display: flex; flex-direction: column; gap: 12px; }
+.menu-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  border-left: 3px solid var(--red);
+}
+.menu-num {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; font-weight: 800; color: var(--red);
+  letter-spacing: 0.18em; min-width: 20px; padding-top: 1px;
+}
+.menu-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px; font-weight: 700; color: white; margin-bottom: 3px;
+}
+.menu-desc {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; color: rgba(255,255,255,0.38); letter-spacing: 0.06em;
+}
+
+/* ─── INFO ROW ─── */
+.layout-info { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+
+/* ─── COLORS ─── */
+.colors-block {
+  background: var(--white); border-radius: 14px; padding: 28px 24px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+.color-swatches { display: flex; flex-direction: column; gap: 11px; margin-top: 12px; }
+.swatch-row { display: flex; align-items: center; gap: 12px; }
+.swatch { width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0; }
+.swatch-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 10px; font-weight: 700; color: var(--ink); letter-spacing: 0.04em;
+}
+.swatch-role {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; color: var(--muted); letter-spacing: 0.04em; margin-top: 1px;
+}
+.swatch-hex {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 8.5px; color: #bbb; font-weight: 700; letter-spacing: 0.1em; margin-left: auto;
+}
+
+/* ─── TYPOGRAPHY ─── */
+.type-block {
+  background: var(--white); border-radius: 14px; padding: 28px 24px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  display: flex; flex-direction: column; gap: 16px;
+}
+.type-family {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 4px;
+}
+.type-sample-brush {
+  font-family: 'BM Euljiro', cursive;
+  font-size: 42px; font-weight: 400; color: var(--ink); line-height: 1.1;
+}
+.type-sample-serif {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px; font-weight: 600; color: var(--ink);
+  letter-spacing: 0.04em; line-height: 1.6;
+}
+.type-sample-sub {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 10px; color: var(--muted); letter-spacing: 0.04em; margin-top: 2px;
+}
+.type-divider { border: none; border-top: 1px solid var(--border); }
+.type-note {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; color: var(--muted); line-height: 1.75; letter-spacing: 0.04em;
+}
+
+/* ─── CONCEPT REF SECTION ─── */
+.concept-ref-section { margin-bottom: 24px; }
+.ref-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 18px;
+}
+.ref-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.1em; white-space: nowrap;
+}
+.ref-rule { flex: 1; height: 1px; background: var(--border); }
+.ref-badge {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted);
+  padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px;
+  white-space: nowrap;
+}
+
+.concept-ref-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+.ref-card {
+  background: var(--white); border-radius: 12px; overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+}
+.ref-img-sq {
+  position: relative; width: 100%; padding-top: 85%; background: #fafafa;
+}
+.ref-img-sq img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: contain; padding: 18px;
+}
+.ref-img-wide {
+  position: relative; width: 100%; padding-top: 65%; background: #fafafa;
+}
+.ref-img-wide img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: contain; padding: 16px;
+}
+.ref-card-label {
+  padding: 10px 14px; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ref-card-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 10px; font-weight: 700; color: var(--ink); letter-spacing: 0.06em;
+}
+.ref-card-sub {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 8.5px; color: var(--muted); letter-spacing: 0.04em; margin-top: 1px;
+}
+
+/* ─── REFERENCE SECTION ─── */
+.ref-section { margin-bottom: 24px; }
+.ref-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ref-img-sheet {
+  position: relative; width: 100%; padding-top: 72%; background: #fafafa;
+}
+.ref-img-sheet img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: contain; padding: 16px;
+}
+
+/* ─── FOOTER ─── */
+.page-footer {
+  margin-top: 28px; border-top: 1px solid var(--border); padding-top: 16px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 9px; font-weight: 700; color: var(--ink); letter-spacing: 0.16em;
+}
+.footer-note {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 9px; color: #ccc; letter-spacing: 0.1em; text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ PAGE HEADER ══ -->
+<header class="page-header">
+  <div>
+    <p class="brand-eyebrow">Brand Identity · Initial Proposal</p>
+    <h1 class="brand-title">통나무집 <span>춘천</span></h1>
+    <p class="brand-sub">닭갈비 · 닭꼬치 · Korean BBQ · Vancouver, BC</p>
+  </div>
+  <div class="doc-meta">
+    <div>Lee &amp; Ko Enterprises Inc.</div>
+    <div>Confidential · May 2026</div>
+    <div>브랜드 오버뷰 — Ver. 1.0</div>
+  </div>
+</header>
+
+<!-- ══ 시안 비교 ══ -->
+<div class="layout-candidates">
+
+  <!-- 시안 1: 원형 도장 스타일 -->
+  <div class="candidate-col">
+    <div class="candidate-header">
+      <p class="sec-label">로고 시안 1</p>
+      <div class="candidate-badge">
+        <span class="badge-num">시안 1</span>
+        <div class="badge-sep"></div>
+        <span class="badge-style">원형 도장형</span>
+      </div>
+    </div>
+    <div class="logo-main-card">
+      <div class="logo-main-img">
+        <img src="최종시안 1.png" alt="통나무집 시안 1">
+      </div>
+      <div class="logo-card-label">메인 마크 · 원형 도장 스타일</div>
+    </div>
+    <div class="sub-variants">
+      <div class="variant-card">
+        <div class="variant-img">
+          <img src="최종시안 1 - 닭꼬치.png" alt="시안1 닭꼬치">
+        </div>
+        <div class="variant-label">시안 1 + 닭꼬치</div>
+      </div>
+      <div class="variant-card">
+        <div class="variant-img">
+          <img src="최종시안 1 - 닭갈비.png" alt="시안1 닭갈비">
+        </div>
+        <div class="variant-label">시안 1 + 닭갈비</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 시안 2: 오픈 붓글씨 스타일 -->
+  <div class="candidate-col">
+    <div class="candidate-header">
+      <p class="sec-label">로고 시안 2</p>
+      <div class="candidate-badge">
+        <span class="badge-num">시안 2</span>
+        <div class="badge-sep"></div>
+        <span class="badge-style">오픈 붓글씨형</span>
+      </div>
+    </div>
+    <div class="logo-main-card">
+      <div class="logo-main-img">
+        <img src="최종시안 2.png" alt="통나무집 시안 2">
+      </div>
+      <div class="logo-card-label">메인 마크 · 오픈 붓글씨 스타일</div>
+    </div>
+    <div class="sub-variants">
+      <div class="variant-card">
+        <div class="variant-img">
+          <img src="최종시안 2 - 닭꼬치.png" alt="시안2 닭꼬치">
+        </div>
+        <div class="variant-label">시안 2 + 닭꼬치</div>
+      </div>
+      <div class="variant-card">
+        <div class="variant-img">
+          <img src="최종시안 2 - 닭갈비.png" alt="시안2 닭갈비">
+        </div>
+        <div class="variant-label">시안 2 + 닭갈비</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ 브랜드 컨셉 ══ -->
+<div class="concept-block">
+
+  <div>
+    <p class="sec-label sec-label-dark">브랜드 컨셉</p>
+    <div class="concept-title">불맛과 <em>나무향</em>이 있는 집</div>
+    <p class="concept-desc">
+      강원도 춘천의 뜨겁고 정직한 불맛을 밴쿠버로 옮겨왔습니다.<br>
+      통나무집은 <strong style="color:rgba(255,255,255,0.9)">한국 전통 화로 문화</strong>와 손맛이 살아있는 닭갈비·닭꼬치를 중심으로,
+      누구나 편안하게 앉아 <strong style="color:rgba(163,22,33,0.9)">진짜 한국의 불향을</strong> 경험할 수 있는 공간을 만들어갑니다.
+    </p>
+    <div class="concept-formula">
+      <div class="formula-pill pill-red">불맛</div>
+      <span class="formula-op">+</span>
+      <div class="formula-pill pill-dark">나무향</div>
+      <span class="formula-op">+</span>
+      <div class="formula-pill pill-dark">춘천 손맛</div>
+    </div>
+    <hr class="concept-divider">
+    <div class="concept-values">
+      <div class="val-tag">정통 한식</div>
+      <div class="val-tag">강원도 춘천</div>
+      <div class="val-tag">화로 문화</div>
+      <div class="val-tag">가족 친화</div>
+      <div class="val-tag">밴쿠버 로컬</div>
+    </div>
+  </div>
+
+  <div>
+    <p class="sec-label sec-label-dark">대표 메뉴</p>
+    <div class="menu-list">
+      <div class="menu-item">
+        <div class="menu-num">01</div>
+        <div>
+          <div class="menu-name">춘천 닭갈비</div>
+          <div class="menu-desc">Spicy Stir-Fried Chicken · Chuncheon Style · 화로 직화</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-num">02</div>
+        <div>
+          <div class="menu-name">닭꼬치</div>
+          <div class="menu-desc">Korean Chicken Skewer · 숯불 직화 · Charcoal Grilled</div>
+        </div>
+      </div>
+      <!-- <div class="menu-item">
+        <div class="menu-num">03</div>
+        <div>
+          <div class="menu-name">통나무집 세트</div>
+          <div class="menu-desc">Combination Platter · 가족 모둠 · For the Table</div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ 컬러 + 타이포 ══ -->
+<div class="layout-info">
+
+  <div>
+    <p class="sec-label">브랜드 컬러</p>
+    <div class="colors-block">
+      <div class="color-swatches">
+        <div class="swatch-row">
+          <div class="swatch" style="background:#A31621;"></div>
+          <div>
+            <div class="swatch-name">진홍 (深紅)</div>
+            <div class="swatch-role">Primary · 불맛 · 열정 · 한국 전통</div>
+          </div>
+          <div class="swatch-hex">#A31621</div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#1C1A18;"></div>
+          <div>
+            <div class="swatch-name">먹 (墨)</div>
+            <div class="swatch-role">Secondary · 숯 · 붓글씨 · 강인함</div>
+          </div>
+          <div class="swatch-hex">#1C1A18</div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#7A5230;"></div>
+          <div>
+            <div class="swatch-name">황토 (黃土)</div>
+            <div class="swatch-role">Accent · 통나무 · 흙 · 자연</div>
+          </div>
+          <div class="swatch-hex">#7A5230</div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#F5EFE4; border:1px solid #ddd;"></div>
+          <div>
+            <div class="swatch-name">미색 (米色)</div>
+            <div class="swatch-role">Background · 한지 · 온기</div>
+          </div>
+          <div class="swatch-hex">#F5EFE4</div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#252422;"></div>
+          <div>
+            <div class="swatch-name">차콜</div>
+            <div class="swatch-role">Secondary · Lee &amp; Ko 모회사 컬러</div>
+          </div>
+          <div class="swatch-hex">#252422</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p class="sec-label">타이포그래피</p>
+    <div class="type-block">
+      <div>
+        <div class="type-family">Primary — 배민 을지로체 (BM Euljiro)</div>
+        <div class="type-sample-brush">통나무집</div>
+        <div class="type-sample-sub">로고 · 디스플레이 · 간판 헤드라인</div>
+      </div>
+      <hr class="type-divider">
+      <div>
+        <div class="type-family">Secondary — Noto Serif KR</div>
+        <div class="type-sample-serif">닭갈비 · 닭꼬치<br>춘천의 불맛</div>
+        <div class="type-sample-sub">본문 · 메뉴 설명 · Weight 400–700</div>
+      </div>
+      <hr class="type-divider">
+      <div class="type-note">
+        배민 을지로체는 단정하면서도 붓의 질감이 살아있는<br>
+        레트로 캘리그래피 서체로, 무료 상업 사용 가능.<br>
+        Noto Serif KR은 한·영 혼용 본문에 최적화.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ 컨셉 시안 ══ -->
+<div class="concept-ref-section">
+  <div class="ref-header">
+    <div class="ref-title">컨셉 시안</div>
+    <div class="ref-rule"></div>
+    <div class="ref-badge">방향성 탐구</div>
+  </div>
+  <div class="concept-ref-grid">
+    <div class="ref-card">
+      <div class="ref-img-sq">
+        <img src="컨셉1 1.png" alt="컨셉 시안 1">
+      </div>
+      <div class="ref-card-label">
+        <div>
+          <div class="ref-card-name">컨셉 A</div>
+          <div class="ref-card-sub">통나무집 일러스트 + 화로형</div>
+        </div>
+        <div class="ref-badge">Concept A</div>
+      </div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-img-sq">
+        <img src="컨셉1 2.png" alt="컨셉 시안 2">
+      </div>
+      <div class="ref-card-label">
+        <div>
+          <div class="ref-card-name">컨셉 B</div>
+          <div class="ref-card-sub">원형 도장 + 산 · 불꽃 심볼</div>
+        </div>
+        <div class="ref-badge">Concept B</div>
+      </div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-img-sq">
+        <img src="컨셉1 3.png" alt="컨셉 시안 3">
+      </div>
+      <div class="ref-card-label">
+        <div>
+          <div class="ref-card-name">컨셉 C</div>
+          <div class="ref-card-sub">붓글씨 + 불꽃 · 조리 도구</div>
+        </div>
+        <div class="ref-badge">Concept C</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 레퍼런스 시안 ══ -->
+<div class="ref-section">
+  <div class="ref-header">
+    <div class="ref-title">레퍼런스 시안</div>
+    <div class="ref-rule"></div>
+    <div class="ref-badge">Reference Sheet</div>
+  </div>
+  <div class="ref-grid-2">
+    <div class="ref-card">
+      <div class="ref-img-sheet">
+        <img src="레퍼런스1(닭).png" alt="레퍼런스 1 닭">
+      </div>
+      <div class="ref-card-label">
+        <div>
+          <div class="ref-card-name">레퍼런스 1</div>
+          <div class="ref-card-sub">닭 심볼 계열 — 12종 배리에이션</div>
+        </div>
+        <div class="ref-badge">Ref. 닭</div>
+      </div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-img-sheet">
+        <img src="레퍼런스2(불).png" alt="레퍼런스 2 불">
+      </div>
+      <div class="ref-card-label">
+        <div>
+          <div class="ref-card-name">레퍼런스 2</div>
+          <div class="ref-card-sub">불꽃 심볼 계열 — 9종 배리에이션</div>
+        </div>
+        <div class="ref-badge">Ref. 불</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="page-footer">
+  <div class="footer-brand">통나무집 춘천 · 브랜드 아이덴티티 v1.0</div>
+  <div class="footer-note">Confidential · Lee &amp; Ko Enterprises Inc. · May 2026</div>
+</footer>
+
+</body>
+</html>
