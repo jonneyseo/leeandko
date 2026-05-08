@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lee & Ko — S-2-B Symbol + A-2-B Wordmark</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Raleway:wght@200;300;400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#DEDAD3; font-family:'Inter',sans-serif; padding:60px 48px; color:#222; }
+
+.page-header { text-align:center; margin-bottom:56px; }
+.page-eyebrow { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#aaa; margin-bottom:12px; }
+.page-title { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:400; color:#1a1a1a; margin-bottom:8px; letter-spacing:0.04em; }
+.page-sub { font-size:12px; color:#aaa; letter-spacing:0.06em; }
+.divider-line { width:48px; height:2px; background:#C9A84C; margin:16px auto 0; border-radius:1px; opacity:0.7; }
+
+/* ── 카드 레이아웃 ── */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:900px; margin:0 auto; }
+
+.card { border-radius:12px; overflow:hidden; box-shadow:0 4px 28px rgba(0,0,0,0.13); background:#fff; }
+.card-preview {
+  height:320px;
+  display:flex; align-items:center; justify-content:center;
+  padding:48px; position:relative;
+}
+.bg-dark  { background:#252422; }
+.bg-light { background:#F5F3EF; }
+
+.card-body { padding:20px 22px 24px; }
+.candidate-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  background:#F5F3EF; border-radius:4px;
+  padding:4px 10px; margin-bottom:12px;
+}
+.badge-num { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#C9A84C; font-weight:600; }
+.badge-code { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#bbb; }
+.badge-sep { width:1px; height:10px; background:#e0e0e0; }
+.card-name { font-size:14px; font-weight:700; color:#1a1a1a; margin-bottom:6px; }
+.card-desc { font-size:11.5px; color:#888; line-height:1.65; margin-bottom:14px; }
+.swatches { display:flex; gap:7px; }
+.sw { width:22px; height:22px; border-radius:50%; border:2px solid rgba(255,255,255,0.7); box-shadow:0 1px 4px rgba(0,0,0,0.15); }
+
+/* ══ S-2-B 심볼 (L골드 / K아웃라인) ══ */
+.sym-wrap-v { display:flex; flex-direction:column; align-items:center; }
+
+.sym-s2b {
+  width:72px; height:72px; border-radius:50%;
+  background:#252422; border:1.5px solid rgba(201,168,76,0.4);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:20px; flex-shrink:0;
+  position:relative;
+}
+.sym-s2b-ring {
+  position:absolute; inset:5px; border-radius:50%;
+  border:1px solid rgba(201,168,76,0.12);
+  pointer-events:none;
+}
+.lk-wrap { display:flex; align-items:baseline; gap:0; position:relative; }
+
+/* L → 다크bg: 흰색 솔리드 */
+.lk-l {
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px; font-weight:700;
+  color:#F5F3EF;
+  letter-spacing:-0.06em; line-height:1;
+  position:relative; z-index:1;
+}
+/* K → 골드 아웃라인 */
+.lk-k {
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px; font-weight:700;
+  color:transparent;
+  -webkit-text-stroke:1.5px #C9A84C;
+  letter-spacing:0; line-height:1;
+  position:relative; z-index:2;
+  margin-left:-3px;
+}
+
+/* 워드마크 — S-2-B 스타일 (다크 배경용) */
+.s2b-main {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px; font-weight:600; color:#F5F3EF;
+  letter-spacing:0.18em; text-transform:uppercase; text-align:center;
+}
+.s2b-amp { color:#7A7872; }  /* & → 그레이 */
+.s2b-ko  { color:transparent; -webkit-text-stroke:1.2px #C9A84C; }  /* KO → 골드 아웃라인 */
+.s2b-rule-wrap { display:flex; align-items:center; gap:8px; margin:8px 0 7px; width:100%; }
+.s2b-rule { flex:1; height:1px; background:#C9A84C; opacity:0.25; }
+.s2b-diamond { width:5px; height:5px; background:#C9A84C; transform:rotate(45deg); opacity:0.7; }
+.s2b-sub {
+  font-family:'Raleway',sans-serif;
+  font-size:7px; font-weight:300; color:#7A7872;
+  letter-spacing:0.45em; text-transform:uppercase;
+}
+
+/* ══ A-2-B 워드마크 ══ */
+.a2b-outer { display:flex; flex-direction:column; align-items:flex-start; }
+.a2b-row { display:flex; align-items:flex-end; gap:0; }
+.a2b-lee {
+  font-family:'Cormorant Garamond',serif;
+  font-size:64px; font-weight:700; color:#252422;
+  letter-spacing:0.04em; text-transform:uppercase; line-height:1;
+}
+.a2b-amp {
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px; font-weight:400; font-style:normal;
+  color:#8A8A88; line-height:1;  /* & → 그레이 */
+  margin:0 8px 9px; align-self:flex-end;
+}
+.a2b-ko {
+  font-family:'Cormorant Garamond',serif;
+  font-size:64px; font-weight:700;
+  color:transparent;
+  -webkit-text-stroke:1.8px #C9A84C;  /* KO → 골드 아웃라인 */
+  letter-spacing:0.04em; text-transform:uppercase; line-height:1;
+}
+.a2b-sub {
+  font-family:'Raleway',sans-serif;
+  font-size:7px; font-weight:300; color:#8A8A88;
+  letter-spacing:0.4em; text-transform:uppercase; margin-top:10px;
+}
+
+/* ══ COMBO — 심볼 + A-2-B 워드마크 ══ */
+.combo-wrap { display:flex; flex-direction:column; align-items:center; gap:28px; }
+.combo-symbol {
+  width:80px; height:80px; border-radius:50%;
+  background:#252422; border:1.5px solid rgba(201,168,76,0.4);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; flex-shrink:0;
+}
+.combo-symbol .sym-s2b-ring {
+  position:absolute; inset:6px; border-radius:50%;
+  border:1px solid rgba(201,168,76,0.12);
+}
+
+.footer-note { text-align:center; margin-top:44px; font-size:10px; color:#bbb; letter-spacing:0.14em; }
+.footer-note strong { color:#8A8A88; font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Confidential · Combination Study · May 2026</p>
+  <h1 class="page-title">Lee & Ko Enterprises Inc.</h1>
+  <p class="page-sub">S-2-B 심볼 + A-2-B 워드마크 · 통일된 컬러 시스템</p>
+  <div class="divider-line"></div>
+</div>
+
+<div class="grid-2">
+
+  <!-- ── 좌: 심볼 단독 (다크) ── -->
+  <div class="card">
+    <div class="card-preview bg-dark">
+      <div class="sym-wrap-v">
+        <div class="sym-s2b">
+          <div class="sym-s2b-ring"></div>
+          <div class="lk-wrap">
+            <span class="lk-l">L</span>
+            <span class="lk-k">K</span>
+          </div>
+        </div>
+        <div class="s2b-main">LEE <span class="s2b-amp">&</span> <span class="s2b-ko">KO</span></div>
+        <div class="s2b-rule-wrap">
+          <div class="s2b-rule"></div>
+          <div class="s2b-diamond"></div>
+          <div class="s2b-rule"></div>
+        </div>
+        <div class="s2b-sub">Enterprises Inc. · Vancouver</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="candidate-badge">
+        <span class="badge-num">심볼</span>
+        <div class="badge-sep"></div>
+        <span class="badge-code">S-2-B 변경</span>
+      </div>
+      <div class="card-name">원형 모노그램 — L흰색 · K골드</div>
+      <div class="card-desc">L(흰색)과 K(골드)가 워드마크 LEE·KO와 동일한 컬러 로직으로 통일. & 는 그레이로 중립.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#252422"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:rgba(245,243,239,0.5);border-color:#bbb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 우: A-2-B 워드마크 단독 (라이트) ── -->
+  <div class="card">
+    <div class="card-preview bg-light">
+      <div class="a2b-outer">
+        <div class="a2b-row">
+          <div class="a2b-lee">LEE</div>
+          <div class="a2b-amp">&</div>
+          <div class="a2b-ko">KO</div>
+        </div>
+        <div class="a2b-sub">Enterprises Inc. · Vancouver, BC</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="candidate-badge">
+        <span class="badge-num">워드마크</span>
+        <div class="badge-sep"></div>
+        <span class="badge-code">A-2-B</span>
+      </div>
+      <div class="card-name">"리 앤 코"로 읽히는 비대칭</div>
+      <div class="card-desc">LEE 차콜 · KO 골드 · & 그레이. 심볼의 L·K 컬러와 완전히 통일된 시스템.</div>
+      <div class="swatches">
+        <div class="sw" style="background:#252422"></div>
+        <div class="sw" style="background:#C9A84C"></div>
+        <div class="sw" style="background:#3A3835"></div>
+        <div class="sw" style="background:#F5F3EF;border-color:#ddd"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── 풀 콤보 프리뷰 ── -->
+<div style="max-width:900px; margin:24px auto 0;">
+  <div class="card">
+    <div class="card-preview bg-dark" style="height:260px; gap:32px; flex-direction:row; justify-content:center; align-items:center;">
+
+      <!-- 심볼 -->
+      <div class="combo-symbol">
+        <div class="sym-s2b-ring"></div>
+        <div class="lk-wrap">
+          <span class="lk-l" style="font-size:34px;">L</span>
+          <span class="lk-k" style="font-size:34px;">K</span>
+        </div>
+      </div>
+
+      <!-- 세로 구분선 -->
+      <div style="width:1px; height:80px; background:rgba(201,168,76,0.2);"></div>
+
+      <!-- A-2-B 워드마크 (다크 배경 적용) -->
+      <div class="a2b-outer">
+        <div class="a2b-row">
+          <div class="a2b-lee" style="color:#F5F3EF; font-size:52px;">LEE</div>
+          <div class="a2b-amp" style="font-size:34px; margin-bottom:7px;">&</div>
+          <div class="a2b-ko" style="font-size:52px; -webkit-text-stroke:1.5px #C9A84C;">KO</div>
+        </div>
+        <div class="a2b-sub" style="color:#5A5850; letter-spacing:0.38em;">Enterprises Inc. · Vancouver, BC</div>
+      </div>
+
+    </div>
+    <div class="card-body" style="padding:16px 22px 20px;">
+      <div class="candidate-badge">
+        <span class="badge-num">풀 콤보</span>
+        <div class="badge-sep"></div>
+        <span class="badge-code">S-2-B + A-2-B · Dark</span>
+      </div>
+      <div class="card-name">심볼 + 워드마크 가로 조합 (다크)</div>
+      <div class="card-desc">심볼과 워드마크가 동일한 L=앞/K=뒤 논리로 연결됨. 명함·레터헤드·문서 헤더 가로 배치 용도.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 풀 콤보 라이트 버전 ── -->
+<div style="max-width:900px; margin:20px auto 0;">
+  <div class="card">
+    <div class="card-preview bg-light" style="height:260px; gap:32px; flex-direction:row; justify-content:center; align-items:center;">
+
+      <!-- 심볼 (라이트 배경) -->
+      <div class="combo-symbol" style="background:#F5F3EF; border:1.5px solid rgba(201,168,76,0.5);">
+        <div class="sym-s2b-ring" style="border:1px solid rgba(201,168,76,0.2);"></div>
+        <div class="lk-wrap">
+          <span class="lk-l" style="font-size:34px; color:#252422;">L</span>
+          <span class="lk-k" style="font-size:34px;">K</span>
+        </div>
+      </div>
+
+      <!-- 세로 구분선 -->
+      <div style="width:1px; height:80px; background:rgba(201,168,76,0.35);"></div>
+
+      <!-- A-2-B 워드마크 (라이트 배경) -->
+      <div class="a2b-outer">
+        <div class="a2b-row">
+          <div class="a2b-lee" style="font-size:52px; color:#252422;">LEE</div>
+          <div class="a2b-amp" style="font-size:34px; margin-bottom:7px;">&</div>
+          <div class="a2b-ko" style="font-size:52px; -webkit-text-stroke:1.5px #C9A84C;">KO</div>
+        </div>
+        <div class="a2b-sub">Enterprises Inc. · Vancouver, BC</div>
+      </div>
+
+    </div>
+    <div class="card-body" style="padding:16px 22px 20px;">
+      <div class="candidate-badge">
+        <span class="badge-num">풀 콤보</span>
+        <div class="badge-sep"></div>
+        <span class="badge-code">S-2-B + A-2-B · Light</span>
+      </div>
+      <div class="card-name">심볼 + 워드마크 가로 조합 (라이트)</div>
+      <div class="card-desc">크림 배경에서의 적용 버전. 웹사이트 헤더·인쇄물·밝은 배경 문서 용도.</div>
+    </div>
+  </div>
+</div>
+
+<p class="footer-note">
+  <strong>CONFIDENTIAL</strong> · LEE & KO ENTERPRISES INC. · COMBINATION STUDY · MAY 2026
+</p>
+
+</body>
+</html>

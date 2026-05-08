@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hulk Service — Brand Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --green:   #2D8A00;
+  --black:   #0D0D0D;
+  --white:   #FFFFFF;
+  --cream:   #F4F4F2;
+  --muted:   #888888;
+  --border:  #E0E0E0;
+}
+
+body {
+  background: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  width: 1080px;
+  margin: 0 auto;
+  padding: 64px 64px 80px;
+  color: var(--black);
+}
+
+/* ─── PAGE HEADER ─── */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 20px;
+  margin-bottom: 52px;
+}
+.brand-eyebrow { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.brand-title { font-family:'Montserrat',sans-serif; font-size:30px; font-weight:800; color:var(--black); letter-spacing:0.08em; line-height:1; text-transform:uppercase; }
+.brand-title span { color:var(--green); }
+.brand-sub { font-size:11px; color:var(--muted); margin-top:5px; letter-spacing:0.08em; }
+.doc-meta { text-align:right; font-size:9px; color:var(--muted); letter-spacing:0.12em; line-height:1.9; text-transform:uppercase; }
+
+/* ─── SECTION LABEL ─── */
+.sec-label { font-size:8px; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:var(--green); margin-bottom:16px; }
+
+/* ─── MARKS ROW (세로형 + 가로형) ─── */
+.layout-marks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+/* ─── PRIMARY LOGO (세로형) ─── */
+.logo-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+.logo-card-dark {
+  background: var(--black);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 세로형: 독립 파일, 그대로 표시 */
+.crop-vertical {
+  position: relative;
+  width: 100%;
+  padding-top: 85%;
+  overflow: hidden;
+  background: #ffffff;
+}
+.crop-vertical img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 24px;
+}
+
+/* 가로형: 독립 파일, 와이드 비율로 표시 */
+.crop-horizontal {
+  position: relative;
+  width: 100%;
+  padding-top: 85%;
+  overflow: hidden;
+  background: #ffffff;
+}
+.crop-horizontal img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 24px;
+}
+
+.logo-label {
+  padding: 12px 18px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.logo-label-dark {
+  padding: 12px 18px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+/* ─── CONCEPT (풀 와이드) ─── */
+.concept-block {
+  background: var(--black);
+  border-radius: 16px;
+  padding: 36px 48px;
+  color: white;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.concept-block .sec-label { color: rgba(45,138,0,0.9); }
+.concept-title { font-family:'Montserrat',sans-serif; font-size:26px; font-weight:800; color:white; letter-spacing:0.06em; margin-bottom:14px; line-height:1.2; text-transform:uppercase; }
+.concept-title em { color: var(--green); font-style: normal; }
+.concept-desc { font-size:12px; color:rgba(255,255,255,0.7); line-height:1.85; margin-bottom:24px; }
+.concept-formula { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.formula-pill {
+  padding:7px 14px; border-radius:6px;
+  font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+}
+.pill-green { background:var(--green); color:white; }
+.pill-dark  { background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.85); }
+.formula-op { color:rgba(255,255,255,0.3); font-size:16px; }
+.concept-divider { border:none; border-top:1px solid rgba(255,255,255,0.08); margin:20px 0; }
+.concept-values { display:flex; gap:8px; flex-wrap:wrap; }
+.val-tag {
+  font-size:9px; letter-spacing:0.1em; text-transform:uppercase;
+  padding:5px 10px; border-radius:4px;
+  border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.6);
+}
+.concept-right { }
+.service-list { display:flex; flex-direction:column; gap:12px; }
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  border-left: 3px solid var(--green);
+}
+.service-num { font-size:9px; font-weight:700; color:var(--green); letter-spacing:0.2em; min-width:20px; }
+.service-name { font-size:11px; font-weight:600; color:white; letter-spacing:0.1em; text-transform:uppercase; }
+.service-desc { font-size:9px; color:rgba(255,255,255,0.4); letter-spacing:0.06em; margin-top:2px; }
+
+/* ─── INFO ROW (Colors + Typography) ─── */
+.layout-info { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px; }
+
+/* ─── COLORS ─── */
+.colors-block {
+  background: var(--white); border-radius:16px; padding:28px 24px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+}
+.color-swatches { display:flex; flex-direction:column; gap:10px; margin-top:12px; }
+.swatch-row { display:flex; align-items:center; gap:12px; }
+.swatch { width:40px; height:40px; border-radius:8px; flex-shrink:0; }
+.swatch-name { font-size:10px; font-weight:700; color:var(--black); letter-spacing:0.04em; }
+.swatch-role { font-size:9px; color:var(--muted); letter-spacing:0.06em; margin-top:1px; }
+.swatch-hex { font-size:8.5px; color:#bbb; font-weight:500; letter-spacing:0.1em; margin-left:auto; }
+
+/* ─── TYPOGRAPHY ─── */
+.type-block {
+  background: var(--white); border-radius:16px; padding:28px 24px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  display:flex; flex-direction:column; gap:16px;
+}
+.type-family { font-size:9px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--green); margin-bottom:4px; }
+.type-sample-montserrat { font-family:'Montserrat',sans-serif; font-size:24px; font-weight:800; color:var(--black); letter-spacing:0.06em; text-transform:uppercase; line-height:1.1; }
+.type-sample-montserrat span { color:var(--green); }
+.type-sample-oswald { font-family:'Oswald',sans-serif; font-size:18px; font-weight:600; color:var(--black); letter-spacing:0.08em; text-transform:uppercase; }
+.type-sample-sub { font-size:10px; color:var(--muted); letter-spacing:0.06em; margin-top:2px; }
+.type-divider { border:none; border-top:1px solid var(--border); }
+.type-note { font-size:9px; color:var(--muted); line-height:1.7; letter-spacing:0.04em; }
+
+/* ─── REFERENCE SECTION ─── */
+.ref-section { margin-bottom: 24px; }
+.ref-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.ref-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: var(--black);
+  letter-spacing: 0.12em;
+}
+.ref-rule { flex: 1; height: 1px; background: var(--border); }
+.ref-badge {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.ref-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+.ref-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  background: #fafafa;
+}
+.ref-img-wrap img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 24px;
+}
+.ref-card-label {
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ref-card-name { font-size: 10px; font-weight: 700; color: var(--black); letter-spacing: 0.08em; text-transform: uppercase; }
+.ref-card-sub { font-size: 9px; color: var(--muted); letter-spacing: 0.06em; }
+
+/* ─── FOOTER ─── */
+.page-footer {
+  margin-top: 28px; border-top: 1px solid var(--border); padding-top: 16px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand { font-size:9px; font-weight:700; color:var(--black); letter-spacing:0.2em; text-transform:uppercase; }
+.footer-note { font-size:9px; color:#ccc; letter-spacing:0.1em; text-transform:uppercase; }
+</style>
+</head>
+<body>
+
+<!-- ══ PAGE HEADER ══ -->
+<header class="page-header">
+  <div>
+    <p class="brand-eyebrow">Brand Identity · Initial Proposal</p>
+    <h1 class="brand-title">HULK <span>SERVICE</span></h1>
+    <p class="brand-sub">Moving · Junk Removal · Cleaning · Vancouver, BC</p>
+  </div>
+  <div class="doc-meta">
+    <div>Lee &amp; Ko Enterprises Inc.</div>
+    <div>Confidential · May 2026</div>
+    <div>Brand Overview — Ver. 1.0</div>
+  </div>
+</header>
+
+<!-- ══ PRIMARY MARKS: 세로형 + 가로형 ══ -->
+<div class="layout-marks">
+
+  <!-- 세로형 (Light) -->
+  <div>
+    <p class="sec-label">Primary Mark — Vertical</p>
+    <div class="logo-card">
+      <div class="crop-vertical">
+        <img src="최종시안 세로형.png" alt="Hulk Service Logo Vertical">
+      </div>
+      <div class="logo-label">Primary · Light Background</div>
+    </div>
+  </div>
+
+  <!-- 가로형 (Light) -->
+  <div>
+    <p class="sec-label">Horizontal Mark — Light</p>
+    <div class="logo-card">
+      <div class="crop-horizontal">
+        <img src="최종시안 가로형.png" alt="Hulk Service Logo Horizontal">
+      </div>
+      <div class="logo-label">Horizontal · Light Background</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ BRAND CONCEPT (풀 와이드) ══ -->
+<div class="concept-block">
+
+  <!-- 좌: 컨셉 텍스트 -->
+  <div>
+    <p class="sec-label" style="color:rgba(45,138,0,0.9)">Brand Concept</p>
+    <div class="concept-title">STRENGTH MEETS <em>RELIABILITY</em></div>
+    <p class="concept-desc">
+      강력한 주먹 심볼은 <strong style="color:rgba(255,255,255,0.9)">압도적인 힘과 실행력</strong>을 상징합니다.
+      에너지 넘치는 그린은 신뢰와 친환경 서비스를, 역동적인 사선 모션은
+      <strong style="color:rgba(45,138,0,0.9)">빠르고 강한 이동·처리·청소</strong>를 시각화합니다.<br><br>
+      이름처럼 압도적인 서비스 — 한 번 부르면 모든 게 해결됩니다.
+    </p>
+    <div class="concept-formula">
+      <div class="formula-pill pill-green">Power</div>
+      <span class="formula-op">+</span>
+      <div class="formula-pill pill-dark">Speed</div>
+      <span class="formula-op">+</span>
+      <div class="formula-pill pill-dark">Trust</div>
+    </div>
+    <hr class="concept-divider">
+    <div class="concept-values">
+      <div class="val-tag">강력함</div>
+      <div class="val-tag">신뢰</div>
+      <div class="val-tag">빠른 실행</div>
+      <div class="val-tag">친환경</div>
+      <div class="val-tag">All-in-One</div>
+    </div>
+  </div>
+
+  <!-- 우: 서비스 리스트 -->
+  <div class="concept-right">
+    <p class="sec-label" style="color:rgba(45,138,0,0.9)">Service Lines</p>
+    <div class="service-list">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <div>
+          <div class="service-name">Moving</div>
+          <div class="service-desc">Residential &amp; Commercial · Local &amp; Long Distance</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <div>
+          <div class="service-name">Junk Removal</div>
+          <div class="service-desc">Full-Service Haul Away · Eco-Friendly Disposal</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <div>
+          <div class="service-name">Cleaning</div>
+          <div class="service-desc">Move-In / Move-Out · Deep Clean · Post-Renovation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ INFO ROW: Colors + Typography ══ -->
+<div class="layout-info">
+
+  <!-- COLORS -->
+  <div>
+    <p class="sec-label">Brand Colors</p>
+    <div class="colors-block">
+      <div class="color-swatches">
+        <div class="swatch-row">
+          <div class="swatch" style="background:#2D8A00;"></div>
+          <div>
+            <div class="swatch-name">Hulk Green</div>
+            <div class="swatch-role">Primary · Power · Energy</div>
+          </div>
+          <div class="swatch-hex">#2D8A00</div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#0D0D0D;"></div>
+          <div>
+            <div class="swatch-name">Power Black</div>
+            <div class="swatch-role">Secondary · Strength · Bold</div>
+          </div>
+          <div class="swatch-hex">#0D0D0D</div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#252422;"></div>
+          <div>
+            <div class="swatch-name">Charcoal</div>
+            <div class="swatch-role">Secondary · Lee &amp; Ko 모회사 컬러</div>
+          </div>
+          <div class="swatch-hex">#252422</div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#FFFFFF; border:1px solid #eee;"></div>
+          <div>
+            <div class="swatch-name">White</div>
+            <div class="swatch-role">Background · Reversed text</div>
+          </div>
+          <div class="swatch-hex">#FFFFFF</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div>
+    <p class="sec-label">Typography</p>
+    <div class="type-block">
+      <div>
+        <div class="type-family">Primary — Montserrat</div>
+        <div class="type-sample-montserrat">HULK <span>SERVICE</span></div>
+        <div class="type-sample-sub">Display · Headlines · Weight 800 ExtraBold</div>
+      </div>
+      <hr class="type-divider">
+      <div>
+        <div class="type-family">Primary Body — Montserrat</div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:400; color:var(--black); letter-spacing:0.02em; line-height:1.6;">Vancouver's strongest<br>moving &amp; cleaning crew.</div>
+        <div class="type-sample-sub">Body · Regular / Medium · Weight 400–500</div>
+      </div>
+      <hr class="type-divider">
+      <div>
+        <div class="type-family">Secondary — Oswald</div>
+        <div class="type-sample-oswald">Moving · Cleaning</div>
+        <div class="type-sample-sub">Subheading · Labels · Weight 600</div>
+      </div>
+      <hr class="type-divider">
+      <div class="type-note">
+        두 폰트 모두 Google Fonts 오픈 라이선스.<br>
+        인쇄·디지털 전 영역 자유 사용 가능.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ REFERENCE ══ -->
+<div class="ref-section">
+  <div class="ref-header">
+    <div class="ref-title">REFERENCE</div>
+    <div class="ref-rule"></div>
+    <div class="ref-badge">레퍼런스 시안</div>
+  </div>
+
+  <div class="ref-grid">
+
+    <!-- 시안1 -->
+    <div class="ref-card">
+      <div class="ref-img-wrap">
+        <img src="시안1.png" alt="Hulk Service 시안1">
+      </div>
+      <div class="ref-card-label">
+        <div>
+          <div class="ref-card-name">시안 1</div>
+          <div class="ref-card-sub">메인 심볼 + 배리에이션 4종</div>
+        </div>
+        <div class="ref-badge">Ref. A</div>
+      </div>
+    </div>
+
+    <!-- 시안2 -->
+    <div class="ref-card">
+      <div class="ref-img-wrap">
+        <img src="시안2.png" alt="Hulk Service 시안2">
+      </div>
+      <div class="ref-card-label">
+        <div>
+          <div class="ref-card-name">시안 2</div>
+          <div class="ref-card-sub">심볼 배리에이션 9종 그리드</div>
+        </div>
+        <div class="ref-badge">Ref. B</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="page-footer">
+  <div class="footer-brand">Hulk Service · Brand Identity v1.0</div>
+  <div class="footer-note">Confidential · Lee &amp; Ko Enterprises Inc. · May 2026</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<svg width="720" height="110" viewBox="0 0 720 110"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Raleway:wght@300&amp;display=swap');
+    </style>
+    <clipPath id="circle-clip">
+      <circle cx="55" cy="55" r="34"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="110" fill="#F5F3EF"/>
+
+  <!-- ── Symbol ── -->
+  <g transform="translate(20, 0)">
+    <!-- Circle fill -->
+    <circle cx="55" cy="55" r="34" fill="#F5F3EF"/>
+
+    <!-- Taeguk S-curve fill (subtle left half) -->
+    <path d="M55,21 A17,17 0 0,0 55,55 A17,17 0 0,1 55,89 A34,34 0 0,0 55,21Z"
+          fill="rgba(37,36,34,0.03)"/>
+
+    <!-- Taeguk S-curve line -->
+    <path d="M55,21 A17,17 0 0,1 55,55 A17,17 0 0,0 55,89"
+          fill="none" stroke="rgba(201,168,76,0.42)" stroke-width="1"/>
+
+    <!-- Outer ring -->
+    <circle cx="55" cy="55" r="34" fill="none" stroke="rgba(201,168,76,0.52)" stroke-width="1.4"/>
+    <!-- Inner ring -->
+    <circle cx="55" cy="55" r="28" fill="none" stroke="rgba(201,168,76,0.14)" stroke-width="0.7"/>
+
+    <!-- L: charcoal solid -->
+    <text x="24" y="72"
+          font-family="Cormorant Garamond, serif"
+          font-size="32" font-weight="700"
+          fill="#252422">L</text>
+
+    <!-- K: gold outline -->
+    <text x="44" y="72"
+          font-family="Cormorant Garamond, serif"
+          font-size="32" font-weight="700"
+          fill="none" stroke="#C9A84C" stroke-width="1.2">K</text>
+  </g>
+
+  <!-- ── Vertical divider ── -->
+  <line x1="138" y1="18" x2="138" y2="92"
+        stroke="rgba(201,168,76,0.32)" stroke-width="1"/>
+
+  <!-- ── Wordmark ── -->
+  <!-- LEE: charcoal solid -->
+  <text x="160" y="89"
+        font-family="Cormorant Garamond, serif"
+        font-size="58" font-weight="700"
+        fill="#252422"
+        letter-spacing="2">LEE</text>
+
+  <!-- & : gray -->
+  <text x="290" y="85"
+        font-family="Cormorant Garamond, serif"
+        font-size="36" font-weight="400"
+        fill="#8A8A88">&#38;</text>
+
+  <!-- K: gold outline -->
+  <text x="328" y="89"
+        font-family="Cormorant Garamond, serif"
+        font-size="58" font-weight="700"
+        fill="none" stroke="#C9A84C" stroke-width="1.7">K</text>
+
+  <!-- O: gold outline -->
+  <text x="366" y="89"
+        font-family="Cormorant Garamond, serif"
+        font-size="58" font-weight="700"
+        fill="none" stroke="#C9A84C" stroke-width="1.7">O</text>
+
+  <!-- Taeguk S-curve inside O
+       O center x ≈ 366 + 19 = 385, baseline y = 89
+       cap height at 58px ≈ 42px → cap top y ≈ 89-42 = 47
+       O center y ≈ 89-21 = 68
+       counter top ≈ 58, counter bottom ≈ 79 -->
+  <path d="M386,57 A5.5,5.5 0 0,1 386,68 A5.5,5.5 0 0,0 386,79"
+        fill="none" stroke="#C9A84C" stroke-width="1.1" opacity="0.52"/>
+
+  <!-- Tagline -->
+  <text x="160" y="103"
+        font-family="Raleway, sans-serif"
+        font-size="7" font-weight="300"
+        fill="#8A8A88"
+        letter-spacing="3.2">ENTERPRISES INC. · VANCOUVER, BC</text>
+
+</svg>
