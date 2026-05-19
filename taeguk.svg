@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="-120 -120 240 240">
+
+  <!-- Outer circle (background) -->
+  <circle r="100" fill="#F5EFE4"/>
+
+  <!-- Yin — 음 (blue, bottom) -->
+  <path d="M0,-100
+    a50,50 0 0,0 0,100
+    a50,50 0 0,1 0,100
+    a100,100 0 0,0 0,-200z"
+    fill="#003478"/>
+
+  <!-- Yang — 양 (red, top) -->
+  <path d="M0,-100
+    a50,50 0 0,1 0,100
+    a50,50 0 0,0 0,100
+    a100,100 0 0,1 0,-200z"
+    fill="#CD2E3A"/>
+
+  <!-- Outer ring -->
+  <circle r="100" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+
+</svg>
