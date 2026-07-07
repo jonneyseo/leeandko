@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lee & Ko Enterprises — Brand Index</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #0f0f0f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Georgia', serif;
+      padding: 48px 24px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    header .eyebrow {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    header h1 {
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #e8e2d9;
+    }
+
+    header .divider {
+      width: 40px;
+      height: 1px;
+      background: #444;
+      margin: 20px auto 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 820px;
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      header h1 {
+        font-size: 26px;
+      }
+    }
+
+    .brand-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 36px 20px;
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      min-height: 120px;
+    }
+
+    .brand-btn:hover {
+      background: #222;
+      border-color: #444;
+      transform: translateY(-2px);
+    }
+
+    .brand-btn .name {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c8c0b4;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .brand-btn .sub {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: #555;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* Active brand accent line */
+    .brand-btn.active::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 2px;
+      background: #c8a96e;
+      border-radius: 0 0 2px 2px;
+    }
+
+    /* Disabled / TBD */
+    .brand-btn.disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .brand-btn.disabled .name {
+      color: #666;
+    }
+
+    .tbd-badge {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #555;
+      border: 1px solid #333;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 64px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: #333;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="eyebrow">Brand Identity Project</p>
+    <h1>Lee &amp; Ko Enterprises</h1>
+    <div class="divider"></div>
+  </header>
+
+  <div class="grid">
+
+    <a href="LeeKo_Final_Presentation.html" class="brand-btn active">
+      <span class="name">Lee &amp; Ko</span>
+      <span class="sub">Holding</span>
+    </a>
+
+    <a href="vveducation/VVEducation_Brand_Overview_v2.html" class="brand-btn active">
+      <span class="name">VV Education</span>
+      <span class="sub">Education</span>
+    </a>
+
+    <a href="hulkservice/HulkService_Final_Presentation.html" class="brand-btn active">
+      <span class="name">Hulk Service</span>
+      <span class="sub">Service</span>
+    </a>
+
+    <a href="tongnamu/Tongnamu_Final_Presentation.html" class="brand-btn active">
+      <span class="name">통나무집</span>
+      <span class="sub">Foods</span>
+    </a>
+
+    <span class="brand-btn disabled">
+      <span class="name">Pacific Upholstery</span>
+      <span class="tbd-badge">TBD</span>
+    </span>
+
+    <span class="brand-btn disabled">
+      <span class="name">그리즐리 컬렉션<br>&amp; 마켓</span>
+      <span class="tbd-badge">TBD</span>
+    </span>
+
+  </div>
+
+  <footer>Vancouver, BC &nbsp;·&nbsp; 2026</footer>
+
+</body>
+</html>

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hulk Service — Final Brand Identity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:       #2D8A00;
+      --green-mid:   #3aa300;
+      --green-light: #5fc62a;
+      --black:       #0D0D0D;
+      --black-mid:   #1a1a1a;
+      --black-soft:  #262626;
+      --white:       #FFFFFF;
+      --cream:       #F4F4F2;
+      --border:      #E0E0E0;
+      --muted:       #888888;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Montserrat', sans-serif;
+      color: var(--black);
+    }
+
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--black);
+      padding: 12px 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .back-btn:hover {
+      color: var(--green-light);
+    }
+
+
+    /* ════════════════════════
+       HERO
+    ════════════════════════ */
+    .hero {
+      background: var(--black);
+      padding: 80px 64px 68px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(45,138,0,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-title span {
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-top: 14px;
+    }
+
+    .hero-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--green);
+      margin-top: 28px;
+      border-radius: 2px;
+    }
+
+
+    /* ════════════════════════
+       SECTION WRAPPER
+    ════════════════════════ */
+    .section {
+      padding: 72px 64px;
+      max-width: 1228px;
+      margin: 0 auto;
+    }
+
+    .section-dark {
+      background: var(--black-mid);
+      padding: 72px 64px;
+    }
+
+    .section-dark-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .section-label-light {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+
+    .section-title-light {
+      font-family: 'Oswald', sans-serif;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 44px;
+    }
+
+    .section-sub-light {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.06em;
+      margin-bottom: 44px;
+    }
+
+    .rule {
+      width: 36px;
+      height: 3px;
+      background: var(--green);
+      margin-bottom: 44px;
+      border-radius: 2px;
+    }
+
+
+    /* ════════════════════════
+       DOWNLOAD BAR
+    ════════════════════════ */
+    .download-bar {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: var(--black);
+      border-radius: 8px;
+      padding: 20px 28px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .download-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .dl-group-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.45);
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    .dl-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.08);
+      margin: 0 16px;
+    }
+
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .dl-svg {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .dl-svg:hover {
+      background: var(--green-mid);
+    }
+
+    .dl-png {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.6);
+    }
+
+    .dl-png:hover {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+    }
+
+
+    /* ════════════════════════
+       LOGO GRID — 2×2
+    ════════════════════════ */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .logo-card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .logo-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 40px;
+    }
+
+    .logo-stage img {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    .logo-stage.on-white {
+      background: var(--white);
+    }
+
+    .logo-stage.on-black {
+      background: var(--black);
+    }
+
+    .logo-foot {
+      padding: 14px 20px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-foot.dark-foot {
+      background: var(--black-soft);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo-foot-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .logo-foot.dark-foot .logo-foot-title {
+      color: var(--white);
+    }
+
+    .logo-foot-desc {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .logo-foot.dark-foot .logo-foot-desc {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .logo-tag {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 3px;
+    }
+
+    .tag-green {
+      background: rgba(45,138,0,0.12);
+      color: var(--green);
+    }
+
+    .tag-white {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.4);
+    }
+
+
+    /* ════════════════════════
+       COLOR PALETTE
+    ════════════════════════ */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .color-chip {}
+
+    .chip-swatch {
+      height: 90px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .chip-swatch.bordered {
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .chip-name {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .chip-hex {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 6px;
+    }
+
+    .chip-role {
+      font-size: 9.5px;
+      color: rgba(255,255,255,0.22);
+      line-height: 1.55;
+    }
+
+
+    /* ════════════════════════
+       TYPOGRAPHY
+    ════════════════════════ */
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .type-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 36px 28px;
+    }
+
+    .type-tag {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .sample-bebas {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      letter-spacing: 0.1em;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .sample-bebas span { color: var(--green); }
+
+    .sample-oswald {
+      font-family: 'Oswald', sans-serif;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .sample-montserrat {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--black);
+      line-height: 1.7;
+      margin-bottom: 4px;
+    }
+
+    .sample-montserrat strong {
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .type-divider {
+      width: 28px;
+      height: 2px;
+      background: var(--green);
+      margin: 16px 0;
+      border-radius: 1px;
+    }
+
+    .type-name {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .type-desc {
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .type-weights {
+      display: flex;
+      gap: 6px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .w-pill {
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: #f0f0ee;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .type-usage {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 9.5px;
+      color: var(--muted);
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+
+
+    /* ════════════════════════
+       SCENE GRID — 3×3
+    ════════════════════════ */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .scene-card {
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .scene-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .scene-foot {
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scene-num {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--green);
+    }
+
+    .scene-sep {
+      width: 16px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .scene-label {
+      font-size: 9.5px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+
+    /* ════════════════════════
+       FOOTER
+    ════════════════════════ */
+    .footer {
+      background: var(--black);
+      padding: 40px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 3px solid var(--green);
+    }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-brand span { color: var(--green); }
+
+    .footer-meta {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACK BUTTON -->
+  <div class="topbar">
+    <a href="../index.html" class="back-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Main
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Brand Identity — Final Presentation</p>
+      <h1 class="hero-title"><span>HULK</span> SERVICE</h1>
+      <p class="hero-sub">Vancouver, BC &nbsp;·&nbsp; 2026</p>
+      <div class="hero-rule"></div>
+    </div>
+  </div>
+
+
+  <!-- ── 01 LOGO SYSTEM ── -->
+  <div class="section">
+    <p class="section-label">01 &nbsp;/&nbsp; Logo System</p>
+    <h2 class="section-title">로고 시스템</h2>
+    <p class="section-sub">4가지 공식 로고 — 가로형 · 세로형, 태그라인 포함/미포함</p>
+    <div class="rule"></div>
+
+    <!-- Download Bar -->
+    <div class="download-bar">
+      <div class="download-group">
+        <span class="dl-group-label">가로형</span>
+        <a href="final_images/가로형.svg" download class="dl-btn dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="final_images/가로형.png" download class="dl-btn dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+      <div class="dl-divider"></div>
+      <div class="download-group">
+        <span class="dl-group-label">가로형 + 태그라인</span>
+        <a href="final_images/가로형 Tagline.svg" download class="dl-btn dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="final_images/가로형 Tagline.png" download class="dl-btn dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+      <div class="dl-divider"></div>
+      <div class="download-group">
+        <span class="dl-group-label">세로형</span>
+        <a href="final_images/세로형.svg" download class="dl-btn dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="final_images/세로형.png" download class="dl-btn dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+      <div class="dl-divider"></div>
+      <div class="download-group">
+        <span class="dl-group-label">세로형 + 태그라인</span>
+        <a href="final_images/세로형 Tagline.svg" download class="dl-btn dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="final_images/세로형 Tagline.png" download class="dl-btn dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+    </div>
+
+    <div class="logo-grid">
+
+      <!-- 가로형 -->
+      <div class="logo-card">
+        <div class="logo-stage on-black">
+          <img src="final_images/가로형.svg" alt="Hulk Service 가로형">
+        </div>
+        <div class="logo-foot dark-foot">
+          <div>
+            <p class="logo-foot-title">가로형</p>
+            <p class="logo-foot-desc">Horizontal — 명함 · 웹 헤더 · 차량 사이드</p>
+          </div>
+          <span class="logo-tag tag-white">Dark</span>
+        </div>
+      </div>
+
+      <!-- 가로형 Tagline -->
+      <div class="logo-card">
+        <div class="logo-stage on-white">
+          <img src="final_images/가로형 Tagline.svg" alt="Hulk Service 가로형 Tagline">
+        </div>
+        <div class="logo-foot">
+          <div>
+            <p class="logo-foot-title">가로형 + 태그라인</p>
+            <p class="logo-foot-desc">Horizontal w/ Tagline — 라이트 배경 전용</p>
+          </div>
+          <span class="logo-tag tag-green">Standard</span>
+        </div>
+      </div>
+
+      <!-- 세로형 -->
+      <div class="logo-card">
+        <div class="logo-stage on-black">
+          <img src="final_images/세로형.svg" alt="Hulk Service 세로형">
+        </div>
+        <div class="logo-foot dark-foot">
+          <div>
+            <p class="logo-foot-title">세로형</p>
+            <p class="logo-foot-desc">Vertical — 유니폼 · 스티커 · 정사각 레이아웃</p>
+          </div>
+          <span class="logo-tag tag-white">Dark</span>
+        </div>
+      </div>
+
+      <!-- 세로형 Tagline -->
+      <div class="logo-card">
+        <div class="logo-stage on-white">
+          <img src="final_images/세로형 Tagline.svg" alt="Hulk Service 세로형 Tagline">
+        </div>
+        <div class="logo-foot">
+          <div>
+            <p class="logo-foot-title">세로형 + 태그라인</p>
+            <p class="logo-foot-desc">Vertical w/ Tagline — 라이트 배경 전용</p>
+          </div>
+          <span class="logo-tag tag-green">Primary</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ── 02 COLOR PALETTE ── -->
+  <div class="section-dark">
+    <div class="section-dark-inner">
+      <p class="section-label-light">02 &nbsp;/&nbsp; Color System</p>
+      <h2 class="section-title-light">컬러 팔레트</h2>
+      <p class="section-sub-light">브랜드 공식 컬러 스킴 — Power Green & Black</p>
+      <div class="rule"></div>
+
+      <div class="color-grid">
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#2D8A00;"></div>
+          <p class="chip-name">Power Green</p>
+          <p class="chip-hex">#2D8A00</p>
+          <p class="chip-role">Brand Primary<br>로고 · 강조 · 액센트</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#3aa300;"></div>
+          <p class="chip-name">Green Mid</p>
+          <p class="chip-hex">#3AA300</p>
+          <p class="chip-role">Hover / Active<br>인터랙션 상태</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#5fc62a;"></div>
+          <p class="chip-name">Green Light</p>
+          <p class="chip-hex">#5FC62A</p>
+          <p class="chip-role">Highlight<br>다크 배경 강조</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#0D0D0D;"></div>
+          <p class="chip-name">Deep Black</p>
+          <p class="chip-hex">#0D0D0D</p>
+          <p class="chip-role">Primary Dark<br>배경 · 헤더 · 텍스트</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch bordered" style="background:#F4F4F2;"></div>
+          <p class="chip-name">Cream</p>
+          <p class="chip-hex">#F4F4F2</p>
+          <p class="chip-role">Background Light<br>페이지 배경 · 카드</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── 03 TYPOGRAPHY ── -->
+  <div class="section">
+    <p class="section-label">03 &nbsp;/&nbsp; Typography</p>
+    <h2 class="section-title">타이포그래피</h2>
+    <p class="section-sub">서체 시스템 — 3종 타입페이스 계층</p>
+    <div class="rule"></div>
+
+    <div class="type-grid">
+
+      <!-- Bebas Neue -->
+      <div class="type-card">
+        <p class="type-tag">Display &nbsp;·&nbsp; Primary</p>
+        <div class="sample-bebas">HULK<br><span>SERVICE</span></div>
+        <div class="type-divider"></div>
+        <p class="type-name">Bebas Neue</p>
+        <p class="type-desc">올-캡스 전용 디스플레이 서체. 강인하고 임팩트 있는 인상으로 로고 · 대형 헤드라인에 사용. 브랜드의 힘과 에너지를 직접 전달합니다.</p>
+        <div class="type-weights">
+          <span class="w-pill">Regular 400</span>
+        </div>
+        <div class="type-usage">로고 워드마크 · 대형 타이틀<br>차량 래핑 · 현수막 헤드라인</div>
+      </div>
+
+      <!-- Oswald -->
+      <div class="type-card">
+        <p class="type-tag">Heading &nbsp;·&nbsp; Secondary</p>
+        <div class="sample-oswald">POWER &amp;<br>RELIABILITY</div>
+        <div class="type-divider"></div>
+        <p class="type-name">Oswald</p>
+        <p class="type-desc">컨덴스드 산세리프로 좁은 공간에서도 강한 존재감을 가집니다. 섹션 타이틀 · 서브헤딩에 적용해 Bebas Neue와 계층 구조를 형성합니다.</p>
+        <div class="type-weights">
+          <span class="w-pill">Light 300</span>
+          <span class="w-pill">Regular 400</span>
+          <span class="w-pill">Medium 500</span>
+          <span class="w-pill">SemiBold 600</span>
+          <span class="w-pill">Bold 700</span>
+        </div>
+        <div class="type-usage">섹션 타이틀 · 서비스 항목명<br>배지 · 레이블 · 네비게이션</div>
+      </div>
+
+      <!-- Montserrat -->
+      <div class="type-card">
+        <p class="type-tag">Body &nbsp;·&nbsp; Tertiary</p>
+        <div class="sample-montserrat">
+          <strong>HULK SERVICE</strong><br>
+          provides professional moving &<br>
+          hauling solutions across BC.
+        </div>
+        <div class="type-divider"></div>
+        <p class="type-name">Montserrat</p>
+        <p class="type-desc">가독성이 뛰어난 기하학적 산세리프. 바디 카피 · UI 텍스트 · 설명에 활용해 전체 타이포그래피 시스템의 가독성 기반을 담당합니다.</p>
+        <div class="type-weights">
+          <span class="w-pill">Light 300</span>
+          <span class="w-pill">Regular 400</span>
+          <span class="w-pill">Medium 500</span>
+          <span class="w-pill">SemiBold 600</span>
+          <span class="w-pill">ExtraBold 800</span>
+        </div>
+        <div class="type-usage">바디 텍스트 · 설명 문구<br>버튼 · 폼 · UI 전반</div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ── 04 SCENE IMAGERY ── -->
+  <div class="section" style="padding-top: 0;">
+    <p class="section-label">04 &nbsp;/&nbsp; Brand Imagery</p>
+    <h2 class="section-title">브랜드 이미지</h2>
+    <p class="section-sub">실물 적용 렌더링 — 트럭 · 트레일러 · 유니폼 · 티셔츠 외</p>
+    <div class="rule"></div>
+
+    <div class="scene-grid">
+
+      <div class="scene-card">
+        <img src="final_images/scene_1.png" alt="Scene 1" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">01</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_images/scene_2.png" alt="Scene 2" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">02</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_images/scene_3.png" alt="Scene 3" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">03</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_images/scene_4.png" alt="Scene 4" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">04</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_images/scene_5.png" alt="Scene 5" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">05</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_images/scene_6.png" alt="Scene 6" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">06</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_images/scene_7.png" alt="Scene 7" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">07</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_images/scene_8.png" alt="Scene 8" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">08</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_images/scene_9.png" alt="Scene 9" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">09</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="footer-brand"><span>HULK</span> SERVICE</p>
+    <p class="footer-meta">Brand Identity &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp; 2026</p>
+  </div>
+
+</body>
+</html>

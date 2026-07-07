@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>통나무집 — Final Brand Identity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Serif+KR:wght@300;400;500;600;700&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red:       #A31621;
+      --red-dim:   rgba(163,22,33,0.1);
+      --red-mid:   #bf1b27;
+      --ink:       #1C1A18;
+      --ink-mid:   #2e2b27;
+      --cream:     #F5EFE4;
+      --warm:      #EDE4D3;
+      --warm-dark: #DDD3C0;
+      --muted:     #8A7E6E;
+      --white:     #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      color: var(--ink);
+    }
+
+
+    /* ════════════════════════
+       TOPBAR
+    ════════════════════════ */
+    .topbar {
+      background: var(--ink);
+      padding: 12px 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .back-btn:hover { color: var(--red); }
+
+
+    /* ════════════════════════
+       HERO
+    ════════════════════════ */
+    .hero {
+      background: var(--ink);
+      padding: 72px 64px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(163,22,33,0.14) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: 'Jua', cursive;
+      font-size: 80px;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .hero-title span { color: var(--red); }
+
+    .hero-sub {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.28);
+      margin-top: 14px;
+    }
+
+    .hero-rule {
+      width: 44px;
+      height: 3px;
+      background: var(--red);
+      margin-top: 28px;
+      border-radius: 1px;
+    }
+
+
+    /* ════════════════════════
+       SECTION WRAPPER
+    ════════════════════════ */
+    .section {
+      padding: 72px 64px;
+      max-width: 1228px;
+      margin: 0 auto;
+    }
+
+    .section-dark {
+      background: var(--ink-mid);
+      padding: 72px 64px;
+    }
+
+    .section-dark-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    .section-label-light {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(163,22,33,0.8);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Jua', cursive;
+      font-size: 36px;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .section-title-light {
+      font-family: 'Jua', cursive;
+      font-size: 36px;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 44px;
+    }
+
+    .section-sub-light {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.28);
+      letter-spacing: 0.06em;
+      margin-bottom: 44px;
+    }
+
+    .rule {
+      width: 36px;
+      height: 3px;
+      background: var(--red);
+      margin-bottom: 44px;
+      border-radius: 1px;
+    }
+
+
+    /* ════════════════════════
+       DOWNLOAD BAR
+    ════════════════════════ */
+    .download-bar {
+      background: var(--ink);
+      border-radius: 8px;
+      padding: 8px 20px;
+      margin-bottom: 28px;
+    }
+
+    .dl-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .dl-group:last-child {
+      border-bottom: none;
+    }
+
+    .dl-group-label {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.38);
+      flex: 1;
+    }
+
+    .dl-divider { display: none; }
+
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 13px;
+      border-radius: 4px;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .dl-svg {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .dl-svg:hover { background: var(--red-mid); }
+
+    .dl-png {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.5);
+    }
+
+    .dl-png:hover {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+    }
+
+
+    /* ════════════════════════
+       LOGO LAYOUT
+    ════════════════════════ */
+
+    /* 기본로고 — 풀 와이드 */
+    .logo-featured {
+      background: var(--white);
+      border: 1px solid var(--warm-dark);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .logo-featured-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 80px;
+      background: var(--white);
+    }
+
+    .logo-featured-stage img {
+      max-height: 220px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .logo-featured-foot {
+      padding: 16px 24px;
+      background: var(--warm);
+      border-top: 1px solid var(--warm-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-foot-title {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+
+    .logo-foot-desc {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .logo-tag {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
+      background: var(--red-dim);
+      color: var(--red);
+    }
+
+    /* 서브 로고 — 2×2 그리드 */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .logo-card {
+      background: var(--white);
+      border: 1px solid var(--warm-dark);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .logo-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 36px;
+      background: var(--white);
+    }
+
+    .logo-stage img {
+      max-height: 160px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .logo-card-foot {
+      padding: 13px 18px;
+      background: var(--warm);
+      border-top: 1px solid var(--warm-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-card-title {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+
+    .logo-card-desc {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9px;
+      color: var(--muted);
+      margin-top: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    .logo-tag-sm {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: rgba(28,26,24,0.06);
+      color: var(--muted);
+    }
+
+
+    /* ════════════════════════
+       COLOR PALETTE
+    ════════════════════════ */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .color-chip {}
+
+    .chip-swatch {
+      height: 90px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .chip-swatch.bordered {
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .chip-name {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .chip-hex {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 6px;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .chip-role {
+      font-size: 9.5px;
+      color: rgba(255,255,255,0.2);
+      line-height: 1.55;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+
+
+    /* ════════════════════════
+       TYPOGRAPHY
+    ════════════════════════ */
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .type-card {
+      background: var(--white);
+      border: 1px solid var(--warm-dark);
+      border-radius: 8px;
+      padding: 36px 28px;
+    }
+
+    .type-tag {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+    }
+
+    .sample-euljiro {
+      font-family: 'Jua', cursive;
+      font-size: 52px;
+      color: var(--ink);
+      line-height: 1.05;
+      margin-bottom: 4px;
+    }
+
+    .sample-euljiro span { color: var(--red); }
+
+    .sample-noto {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .sample-nanum {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.75;
+      margin-bottom: 4px;
+    }
+
+    .sample-nanum strong {
+      font-weight: 800;
+      color: var(--red);
+    }
+
+    .type-divider {
+      width: 28px;
+      height: 2px;
+      background: var(--red);
+      margin: 16px 0;
+      border-radius: 1px;
+    }
+
+    .type-name {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .type-desc {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .type-weights {
+      display: flex;
+      gap: 6px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .w-pill {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: var(--warm);
+      color: var(--muted);
+    }
+
+    .type-usage {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--warm-dark);
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9.5px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+
+    /* ════════════════════════
+       SCENE GRID — 3
+    ════════════════════════ */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .scene-card {
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--warm-dark);
+    }
+
+    .scene-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .scene-foot {
+      padding: 11px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--warm);
+      border-top: 1px solid var(--warm-dark);
+    }
+
+    .scene-num {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--red);
+    }
+
+    .scene-sep {
+      width: 16px;
+      height: 1px;
+      background: var(--warm-dark);
+    }
+
+    .scene-label {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9.5px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+
+    /* ════════════════════════
+       FOOTER
+    ════════════════════════ */
+    .footer {
+      background: var(--ink);
+      padding: 40px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 3px solid var(--red);
+    }
+
+    .footer-brand {
+      font-family: 'Jua', cursive;
+      font-size: 26px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-brand span { color: var(--red); }
+
+    .footer-meta {
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACK BUTTON -->
+  <div class="topbar">
+    <a href="../index.html" class="back-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Main
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Brand Identity — Final Presentation</p>
+      <h1 class="hero-title"><span>통</span>나무집</h1>
+      <p class="hero-sub">Vancouver, BC &nbsp;·&nbsp; 2026</p>
+      <div class="hero-rule"></div>
+    </div>
+  </div>
+
+
+  <!-- ── 01 LOGO SYSTEM ── -->
+  <div class="section">
+    <p class="section-label">01 &nbsp;/&nbsp; Logo System</p>
+    <h2 class="section-title">로고 시스템</h2>
+    <p class="section-sub">기본 로고 1종 + 메뉴별 서브 로고 4종</p>
+    <div class="rule"></div>
+
+    <!-- Download Bar -->
+    <div class="download-bar">
+      <div class="dl-group">
+        <span class="dl-group-label">기본로고</span>
+        <a href="final_svg/기본로고.svg" download class="dl-btn dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="final_svg/기본로고.png" download class="dl-btn dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+
+      <div class="dl-group">
+        <span class="dl-group-label">로고 — 닭갈비</span>
+        <a href="final_svg/로고-닭갈비.svg" download class="dl-btn dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="final_svg/로고-닭갈비.png" download class="dl-btn dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+
+      <div class="dl-group">
+        <span class="dl-group-label">로고 — 닭꼬치</span>
+        <a href="final_svg/로고-닭꼬치.svg" download class="dl-btn dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="final_svg/로고-닭꼬치.png" download class="dl-btn dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+
+      <div class="dl-group">
+        <span class="dl-group-label">서브 — 닭갈비</span>
+        <a href="final_svg/로고-닭갈비_sub.svg" download class="dl-btn dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="final_svg/로고-닭갈비_sub.png" download class="dl-btn dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+
+      <div class="dl-group">
+        <span class="dl-group-label">서브 — 닭꼬치</span>
+        <a href="final_svg/로고-닭꼬치_sub.svg" download class="dl-btn dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="final_svg/로고-닭꼬치_sub.png" download class="dl-btn dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+    </div>
+
+    <!-- 기본로고 featured -->
+    <div class="logo-featured">
+      <div class="logo-featured-stage">
+        <img src="final_svg/기본로고.svg" alt="통나무집 기본로고">
+      </div>
+      <div class="logo-featured-foot">
+        <div>
+          <p class="logo-foot-title">기본 로고</p>
+          <p class="logo-foot-desc">모든 채널 기본 적용 — 간판 · 패키지 · 인쇄물</p>
+        </div>
+        <span class="logo-tag">Primary</span>
+      </div>
+    </div>
+
+    <!-- 메뉴별 서브 로고 2×2 -->
+    <div class="logo-grid">
+
+      <div class="logo-card">
+        <div class="logo-stage">
+          <img src="final_svg/로고-닭갈비.svg" alt="통나무집 닭갈비 로고">
+        </div>
+        <div class="logo-card-foot">
+          <div>
+            <p class="logo-card-title">닭갈비 버전</p>
+            <p class="logo-card-desc">메뉴명 포함 — 닭갈비 전용</p>
+          </div>
+          <span class="logo-tag-sm">Menu Ver.</span>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-stage">
+          <img src="final_svg/로고-닭꼬치.svg" alt="통나무집 닭꼬치 로고">
+        </div>
+        <div class="logo-card-foot">
+          <div>
+            <p class="logo-card-title">닭꼬치 버전</p>
+            <p class="logo-card-desc">메뉴명 포함 — 닭꼬치 전용</p>
+          </div>
+          <span class="logo-tag-sm">Menu Ver.</span>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-stage">
+          <img src="final_svg/로고-닭갈비_sub.svg" alt="통나무집 닭갈비 서브로고">
+        </div>
+        <div class="logo-card-foot">
+          <div>
+            <p class="logo-card-title">닭갈비 서브 로고</p>
+            <p class="logo-card-desc">소형 적용 — 스티커 · 도장 · 아이콘</p>
+          </div>
+          <span class="logo-tag-sm">Sub Ver.</span>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-stage">
+          <img src="final_svg/로고-닭꼬치_sub.svg" alt="통나무집 닭꼬치 서브로고">
+        </div>
+        <div class="logo-card-foot">
+          <div>
+            <p class="logo-card-title">닭꼬치 서브 로고</p>
+            <p class="logo-card-desc">소형 적용 — 스티커 · 도장 · 아이콘</p>
+          </div>
+          <span class="logo-tag-sm">Sub Ver.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ── 02 COLOR PALETTE ── -->
+  <div class="section-dark">
+    <div class="section-dark-inner">
+      <p class="section-label-light">02 &nbsp;/&nbsp; Color System</p>
+      <h2 class="section-title-light">컬러 팔레트</h2>
+      <p class="section-sub-light">브랜드 공식 컬러 스킴 — 불 빨강 & 먹 블랙</p>
+      <div class="rule"></div>
+
+      <div class="color-grid">
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#A31621;"></div>
+          <p class="chip-name">Flame Red</p>
+          <p class="chip-hex">#A31621</p>
+          <p class="chip-role">Brand Primary<br>로고 · 강조 · 액센트</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#BF1B27;"></div>
+          <p class="chip-name">Red Mid</p>
+          <p class="chip-hex">#BF1B27</p>
+          <p class="chip-role">Hover / Active<br>버튼 · 인터랙션</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#1C1A18;"></div>
+          <p class="chip-name">Ink Black</p>
+          <p class="chip-hex">#1C1A18</p>
+          <p class="chip-role">Primary Dark<br>배경 · 헤더 · 텍스트</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#EDE4D3;"></div>
+          <p class="chip-name">Warm Beige</p>
+          <p class="chip-hex">#EDE4D3</p>
+          <p class="chip-role">Surface<br>카드 배경 · 테두리</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch bordered" style="background:#F5EFE4;"></div>
+          <p class="chip-name">Cream</p>
+          <p class="chip-hex">#F5EFE4</p>
+          <p class="chip-role">Background<br>페이지 배경</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── 03 TYPOGRAPHY ── -->
+  <div class="section">
+    <p class="section-label">03 &nbsp;/&nbsp; Typography</p>
+    <h2 class="section-title">타이포그래피</h2>
+    <p class="section-sub">서체 시스템 — 3종 타입페이스 계층</p>
+    <div class="rule"></div>
+
+    <div class="type-grid">
+
+      <!-- BM Euljiro -->
+      <div class="type-card">
+        <p class="type-tag">Display &nbsp;·&nbsp; Primary</p>
+        <div class="sample-euljiro"><span>통</span>나무집</div>
+        <div class="type-divider"></div>
+        <p class="type-name">BM Jua (주아체)</p>
+        <p class="type-desc">배달의민족이 제작한 둥글고 친근한 디스플레이체. 부드러운 곡선과 귀여운 자형이 브랜드의 포근하고 정겨운 분위기를 자연스럽게 전달합니다.</p>
+        <div class="type-weights">
+          <span class="w-pill">Regular 400</span>
+        </div>
+        <div class="type-usage">로고 워드마크 · 간판 · 대형 헤드라인<br>포스터 · 메뉴판 타이틀</div>
+      </div>
+
+      <!-- Noto Serif KR -->
+      <div class="type-card">
+        <p class="type-tag">Body &nbsp;·&nbsp; Serif</p>
+        <div class="sample-noto">신선한 재료로<br>만드는 정직한 맛</div>
+        <div class="type-divider"></div>
+        <p class="type-name">Noto Serif KR</p>
+        <p class="type-desc">가독성과 품격을 동시에 갖춘 한국어 세리프체. 메뉴 설명, 소개 문구 등 긴 텍스트에서 브랜드의 진정성과 따뜻한 분위기를 더합니다.</p>
+        <div class="type-weights">
+          <span class="w-pill">Light 300</span>
+          <span class="w-pill">Regular 400</span>
+          <span class="w-pill">Medium 500</span>
+          <span class="w-pill">SemiBold 600</span>
+          <span class="w-pill">Bold 700</span>
+        </div>
+        <div class="type-usage">메뉴 설명 · 브랜드 소개 · 인쇄 바디<br>섹션 타이틀 · 서브헤딩</div>
+      </div>
+
+      <!-- Nanum Gothic -->
+      <div class="type-card">
+        <p class="type-tag">UI &nbsp;·&nbsp; Sans-serif</p>
+        <div class="sample-nanum">
+          <strong>통나무집</strong> 은 밴쿠버에서<br>
+          정통 한국 숯불구이의<br>
+          맛을 전달합니다.
+        </div>
+        <div class="type-divider"></div>
+        <p class="type-name">Nanum Gothic</p>
+        <p class="type-desc">화면과 인쇄 모두에서 뛰어난 가독성을 발휘하는 한국어 산세리프체. 레이블, 캡션, UI 텍스트에 적용해 전체 타이포그래피의 실용적 기반을 담당합니다.</p>
+        <div class="type-weights">
+          <span class="w-pill">Regular 400</span>
+          <span class="w-pill">Bold 700</span>
+          <span class="w-pill">ExtraBold 800</span>
+        </div>
+        <div class="type-usage">레이블 · 캡션 · 배지 · 버튼<br>주소 · 영업시간 · 메타 정보</div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ── 04 SCENE IMAGERY ── -->
+  <div class="section" style="padding-top: 0;">
+    <p class="section-label">04 &nbsp;/&nbsp; Brand Imagery</p>
+    <h2 class="section-title">브랜드 이미지</h2>
+    <p class="section-sub">실물 적용 렌더링 — 간판 · 메뉴판 · 패키지 외</p>
+    <div class="rule"></div>
+
+    <div class="scene-grid">
+
+      <div class="scene-card">
+        <img src="final_svg/scene_1.png" alt="Scene 1" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">01</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_svg/scene_2.png" alt="Scene 2" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">02</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="final_svg/scene_3.png" alt="Scene 3" class="scene-img">
+        <div class="scene-foot">
+          <span class="scene-num">03</span>
+          <span class="scene-sep"></span>
+          <span class="scene-label">Mockup</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="footer-brand"><span>통</span>나무집</p>
+    <p class="footer-meta">Brand Identity &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp; 2026</p>
+  </div>
+
+</body>
+</html>

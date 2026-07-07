@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lee & Ko — Final Brand Identity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --charcoal: #252422;
+      --charcoal-mid: #3a3835;
+      --charcoal-soft: #4e4b47;
+      --gold: #C9A84C;
+      --gold-light: #dfc27a;
+      --cream: #F5F3EF;
+      --cream-dark: #E8E4DC;
+      --white: #FFFFFF;
+      --text-dark: #1a1917;
+      --text-mid: #6b6760;
+      --text-light: #a09d98;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--charcoal);
+      padding: 12px 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .back-btn:hover {
+      color: var(--gold);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 80px 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-full {
+      padding: 80px 64px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 10px;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--charcoal);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 0.05em;
+      margin-bottom: 48px;
+    }
+
+    .rule {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 48px;
+      opacity: 0.7;
+    }
+
+
+    /* ════════════════════════
+       HERO
+    ════════════════════════ */
+    .hero {
+      background: var(--charcoal);
+      padding: 72px 64px 60px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+    }
+
+    .hero-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 24px auto 0;
+      opacity: 0.5;
+    }
+
+
+    /* ════════════════════════
+       LOGO SECTION
+    ════════════════════════ */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .logo-card {
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .logo-stage {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 48px;
+    }
+
+    .logo-stage img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-stage.light {
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+    }
+
+    .logo-stage.dark {
+      background: var(--charcoal);
+    }
+
+    .logo-info {
+      padding: 20px 24px;
+      background: var(--white);
+      border: 1px solid #e8e5e0;
+      border-top: none;
+    }
+
+    .logo-info-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .logo-info-desc {
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+
+    /* ════════════════════════
+       COLOR PALETTE
+    ════════════════════════ */
+    .palette-section {
+      background: var(--charcoal);
+      padding: 80px 64px;
+    }
+
+    .palette-section .section-title {
+      color: var(--white);
+    }
+
+    .palette-section .section-sub {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .color-chip {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chip-swatch {
+      height: 100px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .chip-name {
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .chip-hex {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .chip-role {
+      font-size: 10px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+
+    /* ════════════════════════
+       TYPOGRAPHY
+    ════════════════════════ */
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .type-card {
+      background: var(--white);
+      border: 1px solid #e8e5e0;
+      border-radius: 6px;
+      padding: 40px 36px;
+    }
+
+    .type-label {
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .type-sample-serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+
+    .type-sample-sans {
+      font-family: 'Raleway', sans-serif;
+      font-size: 22px;
+      font-weight: 200;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+
+    .type-divider {
+      width: 32px;
+      height: 1px;
+      background: var(--cream-dark);
+      margin-bottom: 18px;
+    }
+
+    .type-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .type-desc {
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    .type-weights {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .weight-pill {
+      font-size: 10px;
+      padding: 3px 10px;
+      border: 1px solid var(--cream-dark);
+      border-radius: 20px;
+      color: var(--text-mid);
+      letter-spacing: 0.05em;
+    }
+
+    .type-usage {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .usage-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .usage-list {
+      font-size: 11px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+
+    /* ════════════════════════
+       SCENE IMAGES
+    ════════════════════════ */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .scene-card {
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid #e8e5e0;
+    }
+
+    .scene-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .scene-caption {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scene-num {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 500;
+    }
+
+    .scene-sep {
+      width: 20px;
+      height: 1px;
+      background: var(--cream-dark);
+    }
+
+    .scene-name {
+      font-size: 11px;
+      color: var(--text-mid);
+      letter-spacing: 0.06em;
+    }
+
+
+    /* ════════════════════════
+       FOOTER
+    ════════════════════════ */
+    .footer {
+      background: var(--charcoal);
+      padding: 40px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ════════════════════════
+       DOWNLOAD BAR
+    ════════════════════════ */
+    .lk-download-bar {
+      display: flex;
+      align-items: center;
+      background: var(--charcoal);
+      border-radius: 6px;
+      padding: 20px 28px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .lk-dl-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .lk-dl-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      flex: 1;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .lk-dl-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.08);
+      margin: 0 20px;
+    }
+
+    .lk-dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      font-family: 'Raleway', sans-serif;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .lk-dl-svg {
+      background: var(--gold);
+      color: var(--charcoal);
+    }
+
+    .lk-dl-svg:hover {
+      background: var(--gold-light);
+    }
+
+    .lk-dl-png {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.55);
+    }
+
+    .lk-dl-png:hover {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+    }
+
+
+    .footer-meta {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      font-family: 'Raleway', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACK BUTTON -->
+  <div class="topbar">
+    <a href="index.html" class="back-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Main
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">Brand Identity — Final Presentation</p>
+    <h1 class="hero-title">LEE &amp; KO ENTERPRISES INC.</h1>
+    <p class="hero-sub">Vancouver, BC &nbsp;·&nbsp; 2026</p>
+    <div class="hero-rule"></div>
+  </div>
+
+
+  <!-- ── LOGO ── -->
+  <div class="section">
+    <p class="section-label">01 &nbsp;/ &nbsp;Logo System</p>
+    <h2 class="section-title">로고 시스템</h2>
+    <p class="section-sub">두 가지 버전의 공식 로고 — 라이트 및 다크 배경용</p>
+    <div class="rule"></div>
+
+    <!-- Download Bar -->
+    <div class="lk-download-bar">
+      <div class="lk-dl-group">
+        <span class="lk-dl-label">Standard Version</span>
+        <a href="leeandko_images/logo_standard.svg" download class="lk-dl-btn lk-dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="leeandko_images/logo_standard.png" download class="lk-dl-btn lk-dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+      <div class="lk-dl-divider"></div>
+      <div class="lk-dl-group">
+        <span class="lk-dl-label">Dark Version</span>
+        <a href="leeandko_images/logo_dark.svg" download class="lk-dl-btn lk-dl-svg">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          SVG
+        </a>
+        <a href="leeandko_images/logo_dark.png" download class="lk-dl-btn lk-dl-png">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </a>
+      </div>
+    </div>
+
+    <div class="logo-grid">
+
+      <!-- Standard -->
+      <div class="logo-card">
+        <div class="logo-stage light">
+          <img src="leeandko_images/logo_standard.svg" alt="Lee & Ko Standard Logo">
+        </div>
+        <div class="logo-info">
+          <p class="logo-info-title">Standard Version</p>
+          <p class="logo-info-desc">크림/화이트 배경 사용 · 기본 적용 버전</p>
+        </div>
+      </div>
+
+      <!-- Dark -->
+      <div class="logo-card">
+        <div class="logo-stage dark">
+          <img src="leeandko_images/logo_dark.svg" alt="Lee & Ko Dark Logo">
+        </div>
+        <div class="logo-info">
+          <p class="logo-info-title">Dark Version</p>
+          <p class="logo-info-desc">차콜 (#252422) 배경 전용 · 리버스 컬러웨이</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ── COLOR PALETTE ── -->
+  <div class="palette-section">
+    <div style="max-width:1100px; margin:0 auto;">
+      <p class="section-label">02 &nbsp;/ &nbsp;Color System</p>
+      <h2 class="section-title">컬러 팔레트</h2>
+      <p class="section-sub">브랜드 공식 컬러 스킴 — Charcoal & Gold</p>
+      <div class="rule" style="background:var(--gold); opacity:0.5;"></div>
+
+      <div class="color-grid">
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#252422;"></div>
+          <p class="chip-name">Charcoal</p>
+          <p class="chip-hex">#252422</p>
+          <p class="chip-role">Primary Dark<br>배경 · 헤더 · 텍스트</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#3a3835;"></div>
+          <p class="chip-name">Charcoal Mid</p>
+          <p class="chip-hex">#3A3835</p>
+          <p class="chip-role">Secondary Dark<br>카드 배경 · 구분선</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#C9A84C;"></div>
+          <p class="chip-name">Gold</p>
+          <p class="chip-hex">#C9A84C</p>
+          <p class="chip-role">Accent Primary<br>강조 · 아이콘 · 액센트</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#DFC27A;"></div>
+          <p class="chip-name">Gold Light</p>
+          <p class="chip-hex">#DFC27A</p>
+          <p class="chip-role">Accent Secondary<br>호버 · 서브 강조</p>
+        </div>
+
+        <div class="color-chip">
+          <div class="chip-swatch" style="background:#F5F3EF; border:1px solid rgba(255,255,255,0.1);"></div>
+          <p class="chip-name">Cream</p>
+          <p class="chip-hex">#F5F3EF</p>
+          <p class="chip-role">Background Light<br>페이지 배경 · 카드</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── TYPOGRAPHY ── -->
+  <div class="section">
+    <p class="section-label">03 &nbsp;/ &nbsp;Typography</p>
+    <h2 class="section-title">타이포그래피</h2>
+    <p class="section-sub">서체 시스템 — Serif + Sans-serif 페어링</p>
+    <div class="rule"></div>
+
+    <div class="type-grid">
+
+      <!-- Cormorant -->
+      <div class="type-card">
+        <p class="type-label">Primary Typeface &nbsp;·&nbsp; Serif</p>
+        <div class="type-sample-serif">LEE &amp; KO<br>ENTERPRISES INC.</div>
+        <div class="type-divider"></div>
+        <p class="type-name">Cormorant Garamond</p>
+        <p class="type-desc">클래식 가라몬드 계열의 고급스러운 디스플레이 세리프. 절제된 품격과 우아한 이탤릭이 특징이며 브랜드의 전통성과 신뢰감을 표현합니다.</p>
+        <div class="type-weights">
+          <span class="weight-pill">Light 300</span>
+          <span class="weight-pill">Regular 400</span>
+          <span class="weight-pill">Medium 500</span>
+          <span class="weight-pill">SemiBold 600</span>
+          <span class="weight-pill">Italic</span>
+        </div>
+        <div class="type-usage">
+          <p class="usage-label">사용 영역</p>
+          <p class="usage-list">로고 서브텍스트 · 헤드라인<br>섹션 타이틀 · 인용구 · 서명</p>
+        </div>
+      </div>
+
+      <!-- Raleway -->
+      <div class="type-card">
+        <p class="type-label">Secondary Typeface &nbsp;·&nbsp; Sans-serif</p>
+        <div class="type-sample-sans">Lee &amp; Ko<br>Enterprises Inc.</div>
+        <div class="type-divider"></div>
+        <p class="type-name">Raleway</p>
+        <p class="type-desc">기하학적 구조의 모던 산세리프. 넓은 자간과 얇은 웨이트가 세련된 인상을 주며, 레이블·캡션·UI 텍스트에 적용해 현대적 균형감을 부여합니다.</p>
+        <div class="type-weights">
+          <span class="weight-pill">ExtraLight 200</span>
+          <span class="weight-pill">Light 300</span>
+          <span class="weight-pill">Regular 400</span>
+          <span class="weight-pill">Medium 500</span>
+          <span class="weight-pill">SemiBold 600</span>
+        </div>
+        <div class="type-usage">
+          <p class="usage-label">사용 영역</p>
+          <p class="usage-list">아이레브로우 텍스트 · 네비게이션<br>버튼 · 배지 · 캡션 · 주소/메타 정보</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ── SCENE IMAGES ── -->
+  <div class="section" style="padding-top: 0;">
+    <p class="section-label">04 &nbsp;/ &nbsp;Brand Imagery</p>
+    <h2 class="section-title">브랜드 이미지</h2>
+    <p class="section-sub">활용 씬 이미지 — 브랜드 무드 레퍼런스</p>
+    <div class="rule"></div>
+
+    <div class="scene-grid">
+
+      <div class="scene-card">
+        <img src="leeandko_images/scene_1.png" alt="Scene 1" class="scene-img">
+        <div class="scene-caption">
+          <span class="scene-num">01</span>
+          <span class="scene-sep"></span>
+          <span class="scene-name">Brand Scene</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="leeandko_images/scene_2.png" alt="Scene 2" class="scene-img">
+        <div class="scene-caption">
+          <span class="scene-num">02</span>
+          <span class="scene-sep"></span>
+          <span class="scene-name">Brand Scene</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="leeandko_images/scene_3.png" alt="Scene 3" class="scene-img">
+        <div class="scene-caption">
+          <span class="scene-num">03</span>
+          <span class="scene-sep"></span>
+          <span class="scene-name">Brand Scene</span>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <img src="leeandko_images/scene_4.png" alt="Scene 4" class="scene-img">
+        <div class="scene-caption">
+          <span class="scene-num">04</span>
+          <span class="scene-sep"></span>
+          <span class="scene-name">Brand Scene</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="footer-brand">Lee &amp; Ko Enterprises Inc.</p>
+    <p class="footer-meta">Brand Identity &nbsp;·&nbsp; Vancouver, BC &nbsp;·&nbsp; 2026</p>
+  </div>
+
+</body>
+</html>
