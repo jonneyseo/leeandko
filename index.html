@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lee & Ko Enterprises — Brand Index</title>
+  <link rel="icon" href="leeandko_images/favicon_light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="leeandko_images/favicon_dark.svg" media="(prefers-color-scheme: dark)">
   <style>
     * {
       margin: 0;
@@ -18,7 +20,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-family: 'Georgia', serif;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
       padding: 48px 24px;
     }
 
@@ -28,7 +30,6 @@
     }
 
     header .eyebrow {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.25em;
@@ -38,6 +39,7 @@
     }
 
     header h1 {
+      font-family: 'Georgia', serif;
       font-size: 36px;
       font-weight: 400;
       letter-spacing: 0.08em;
@@ -60,12 +62,8 @@
     }
 
     @media (max-width: 640px) {
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      header h1 {
-        font-size: 26px;
-      }
+      .grid { grid-template-columns: 1fr 1fr; }
+      header h1 { font-size: 26px; }
     }
 
     .brand-btn {
@@ -74,8 +72,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      padding: 36px 20px;
+      gap: 10px;
+      padding: 28px 20px 24px;
       background: #181818;
       border: 1px solid #2a2a2a;
       border-radius: 4px;
@@ -92,7 +90,6 @@
     }
 
     .brand-btn .name {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.12em;
@@ -100,13 +97,6 @@
       color: #c8c0b4;
       text-align: center;
       line-height: 1.5;
-    }
-
-    .brand-btn .sub {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: #555;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
     }
 
     /* Active brand accent line */
@@ -122,32 +112,77 @@
       border-radius: 0 0 2px 2px;
     }
 
-    /* Disabled / TBD */
+    /* Disabled */
     .brand-btn.disabled {
-      opacity: 0.35;
+      opacity: 0.4;
       cursor: not-allowed;
       pointer-events: none;
     }
 
-    .brand-btn.disabled .name {
-      color: #666;
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
 
-    .tbd-badge {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 9px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #555;
-      border: 1px solid #333;
-      padding: 2px 8px;
-      border-radius: 2px;
-      margin-top: 4px;
+    .progress-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+
+    .progress-status {
+      font-size: 8.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .progress-pct {
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 3px;
+      background: #2a2a2a;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.6s ease;
+    }
+
+    /* color variants */
+    .prog-complete .progress-status { color: #c8a96e; }
+    .prog-complete .progress-pct    { color: #c8a96e; }
+    .prog-complete .progress-fill   { background: #c8a96e; }
+
+    .prog-active .progress-status { color: #8aaf7a; }
+    .prog-active .progress-pct    { color: #8aaf7a; }
+    .prog-active .progress-fill   { background: #8aaf7a; }
+
+    .prog-mid .progress-status { color: #7a9bbf; }
+    .prog-mid .progress-pct    { color: #7a9bbf; }
+    .prog-mid .progress-fill   { background: #7a9bbf; }
+
+    .prog-early .progress-status { color: #7a6e9a; }
+    .prog-early .progress-pct    { color: #7a6e9a; }
+    .prog-early .progress-fill   { background: #7a6e9a; }
+
+    .prog-none .progress-status { color: #444; }
+    .prog-none .progress-pct    { color: #444; }
+    .prog-none .progress-fill   { background: #333; }
 
     footer {
       margin-top: 64px;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
       font-size: 10px;
       letter-spacing: 0.15em;
       color: #333;
@@ -167,32 +202,68 @@
 
     <a href="LeeKo_Final_Presentation.html" class="brand-btn active">
       <span class="name">Lee &amp; Ko</span>
-      <span class="sub">Holding</span>
+      <div class="progress-wrap prog-complete">
+        <div class="progress-meta">
+          <span class="progress-status">Complete</span>
+          <span class="progress-pct">100%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+      </div>
     </a>
 
     <a href="vveducation/VVEducation_Brand_Overview_v2.html" class="brand-btn active">
       <span class="name">VV Education</span>
-      <span class="sub">Education</span>
+      <div class="progress-wrap prog-mid">
+        <div class="progress-meta">
+          <span class="progress-status">Developing</span>
+          <span class="progress-pct">40%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:40%"></div></div>
+      </div>
     </a>
 
     <a href="hulkservice/HulkService_Final_Presentation.html" class="brand-btn active">
       <span class="name">Hulk Service</span>
-      <span class="sub">Service</span>
+      <div class="progress-wrap prog-active">
+        <div class="progress-meta">
+          <span class="progress-status">Finalizing</span>
+          <span class="progress-pct">99%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:99%"></div></div>
+      </div>
     </a>
 
     <a href="tongnamu/Tongnamu_Final_Presentation.html" class="brand-btn active">
       <span class="name">통나무집</span>
-      <span class="sub">Foods</span>
+      <div class="progress-wrap prog-active">
+        <div class="progress-meta">
+          <span class="progress-status">Finalizing</span>
+          <span class="progress-pct">99%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:99%"></div></div>
+      </div>
     </a>
 
     <span class="brand-btn disabled">
       <span class="name">Pacific Upholstery</span>
-      <span class="tbd-badge">TBD</span>
+      <div class="progress-wrap prog-early">
+        <div class="progress-meta">
+          <span class="progress-status">Ideating</span>
+          <span class="progress-pct">20%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:20%"></div></div>
+      </div>
     </span>
 
     <span class="brand-btn disabled">
       <span class="name">그리즐리 컬렉션<br>&amp; 마켓</span>
-      <span class="tbd-badge">TBD</span>
+      <div class="progress-wrap prog-none">
+        <div class="progress-meta">
+          <span class="progress-status">Not Started</span>
+          <span class="progress-pct">0%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
+      </div>
     </span>
 
   </div>
