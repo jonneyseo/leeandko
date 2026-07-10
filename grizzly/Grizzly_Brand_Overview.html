@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grizzly Collection & Market — Brand Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Recipekorea';
+      src: url('src/Recipekorea 饭内眉 FONT.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brown-deep:  #2A1505;
+      --brown-mid:   #6B4226;
+      --brown-light: #9B6B42;
+      --maple:       #A31621;
+      --beige:       #F0E4C8;
+      --cream:       #FBF8F1;
+      --beige-dark:  #E2D0B0;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--brown-deep);
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    h1, h2, h3, .recipe {
+      font-family: 'Recipekorea', 'Noto Sans KR', sans-serif;
+      font-weight: 400;
+      font-synthesis: none;
+    }
+
+    /* ── TOPBAR / BACK ── */
+    .topbar {
+      background: var(--brown-deep);
+      padding: 12px 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-btn:hover { color: var(--beige); }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--brown-deep);
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .site-header .brand-label {
+      font-family: 'Recipekorea', sans-serif;
+      font-size: 20px;
+      color: var(--beige);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--brown-deep);
+      color: var(--cream);
+      padding: 100px 48px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: 'G';
+      position: absolute;
+      font-family: 'Recipekorea', sans-serif;
+      font-size: 48vw;
+      color: rgba(255,255,255,0.02);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      line-height: 1;
+    }
+    .hero .sub {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--maple);
+      margin-bottom: 20px;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .hero h1 {
+      font-size: clamp(44px, 6vw, 80px);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      color: var(--beige);
+      margin-bottom: 12px;
+    }
+    .hero h1 span {
+      color: var(--brown-light);
+    }
+    .hero .tagline {
+      font-size: 16px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+      margin-top: 16px;
+      letter-spacing: 0.06em;
+    }
+    .divider-line {
+      width: 40px;
+      height: 2px;
+      background: var(--maple);
+      margin: 28px auto;
+      border-radius: 2px;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 48px; }
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3vw, 40px);
+      color: var(--brown-deep);
+      margin-bottom: 40px;
+      line-height: 1.2;
+    }
+    .max-w { max-width: 1080px; margin: 0 auto; }
+
+    /* ── BRAND CONCEPT — TWO COLUMNS ── */
+    .concept-section { background: var(--cream); }
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .concept-card {
+      border-radius: 16px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .concept-card.collection {
+      background: var(--beige);
+      border: 1px solid var(--beige-dark);
+    }
+    .concept-card.market {
+      background: var(--brown-deep);
+      color: var(--cream);
+    }
+    .concept-card .flag {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .concept-card .card-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .collection .card-tag {
+      background: var(--maple);
+      color: #fff;
+    }
+    .market .card-tag {
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7);
+    }
+    .concept-card h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .collection h3 { color: var(--brown-deep); }
+    .market h3 { color: var(--beige); }
+    .concept-card .sub-name {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .collection .sub-name { color: var(--brown-light); }
+    .market .sub-name { color: rgba(255,255,255,0.35); }
+    .concept-card p {
+      font-size: 15px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+    .collection p { color: rgba(42,21,5,0.65); }
+    .market p { color: rgba(255,255,255,0.55); }
+    .flow-arrow {
+      position: absolute;
+      right: 32px;
+      bottom: 32px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .collection .flow-arrow { color: var(--maple); }
+    .market .flow-arrow { color: rgba(255,255,255,0.25); }
+
+    /* ── COLOR PALETTE ── */
+    .palette-section { background: var(--beige); }
+    .palette-grid {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .swatch-item {
+      flex: 1;
+      min-width: 120px;
+    }
+    .swatch-block {
+      height: 100px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: var(--brown-deep);
+    }
+    .swatch-hex {
+      font-size: 11px;
+      color: var(--brown-light);
+      letter-spacing: 0.06em;
+    }
+    .swatch-role {
+      font-size: 10px;
+      color: var(--brown-light);
+      margin-top: 2px;
+      font-weight: 300;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .type-section { background: var(--cream); }
+    .type-demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .type-card {
+      background: var(--beige);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .type-card.dark {
+      background: var(--brown-deep);
+    }
+    .type-label {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .type-card .type-label { color: var(--brown-light); }
+    .type-card.dark .type-label { color: rgba(255,255,255,0.3); }
+    .type-card h2 {
+      font-size: 42px;
+      line-height: 1.1;
+      color: var(--brown-deep);
+      margin-bottom: 12px;
+    }
+    .type-card.dark h2 { color: var(--beige); }
+    .type-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(42,21,5,0.6);
+      font-weight: 300;
+    }
+    .type-card.dark p { color: rgba(240,228,200,0.5); }
+    .font-meta {
+      margin-top: 16px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--brown-light);
+      text-transform: uppercase;
+    }
+
+    /* ── LOGO SYSTEM ── */
+    .logo-section { background: var(--cream); }
+    .logo-group { margin-bottom: 56px; }
+    .logo-group-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--beige-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-group-title .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--maple);
+      flex-shrink: 0;
+    }
+    .logo-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .logo-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--beige-dark);
+    }
+    .logo-card .img-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* padding: 8px; */
+      height: 300px;
+    }
+    .logo-card .img-wrap.bg-light { background: var(--cream); }
+    .logo-card .img-wrap.bg-dark  { background: var(--cream); }
+    .logo-card .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .logo-card .card-meta {
+      background: white;
+      padding: 14px 16px;
+      border-top: 1px solid var(--beige-dark);
+    }
+    .logo-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: var(--beige);
+      color: var(--brown-mid);
+    }
+    .tag.dark  { background: var(--brown-deep); color: var(--beige); }
+    .tag.light { background: var(--beige); color: var(--brown-mid); }
+    .tag.red   { background: var(--maple); color: #fff; }
+    .tag.kr    { background: #e8edf5; color: #2a4a8a; }
+    .tag.en    { background: #f5e8e8; color: #8a2a2a; }
+
+    /* ── RENDERING / APPLICATIONS ── */
+    .render-section { background: var(--brown-deep); padding: 80px 48px; }
+    .render-section .section-label { color: rgba(240,228,200,0.4); }
+    .render-section .section-title { color: var(--beige); }
+    .render-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .render-card {
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .render-card img {
+      width: 100%;
+      display: block;
+      border-radius: 12px 12px 0 0;
+    }
+    .render-card .render-label {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: none;
+      padding: 18px 24px;
+      border-radius: 0 0 12px 12px;
+    }
+    .render-card .render-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--beige);
+      margin-bottom: 4px;
+    }
+    .render-card .render-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown-deep);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 60px 24px; }
+      .site-header { padding: 16px 24px; }
+      .hero { padding: 80px 24px 60px; }
+      .concept-grid,
+      .type-demo,
+      .render-grid { grid-template-columns: 1fr; }
+      .logo-cards { grid-template-columns: 1fr 1fr; }
+      footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOPBAR ── -->
+  <div class="topbar">
+    <a href="../index.html" class="back-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Main
+    </a>
+  </div>
+
+  <!-- ── SITE HEADER ── -->
+  <header class="site-header">
+    <span class="eyebrow">Lee &amp; Ko Enterprises — Brand Overview</span>
+    <span class="brand-label">그리즐리</span>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <p class="sub">● Grizzly Collection &amp; Grizzly Market</p>
+    <h1>그리즐리<br><span>컬렉션 &amp; 마켓</span></h1>
+    <div class="divider-line"></div>
+    <p class="tagline">캐나다와 한국을 잇는 신뢰할 수 있는 공동구매 커뮤니티</p>
+  </section>
+
+  <!-- ── BRAND CONCEPT ── -->
+  <section class="concept-section">
+    <div class="max-w">
+      <p class="section-label">Brand Concept</p>
+      <h2 class="section-title">두 개의 방향, 하나의 브랜드</h2>
+
+      <div class="concept-grid">
+
+        <div class="concept-card collection">
+          <span class="flag">🍁</span>
+          <span class="card-tag">Canada → Korea</span>
+          <h3>그리즐리 컬렉션</h3>
+          <p class="sub-name">Grizzly Collection</p>
+          <p>캐나다의 좋은 것들을 한국으로.<br>
+          메이플 시럽, 건강식품, 프리미엄 캐나다산 상품을 신뢰할 수 있는 공동구매 채널로 한국 소비자에게 직접 전달합니다.</p>
+          <span class="flow-arrow">Canada → Korea ↗</span>
+        </div>
+
+        <div class="concept-card market">
+          <span class="flag">🇰🇷</span>
+          <span class="card-tag">Korea → Canada</span>
+          <h3>그리즐리 마켓</h3>
+          <p class="sub-name">Grizzly Market</p>
+          <p>한국의 좋은 것들을 캐나다로.<br>
+          K-식품, 뷰티, 라이프스타일 제품을 캐나다 현지 매장과 온라인을 통해 교민 및 현지 소비자에게 공급합니다.</p>
+          <span class="flow-arrow">Korea → Canada →</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COLOR PALETTE ── -->
+  <section class="palette-section">
+    <div class="max-w">
+      <p class="section-label">Color Palette</p>
+      <h2 class="section-title">그리즐리 컬러</h2>
+
+      <div class="palette-grid">
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#2A1505;"></div>
+          <p class="swatch-name">Bear Deep Brown</p>
+          <p class="swatch-hex">#2A1505</p>
+          <p class="swatch-role">Primary / Dark BG</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#6B4226;"></div>
+          <p class="swatch-name">Grizzly Brown</p>
+          <p class="swatch-hex">#6B4226</p>
+          <p class="swatch-role">Secondary / Mid Tone</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#9B6B42;"></div>
+          <p class="swatch-name">Warm Tan</p>
+          <p class="swatch-hex">#9B6B42</p>
+          <p class="swatch-role">Tertiary / Accents</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#A31621; "></div>
+          <p class="swatch-name">Canada Red</p>
+          <p class="swatch-hex">#A31621</p>
+          <p class="swatch-role">Canada Accent</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#F0E4C8; border: 1px solid #E2D0B0;"></div>
+          <p class="swatch-name">Warm Beige</p>
+          <p class="swatch-hex">#F0E4C8</p>
+          <p class="swatch-role">Background / Light</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#FBF8F1; border: 1px solid #E2D0B0;"></div>
+          <p class="swatch-name">Cream</p>
+          <p class="swatch-hex">#FBF8F1</p>
+          <p class="swatch-role">Background / Lightest</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TYPOGRAPHY ── -->
+  <section class="type-section">
+    <div class="max-w">
+      <p class="section-label">Typography</p>
+      <h2 class="section-title">타이포그래피</h2>
+
+      <div class="type-demo">
+        <div class="type-card">
+          <p class="type-label">헤딩 — 레코체 (Recipekorea)</p>
+          <h2 class="recipe">그리즐리<br>컬렉션</h2>
+          <p class="font-meta">Recipekorea · Display / Heading</p>
+        </div>
+        <div class="type-card dark">
+          <p class="type-label">헤딩 — 레코체 (Recipekorea)</p>
+          <h2 class="recipe">그리즐리<br>마켓</h2>
+          <p class="font-meta" style="color:rgba(240,228,200,0.35);">Recipekorea · Display / Heading</p>
+        </div>
+        <div class="type-card" style="grid-column: 1 / -1;">
+          <p class="type-label">본문 — Noto Sans KR</p>
+          <p style="font-size:16px; line-height:1.9; color:rgba(42,21,5,0.65); margin-bottom:12px;">
+            캐나다의 좋은 것들을 한국으로, 한국의 좋은 것들을 캐나다로.<br>
+            그리즐리는 두 나라를 잇는 신뢰할 수 있는 공동구매 커뮤니티입니다.
+          </p>
+          <p style="font-size:13px; line-height:1.8; color:rgba(42,21,5,0.4);">
+            Noto Sans KR · 300 Light &nbsp;·&nbsp; 400 Regular &nbsp;·&nbsp; 500 Medium &nbsp;·&nbsp; 600 SemiBold &nbsp;·&nbsp; 700 Bold
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LOGO SYSTEM ── -->
+  <section class="logo-section">
+    <div class="max-w">
+      <p class="section-label">Logo System</p>
+      <h2 class="section-title">로고 시스템</h2>
+
+      <!-- Group 1: Dark Bear -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dot" style="background:var(--brown-deep);"></span>Dark Bear</p>
+        <div class="logo-cards">
+
+          <div class="logo-card">
+            <div class="img-wrap bg-dark">
+              <img src="ref_images/dark_kr_horizontal_box_both.png" alt="다크 한글 가로형 박스">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag kr">한글</span>
+                <span class="tag">가로형</span>
+                <span class="tag">📦 박스</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-dark">
+              <img src="ref_images/dark_en_vertical_goods_both.png" alt="다크 영문 세로형 상품">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag en">영문</span>
+                <span class="tag">세로형</span>
+                <span class="tag">🛒 상품</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-dark">
+              <img src="ref_images/dark_en_horizontal_nothing_market.png" alt="다크 영문 가로형">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag en">영문</span>
+                <span class="tag">가로형</span>
+                <span class="tag">기본</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Group 2: Light Bear -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dot" style="background:var(--beige-dark);"></span>Light Bear</p>
+        <div class="logo-cards">
+
+          <div class="logo-card">
+            <div class="img-wrap bg-light">
+              <img src="ref_images/light_kr_vertical_box_both.png" alt="라이트 한글 세로형 박스">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag kr">한글</span>
+                <span class="tag">세로형</span>
+                <span class="tag">📦 박스</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-light">
+              <img src="ref_images/light_kr_vertical_box_both_2.png" alt="라이트 한글 세로형 박스 v2">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag kr">한글</span>
+                <span class="tag">세로형</span>
+                <span class="tag">📦 박스 v2</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-light">
+              <img src="ref_images/light_kr_horizontal_bag_both.png" alt="라이트 한글 가로형 쇼핑백">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag kr">한글</span>
+                <span class="tag">가로형</span>
+                <span class="tag">🛍 쇼핑백</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-light">
+              <img src="ref_images/light_kr_horizontal_hat_both.png" alt="라이트 한글 가로형 모자">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag kr">한글</span>
+                <span class="tag">가로형</span>
+                <span class="tag">🎩 모자</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-light">
+              <img src="ref_images/light_en_vertical_box_collection.png" alt="라이트 영문 세로형 박스 컬렉션">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag en">영문</span>
+                <span class="tag">세로형</span>
+                <span class="tag">📦 박스</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-light">
+              <img src="ref_images/light_en_horizontal_nothing_market.png" alt="라이트 영문 가로형">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag en">영문</span>
+                <span class="tag">가로형</span>
+                <span class="tag">기본</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-light">
+              <img src="ref_images/light_en_vertical_box_market.png" alt="라이트 영문 세로형 박스 마켓">
+            </div>
+            <div class="card-meta">
+              <div class="tags">
+                <span class="tag en">영문</span>
+                <span class="tag">세로형</span>
+                <span class="tag">📦 박스</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── RENDERINGS ── -->
+  <section class="render-section">
+    <div class="max-w">
+      <p class="section-label">Applications</p>
+      <h2 class="section-title">브랜드 적용 예시</h2>
+
+      <div class="render-grid">
+
+        <div class="render-card">
+          <img src="ref_images/gcollection_website_rendering.png" alt="그리즐리 컬렉션 웹사이트">
+          <div class="render-label">
+            <p class="render-name">그리즐리 컬렉션 — 웹사이트</p>
+            <p class="render-desc">캐나다 상품 공동구매 이커머스 플랫폼 · 한국 시장</p>
+          </div>
+        </div>
+
+        <div class="render-card">
+          <img src="ref_images/gmarket_store_rendering.png" alt="그리즐리 마켓 매장">
+          <div class="render-label">
+            <p class="render-name">그리즐리 마켓 — 오프라인 매장</p>
+            <p class="render-desc">한국 상품 리테일 스토어 · 캐나다 밴쿠버</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span>© 2026 Lee &amp; Ko Enterprises Inc.</span>
+    <span>Grizzly Collection &amp; Grizzly Market — Brand Identity</span>
+    <span>Vancouver, BC · Canada</span>
+  </footer>
+
+</body>
+</html>

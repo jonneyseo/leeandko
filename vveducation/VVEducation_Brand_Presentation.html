@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VV Education — Brand Presentation</title>
+  <link rel="icon" href="src/로고 심볼.svg" type="image/svg+xml">
+  <link rel="icon" href="src/로고 심볼.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy:      #1F2D3D;
+      --navy-deep: #141E2A;
+      --navy-mid:  #2A3F56;
+      --red:       #C8102E;
+      --red-dark:  #A30D25;
+      --white:     #FFFFFF;
+      --off-white: #F5F7FA;
+      --border:    #E4E8EE;
+      --text-sub:  #6B7A8D;
+    }
+
+    body {
+      background: var(--off-white);
+      color: var(--navy);
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+    }
+
+    /* ── TOPBAR / BACK ── */
+    .topbar {
+      background: var(--navy-deep);
+      padding: 12px 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-btn:hover { color: rgba(255,255,255,0.75); }
+
+    /* ── SITE HEADER ── */
+    .site-header {
+      background: var(--navy-deep);
+      padding: 16px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .site-header .brand-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 96px 56px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red) 0%, transparent 100%);
+    }
+    .hero .logo-hero {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .hero .logo-hero img {
+      max-width: 560px;
+      width: 100%;
+      height: auto;
+    }
+    .hero .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--red);
+      margin: 0 auto 28px;
+      border-radius: 2px;
+    }
+    .hero .tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    .hero .sub-tagline {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      margin-top: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 56px; }
+    .max-w { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-sub);
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    /* ── BRAND IDENTITY ── */
+    .identity-section { background: var(--white); }
+    .identity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 16px;
+    }
+    .identity-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 32px;
+    }
+    .identity-card .ic-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+    }
+    .identity-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .identity-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+
+    /* ── COLOR PALETTE ── */
+    .palette-section { background: var(--navy); }
+    .palette-section .section-label { color: rgba(255,255,255,0.4); }
+    .palette-section .section-title { color: var(--white); }
+    .palette-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .swatch-item { flex: 1; min-width: 140px; }
+    .swatch-block {
+      height: 110px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .swatch-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 3px;
+    }
+    .swatch-hex {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+    }
+    .swatch-role {
+      font-size: 10px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 3px;
+      font-weight: 300;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .typo-section { background: #ffffff; }
+    .typo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .typo-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .typo-card .typo-preview {
+      padding: 40px 36px 32px;
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
+    }
+    .typo-card .typo-preview .preview-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    .typo-card .typo-preview .preview-sample {
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .typo-card .typo-preview .preview-alphabet {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-sub);
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+    .typo-card .typo-meta {
+      padding: 20px 24px;
+      background: #ffffff;
+    }
+    .typo-card .typo-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .typo-card .typo-role {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 12px;
+    }
+    .typo-card .typo-weights {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .weight-pill {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: var(--off-white);
+      color: var(--text-sub);
+      border: 1px solid var(--border);
+    }
+    .weight-pill.primary { background: rgba(26,54,96,0.07); color: var(--navy); border-color: rgba(26,54,96,0.15); }
+
+    /* ── LOGO SYSTEM ── */
+    .logo-section { background: var(--off-white); }
+    .logo-group { margin-bottom: 60px; }
+    .logo-group-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-group-title .dash {
+      width: 20px;
+      height: 2px;
+      background: var(--red);
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+    .logo-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .logo-cards.single { grid-template-columns: 1fr; max-width: 540px; }
+    .logo-cards.three { grid-template-columns: 1fr 1fr 1fr; }
+    .logo-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .logo-card .img-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 40px;
+      min-height: 220px;
+    }
+    .logo-card .img-wrap.bg-white  { background: var(--white); }
+    .logo-card .img-wrap.bg-navy   { background: var(--navy); }
+    .logo-card .img-wrap.bg-light  { background: var(--off-white); }
+    .logo-card .img-wrap img {
+      max-width: 100%;
+      max-height: 160px;
+      object-fit: contain;
+    }
+    .logo-card .img-wrap.symbol img {
+      max-height: 120px;
+      max-width: 120px;
+    }
+    .logo-card .img-wrap.crest img {
+      max-height: 200px;
+    }
+    .logo-card .card-meta {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-card .meta-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.08em;
+    }
+    .logo-card .tags {
+      display: flex;
+      gap: 5px;
+    }
+    .tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+    .tag-red   { background: rgba(200,16,46,0.08); color: var(--red); }
+    .tag-navy  { background: rgba(31,45,61,0.08); color: var(--navy); }
+    .tag-grey  { background: var(--off-white); color: var(--text-sub); border: 1px solid var(--border); }
+
+    /* ── DOWNLOAD BUTTONS ── */
+    .card-downloads {
+      padding: 10px 20px 14px;
+      display: flex;
+      gap: 7px;
+    }
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text-sub);
+      background: var(--off-white);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .dl-btn:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+    .dl-btn svg { flex-shrink: 0; }
+
+    /* Crest usage note */
+    .crest-note {
+      margin-top: 14px;
+      background: rgba(200,16,46,0.05);
+      border: 1px solid rgba(200,16,46,0.15);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .crest-note .note-icon {
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .crest-note p {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+    .crest-note strong { color: var(--navy); font-weight: 600; }
+
+    /* ── APPLICATIONS ── */
+    .render-section { background: var(--white); }
+    .render-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .render-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .render-card.full { grid-column: 1 / -1; }
+    .render-card img {
+      width: 100%;
+      display: block;
+    }
+    .render-card .render-label {
+      padding: 18px 22px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+    .render-card .render-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 3px;
+      letter-spacing: 0.04em;
+    }
+    .render-card .render-desc {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-sub);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-deep);
+      padding: 28px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 60px 24px; }
+      .site-header, footer { padding: 16px 24px; }
+      .hero { padding: 72px 24px 60px; }
+      .identity-grid,
+      .logo-cards,
+      .logo-cards.three,
+      .render-grid { grid-template-columns: 1fr; }
+      .logo-cards.single { max-width: 100%; }
+      .render-card.full { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOPBAR ── -->
+  <div class="topbar">
+    <a href="../index.html" class="back-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Main
+    </a>
+  </div>
+
+  <!-- ── SITE HEADER ── -->
+  <header class="site-header">
+    <span class="eyebrow">Lee &amp; Ko Enterprises — Brand Presentation</span>
+    <span class="brand-label">VV Education</span>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="logo-hero">
+      <img src="src/로고-국문-태그라인.png" alt="빛밴 에듀케이션 로고" style="filter: brightness(0) invert(1);">
+    </div>
+    <div class="divider"></div>
+    <p class="tagline">Brand Identity · 2026</p>
+    <p class="sub-tagline">빛밴 에듀케이션 · Vancouver, BC, Canada</p>
+  </section>
+
+  <!-- ── BRAND IDENTITY ── -->
+  <section class="identity-section">
+    <div class="max-w">
+      <p class="section-label">Brand Identity</p>
+      <h2 class="section-title">브랜드 아이덴티티</h2>
+      <p class="section-sub">VV Education은 캐나다 공립학교 몰입형 교육 프로그램을 통해<br>학생들의 글로벌 미래를 열어가는 교육 컨설팅 브랜드입니다.</p>
+
+      <div class="identity-grid">
+        <div class="identity-card">
+          <p class="ic-label">Brand Personality</p>
+          <h3>전문적이고 신뢰할 수 있는</h3>
+          <p>교육 전문가로서의 신뢰감과 글로벌 네트워크, 그리고 학생과 학부모가 안심할 수 있는 따뜻한 가이드십을 동시에 전달합니다.</p>
+        </div>
+        <div class="identity-card">
+          <p class="ic-label">Target Audience</p>
+          <h3>한국 학생 &amp; 학부모</h3>
+          <p>캐나다 공립학교 어학연수 및 유학을 고려하는 만 9–13세 한국 학생과 그 학부모를 주 대상으로 합니다. 한/영 이중 언어 커뮤니케이션.</p>
+        </div>
+        <div class="identity-card">
+          <p class="ic-label">Brand Promise</p>
+          <h3>Global Study Pathways in Canada</h3>
+          <p>캐나다 최고의 교육 환경 속에서 학생 개개인에게 맞는 유학 경로를 체계적으로 설계하고, 출발부터 귀국까지 전 과정을 함께합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COLOR PALETTE ── -->
+  <section class="palette-section">
+    <div class="max-w">
+      <p class="section-label">Color Palette</p>
+      <h2 class="section-title" style="color:white; margin-bottom:8px;">브랜드 컬러</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.35); margin-bottom:48px;">캐나다 국기의 레드와 신뢰감을 주는 딥 네이비를 중심으로 구성된 컬러 팔레트</p>
+
+      <div class="palette-grid">
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#1A3660;"></div>
+          <p class="swatch-name">Logo Navy</p>
+          <p class="swatch-hex">#1A3660</p>
+          <p class="swatch-role">Primary / 로고 메인 컬러</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#1F2D3D;"></div>
+          <p class="swatch-name">Navy Deep</p>
+          <p class="swatch-hex">#1F2D3D</p>
+          <p class="swatch-role">Supporting / 보조 네이비</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#2A3F56;"></div>
+          <p class="swatch-name">Navy Mid</p>
+          <p class="swatch-hex">#2A3F56</p>
+          <p class="swatch-role">Supporting / 보조 네이비</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#C8102E;"></div>
+          <p class="swatch-name">Maple Red</p>
+          <p class="swatch-hex">#C8102E</p>
+          <p class="swatch-role">Accent / Canada</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#F5F7FA; border: 1px solid rgba(255,255,255,0.1);"></div>
+          <p class="swatch-name">Off White</p>
+          <p class="swatch-hex">#F5F7FA</p>
+          <p class="swatch-role">Background / Light</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TYPOGRAPHY ── -->
+  <section class="typo-section">
+    <div class="max-w">
+      <p class="section-label">Typography</p>
+      <h2 class="section-title">폰트 시스템</h2>
+      <p class="section-sub">국문과 영문 각각 메인 헤딩과 본문에 최적화된 두 가지 서체로 구성</p>
+
+      <div class="typo-grid">
+
+        <!-- IBM Plex Sans KR -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="preview-label">KR / Heading</p>
+            <p class="preview-sample" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:36px; font-weight:700;">빛밴 에듀케이션</p>
+            <p class="preview-sample" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:20px; font-weight:500;">캐나다 공립학교 몰입형 유학</p>
+            <p class="preview-alphabet" style="font-family:'IBM Plex Sans KR',sans-serif;">가나다라마바사 아자차카타파하<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">IBM Plex Sans KR</p>
+            <p class="typo-role">국문 메인 — 헤딩, 제목, UI 레이블</p>
+            <div class="typo-weights">
+              <span class="weight-pill primary">Light 300</span>
+              <span class="weight-pill primary">Regular 400</span>
+              <span class="weight-pill primary">Medium 500</span>
+              <span class="weight-pill primary">SemiBold 600</span>
+              <span class="weight-pill primary">Bold 700</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Montserrat -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="preview-label">EN / Heading</p>
+            <p class="preview-sample" style="font-family:'Montserrat',sans-serif; font-size:34px; font-weight:700;">VV Education</p>
+            <p class="preview-sample" style="font-family:'Montserrat',sans-serif; font-size:19px; font-weight:500;">Global Study Pathways</p>
+            <p class="preview-alphabet" style="font-family:'Montserrat',sans-serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0–9</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">Montserrat</p>
+            <p class="typo-role">영문 메인 — 헤딩, 브랜드명, 강조</p>
+            <div class="typo-weights">
+              <span class="weight-pill primary">Light 300</span>
+              <span class="weight-pill primary">Regular 400</span>
+              <span class="weight-pill primary">Medium 500</span>
+              <span class="weight-pill primary">SemiBold 600</span>
+              <span class="weight-pill primary">Bold 700</span>
+              <span class="weight-pill primary">ExtraBold 800</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Noto Sans KR -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="preview-label">KR / Body</p>
+            <p class="preview-sample" style="font-family:'Noto Sans KR',sans-serif; font-size:22px; font-weight:400;">체계적인 유학 경로 설계</p>
+            <p class="preview-sample" style="font-family:'Noto Sans KR',sans-serif; font-size:14px; font-weight:300; line-height:1.9; color:#6B7A8D;">출발 전 상담부터 현지 정착, 귀국 후 관리까지 학생 개개인에 맞는 최적의 경로를 함께 설계합니다.</p>
+            <p class="preview-alphabet" style="font-family:'Noto Sans KR',sans-serif;">가나다라마바사 아자차카타파하</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">Noto Sans KR</p>
+            <p class="typo-role">국문 본문 — 단락, 설명, 캡션</p>
+            <div class="typo-weights">
+              <span class="weight-pill">Light 300</span>
+              <span class="weight-pill">Regular 400</span>
+              <span class="weight-pill">Medium 500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Raleway -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="preview-label">EN / Body</p>
+            <p class="preview-sample" style="font-family:'Raleway',sans-serif; font-size:22px; font-weight:400;">Study in Canada</p>
+            <p class="preview-sample" style="font-family:'Raleway',sans-serif; font-size:14px; font-weight:300; line-height:1.9; color:#6B7A8D;">Designing each student's unique pathway to Canadian public school immersion programs, from first consultation to return.</p>
+            <p class="preview-alphabet" style="font-family:'Raleway',sans-serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0–9</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">Raleway</p>
+            <p class="typo-role">영문 본문 — 단락, 설명, 캡션</p>
+            <div class="typo-weights">
+              <span class="weight-pill">Light 300</span>
+              <span class="weight-pill">Regular 400</span>
+              <span class="weight-pill">Medium 500</span>
+              <span class="weight-pill">SemiBold 600</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LOGO SYSTEM ── -->
+  <section class="logo-section">
+    <div class="max-w">
+      <p class="section-label">Logo System</p>
+      <h2 class="section-title">로고 시스템</h2>
+      <p class="section-sub">용도와 언어에 따라 선택 가능한 로고 변형 시스템</p>
+
+      <!-- 심볼 마크 -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dash"></span>심볼 마크 — Symbol Mark</p>
+        <div class="logo-cards single">
+          <div class="logo-card">
+            <div class="img-wrap bg-white symbol">
+              <img src="src/로고 심볼.png" alt="VV Education 심볼">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">Symbol Mark</span>
+              <div class="tags">
+                <span class="tag tag-grey">단독 사용</span>
+                <span class="tag tag-navy">컬러</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/로고 심볼.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/로고 심볼.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 기본형 -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dash"></span>기본형 — Standard Lockup</p>
+        <div class="logo-cards">
+          <div class="logo-card">
+            <div class="img-wrap bg-white">
+              <img src="src/로고-영문.png" alt="VV Education 영문 로고">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">English · Horizontal</span>
+              <div class="tags">
+                <span class="tag tag-grey">영문</span>
+                <span class="tag tag-navy">가로형</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/로고-영문.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/로고-영문.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+          <div class="logo-card">
+            <div class="img-wrap bg-white">
+              <img src="src/로고-국문.png" alt="빛밴 에듀케이션 국문 로고">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">Korean · Horizontal</span>
+              <div class="tags">
+                <span class="tag tag-grey">국문</span>
+                <span class="tag tag-navy">가로형</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/로고-국문.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/로고-국문.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 태그라인형 -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dash"></span>태그라인형 — With Tagline</p>
+        <div class="logo-cards">
+          <div class="logo-card">
+            <div class="img-wrap bg-white">
+              <img src="src/로고-영문-태그라인.png" alt="VV Education 영문 태그라인 로고">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">English + Tagline</span>
+              <div class="tags">
+                <span class="tag tag-grey">영문</span>
+                <span class="tag tag-red">태그라인</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/로고-영문-태그라인.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/로고-영문-태그라인.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+          <div class="logo-card">
+            <div class="img-wrap bg-white">
+              <img src="src/로고-국문-태그라인.png" alt="빛밴 에듀케이션 국문 태그라인 로고">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">Korean + Tagline</span>
+              <div class="tags">
+                <span class="tag tag-grey">국문</span>
+                <span class="tag tag-red">태그라인</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/로고-국문-태그라인.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/로고-국문-태그라인.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+          <div class="logo-card">
+            <div class="img-wrap bg-navy">
+              <img src="src/로고-영문-태그라인.png" alt="VV Education 영문 다크 배경" style="filter: brightness(0) invert(1);">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">English · Dark BG</span>
+              <div class="tags">
+                <span class="tag tag-grey">영문</span>
+                <span class="tag tag-navy">다크 배경</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/로고-영문-태그라인-white.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/로고-영문-태그라인-white.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+          <div class="logo-card">
+            <div class="img-wrap bg-navy">
+              <img src="src/로고-국문-태그라인.png" alt="빛밴 에듀케이션 국문 다크 배경" style="filter: brightness(0) invert(1);">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">Korean · Dark BG</span>
+              <div class="tags">
+                <span class="tag tag-grey">국문</span>
+                <span class="tag tag-navy">다크 배경</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/로고-국문-태그라인-white.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/로고-국문-태그라인-white.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 크레스트 -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dash"></span>크레스트 — Crest Emblem</p>
+        <div class="logo-cards">
+          <div class="logo-card">
+            <div class="img-wrap bg-white crest">
+              <img src="src/Crest_color.png" alt="VV Education Crest 컬러">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">Crest · Color</span>
+              <div class="tags">
+                <span class="tag tag-red">컬러</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/Crest_color.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/Crest_color.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+          <div class="logo-card">
+            <div class="img-wrap bg-light crest">
+              <img src="src/Crest_black.png" alt="VV Education Crest 블랙">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">Crest · Black</span>
+              <div class="tags">
+                <span class="tag tag-grey">모노크롬</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/Crest_black.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/Crest_black.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+        </div>
+        <div class="crest-note">
+          <span class="note-icon">📜</span>
+          <p><strong>크레스트 사용 안내</strong> — 크레스트 엠블럼은 수료증, 졸업장, 공식 인증서 등 격식이 필요한 문서에 사용됩니다.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── APPLICATIONS ── -->
+  <section class="render-section">
+    <div class="max-w">
+      <p class="section-label">Applications</p>
+      <h2 class="section-title">브랜드 적용 예시</h2>
+      <p class="section-sub">웹사이트, 명함, 리플렛, 수료증에 적용된 VV Education 브랜드 아이덴티티</p>
+
+      <div class="render-grid">
+
+        <div class="render-card full">
+          <img src="src/render_website.png" alt="VV Education 웹사이트">
+          <div class="render-label">
+            <p class="render-name">웹사이트 — Website</p>
+            <p class="render-desc">메인 랜딩 페이지 · 한국어 · 유학 상담 서비스</p>
+          </div>
+        </div>
+
+        <div class="render-card full">
+          <img src="src/render_leaflet.png" alt="VV Education 리플렛">
+          <div class="render-label">
+            <p class="render-name">리플렛 — Tri-fold Leaflet</p>
+            <p class="render-desc">3단 접지 · 서비스 소개 · 한국어</p>
+          </div>
+        </div>
+
+        <div class="render-card full">
+          <img src="src/render_leaflet2.png" alt="VV Education 리플렛 내지">
+          <div class="render-label">
+            <p class="render-name">리플렛 내지 — Leaflet Interior</p>
+            <p class="render-desc">서비스 상세 · 도시별 프로그램 안내 · 한국어</p>
+          </div>
+        </div>
+
+        <div class="render-card full">
+          <img src="src/render_namecard.png" alt="VV Education 명함">
+          <div class="render-label">
+            <p class="render-name">명함 — Business Card</p>
+            <p class="render-desc">앞면 / 뒷면 · 국문 버전 + 영문 버전</p>
+          </div>
+        </div>
+
+        <div class="render-card">
+          <img src="src/render_certificate.png" alt="VV Education 수료증">
+          <div class="render-label">
+            <p class="render-name">수료증 — Certificate of Completion</p>
+            <p class="render-desc">크레스트 엠블럼 적용 · 공식 수료 문서</p>
+          </div>
+        </div>
+
+        <div class="render-card">
+          <img src="src/render_certificate_withcase.png" alt="VV Education 수료증 케이스">
+          <div class="render-label">
+            <p class="render-name">수료증 + 케이스</p>
+            <p class="render-desc">네이비 하드케이스 · 수료증 세트 패키지</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span>© 2026 Lee &amp; Ko Enterprises Inc.</span>
+    <span>VV Education · 빛밴 에듀케이션 — Brand Identity</span>
+    <span>Vancouver, BC · Canada</span>
+  </footer>
+
+</body>
+</html>
