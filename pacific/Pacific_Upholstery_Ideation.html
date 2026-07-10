@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacific Upholstery — Logo Direction Ideation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy:       #1A427B;
+      --navy-deep:  #0D2137;
+      --navy-mid:   #22538A;
+      --brass:      #B88A44;
+      --brass-light:#D4A85A;
+      --cream:      #F5F0E8;
+      --cream-dark: #EDE5D6;
+      --warm-white: #FDFAF5;
+      --text-mid:   #5a4a35;
+      --border:     #DDD5C4;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--navy-deep);
+      font-family: 'Playfair Display', 'Noto Sans KR', serif;
+    }
+
+    h1, h2, h3, .cinzel {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--navy-deep);
+      padding: 12px 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-btn:hover { color: var(--brass-light); }
+
+    /* ── SITE HEADER ── */
+    .site-header {
+      background: var(--navy-deep);
+      padding: 18px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(184,138,68,0.2);
+    }
+    .site-header .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      font-family: 'Playfair Display', sans-serif;
+    }
+    .site-header .brand-label {
+      font-family: 'Cinzel', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 100px 56px 88px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: 'PU';
+      position: absolute;
+      font-family: 'Cinzel', sans-serif;
+      font-weight: 700;
+      font-size: 38vw;
+      color: rgba(255,255,255,0.025);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--brass) 40%, var(--brass) 60%, transparent 100%);
+    }
+    .hero .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(44px, 6vw, 80px);
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 6px;
+    }
+    .hero .hero-sub {
+      font-family: 'Cinzel', sans-serif;
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+      margin-bottom: 28px;
+    }
+    .hero-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--brass);
+      margin: 0 auto 24px;
+      border-radius: 1px;
+    }
+    .hero .hero-desc {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.45);
+      letter-spacing: 0.06em;
+      line-height: 1.9;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 56px; }
+    .max-w { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(26px, 3vw, 38px);
+      color: var(--navy-deep);
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    /* ── BRAND OVERVIEW ── */
+    .overview-section { background: var(--warm-white); }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      margin-top: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .overview-card {
+      padding: 40px 36px;
+      background: var(--warm-white);
+      border-right: 1px solid var(--border);
+    }
+    .overview-card:last-child { border-right: none; }
+    .ov-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .ov-label {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 10px;
+    }
+    .ov-title {
+      font-family: 'Cinzel', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .ov-body {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .stag {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--cream);
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    /* ── COLOR & TYPE ── */
+    .palette-section { background: var(--navy-deep); }
+    .palette-section .section-label { color: rgba(184,138,68,0.6); }
+    .palette-section .section-title { color: var(--cream); }
+    .palette-section .section-sub { color: rgba(245,240,232,0.35); }
+    .palette-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .swatch { flex: 1; min-width: 110px; }
+    .swatch-block {
+      height: 88px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+    .swatch-name {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(245,240,232,0.8);
+      margin-bottom: 2px;
+    }
+    .swatch-hex {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 10px;
+      color: rgba(245,240,232,0.3);
+      letter-spacing: 0.08em;
+    }
+    .swatch-role {
+      font-size: 10px;
+      color: rgba(245,240,232,0.2);
+      margin-top: 2px;
+      font-weight: 300;
+    }
+    .type-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .type-demo {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 32px 36px;
+    }
+    .type-demo .td-label {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 16px;
+    }
+    .type-demo .td-sample-h {
+      font-family: 'Cinzel', sans-serif;
+      font-size: 38px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .type-demo .td-sample-b {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.45);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+    }
+    .type-demo .td-meta {
+      margin-top: 16px;
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(184,138,68,0.5);
+    }
+
+    /* ── CONCEPT SECTION SHARED ── */
+    .concept-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+      margin-bottom: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .concept-num {
+      font-family: 'Cinzel', sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--cream-dark);
+      flex-shrink: 0;
+      letter-spacing: -0.02em;
+    }
+    .concept-info .ci-label {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 10px;
+    }
+    .concept-info h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: var(--navy-deep);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+    .concept-info p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 560px;
+    }
+    .trait-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .trait {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+    .trait-navy { background: var(--navy); color: #fff; }
+    .trait-brass { background: var(--brass); color: #fff; }
+    .trait-outline { background: transparent; border: 1px solid var(--border); color: var(--text-mid); }
+
+    /* ── REF IMAGE GRID ── */
+    .ref-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .ref-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .ref-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .ref-card {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--warm-white);
+    }
+    .ref-card.span-2 { grid-column: span 2; }
+    .ref-card img {
+      width: 100%;
+      display: block;
+    }
+    .ref-card .ref-label {
+      padding: 14px 18px;
+      border-top: 1px solid var(--border);
+      background: var(--warm-white);
+    }
+    .ref-card .ref-name {
+      font-family: 'Cinzel', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+    .ref-card .ref-desc {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--text-mid);
+    }
+
+    /* ── CONCEPT A: PATCH ── */
+    .patch-section { background: var(--cream); }
+
+    /* ── CONCEPT B: MONOGRAM ── */
+    .monogram-section { background: var(--warm-white); }
+
+    /* ── DECISION CTA ── */
+    .decision-section {
+      background: var(--navy-deep);
+      padding: 80px 56px;
+      text-align: center;
+    }
+    .decision-section .section-label { color: rgba(184,138,68,0.5); text-align: center; }
+    .decision-section h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+    .decision-section p {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.4);
+      line-height: 1.9;
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .compare-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 36px 32px;
+      transition: border-color 0.2s;
+    }
+    .compare-card:hover { border-color: var(--brass); }
+    .compare-card .cc-num {
+      font-family: 'Cinzel', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 10px;
+    }
+    .compare-card h3 {
+      font-size: 22px;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .compare-list li {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.45);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+    .compare-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--brass);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-deep);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+
+    @media (max-width: 768px) {
+      section, .decision-section { padding: 60px 24px; }
+      .topbar, .site-header, footer { padding-left: 24px; padding-right: 24px; }
+      .hero { padding: 72px 24px 64px; }
+      .overview-grid,
+      .type-row,
+      .ref-grid.cols-2,
+      .ref-grid.cols-3,
+      .compare-grid { grid-template-columns: 1fr; }
+      .ref-card.span-2 { grid-column: auto; }
+      .concept-header { flex-direction: column; gap: 16px; }
+      .concept-num { font-size: 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOPBAR ── -->
+  <div class="topbar">
+    <a href="../index.html" class="back-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Main
+    </a>
+  </div>
+
+  <!-- ── SITE HEADER ── -->
+  <header class="site-header">
+    <span class="eyebrow">Lee &amp; Ko Enterprises — Brand Ideation</span>
+    <span class="brand-label">Pacific Upholstery</span>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <p class="hero-eyebrow">Logo Direction · Ideation 2026</p>
+    <h1>Pacific<br>Upholstery</h1>
+    <p class="hero-sub">태평양 소파천막 · Vancouver, BC</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      두 가지 로고 방향성 비교 제안<br>
+      Concept A — Craftsman's Patch &nbsp;·&nbsp; Concept B — PU Monogram
+    </p>
+  </section>
+
+  <!-- ── BRAND OVERVIEW ── -->
+  <section class="overview-section">
+    <div class="max-w">
+      <p class="section-label">Brand Overview</p>
+      <h2 class="section-title">브랜드 개요</h2>
+      <p class="section-sub">밴쿠버 기반 오프라인 소재 교체 전문 업체 — 현지인 및 한인 고객 대상</p>
+
+      <div class="overview-grid">
+        <div class="overview-card">
+          <span class="ov-icon">⚓</span>
+          <p class="ov-label">Business</p>
+          <p class="ov-title">Marine · RV<br>Commercial</p>
+          <p class="ov-body">보트 좌석 및 캔버스 교체, RV 인테리어 소재, 식당·카페 의자 천 교체, 어닝(차양막) 제작 및 교체. 밴쿠버 현지 오프라인 기반 운영.</p>
+          <div class="service-tags">
+            <span class="stag">보트 천</span>
+            <span class="stag">의자 소재</span>
+            <span class="stag">어닝</span>
+            <span class="stag">RV</span>
+            <span class="stag">커머셜</span>
+          </div>
+        </div>
+
+        <div class="overview-card">
+          <span class="ov-icon">🎯</span>
+          <p class="ov-label">Target</p>
+          <p class="ov-title">현지인 + 한인<br>양방향 타겟</p>
+          <p class="ov-body">보트 오너, 레스토랑·카페 업주, RV 여행자 등 영어권 현지 고객과 밴쿠버 한인 커뮤니티를 동시에 공략. 한/영 이중 언어 커뮤니케이션.</p>
+        </div>
+
+        <div class="overview-card">
+          <span class="ov-icon">🧵</span>
+          <p class="ov-label">Brand Vibe</p>
+          <p class="ov-title">클래식 &amp;<br>크래프트맨십</p>
+          <p class="ov-body">수십 년의 장인 기술, 내구성, 신뢰감. 현대적이되 과하지 않은 클래식 톤. 바느질·천·바다를 연상시키는 디테일로 브랜드 정체성을 표현.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COLOR & TYPOGRAPHY ── -->
+  <section class="palette-section">
+    <div class="max-w">
+      <p class="section-label">Brand Foundation</p>
+      <h2 class="section-title" style="color:var(--cream);">컬러 &amp; 타이포그래피</h2>
+      <p class="section-sub">확정된 브랜드 컬러와 서체 시스템</p>
+
+      <div class="palette-row">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#1A427B;"></div>
+          <p class="swatch-name">Pacific Blue</p>
+          <p class="swatch-hex">#1A427B</p>
+          <p class="swatch-role">Primary / 바다·신뢰</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#0D2137;"></div>
+          <p class="swatch-name">Deep Navy</p>
+          <p class="swatch-hex">#0D2137</p>
+          <p class="swatch-role">Dark BG / 헤더</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#B88A44;"></div>
+          <p class="swatch-name">Brass Gold</p>
+          <p class="swatch-hex">#B88A44</p>
+          <p class="swatch-role">Accent / 황동·장식</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#F5F0E8; border:1px solid rgba(255,255,255,0.1);"></div>
+          <p class="swatch-name">Warm Cream</p>
+          <p class="swatch-hex">#F5F0E8</p>
+          <p class="swatch-role">Background / 캔버스</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#EDE5D6; border:1px solid rgba(255,255,255,0.08);"></div>
+          <p class="swatch-name">Canvas Beige</p>
+          <p class="swatch-hex">#EDE5D6</p>
+          <p class="swatch-role">Background / 보조</p>
+        </div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-demo">
+          <p class="td-label">Display / Heading — Oswald</p>
+          <p class="td-sample-h">Pacific<br>Upholstery</p>
+          <p class="td-meta">Oswald · SemiBold 600 · Condensed</p>
+        </div>
+        <div class="type-demo">
+          <p class="td-label">Body / Sub — Montserrat</p>
+          <p class="td-sample-b">
+            Marine · RV · Commercial<br><br>
+            Quality craftsmanship built to last.<br>
+            보트, 의자, 어닝 — 오래 견디는 소재와 기술.
+          </p>
+          <p class="td-meta">Montserrat · Light 300 / Regular 400</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       CONCEPT A — PATCH
+  ══════════════════════════════ -->
+  <section class="patch-section">
+    <div class="max-w">
+
+      <div class="concept-header">
+        <p class="concept-num">A</p>
+        <div class="concept-info">
+          <p class="ci-label">Concept A — Craftsman's Patch</p>
+          <h2>패치 뱃지<br>스타일</h2>
+          <p>작업복·선박 장비에 부착된 가죽 패치나 자수 뱃지에서 영감을 받은 방향. 바느질 스티치 테두리, 클래식 배지 형태, 네이비와 브라스 조합으로 장인 브랜드의 신뢰감과 역사성을 표현합니다. 현지 고객에게 친숙하고 즉각적으로 업종을 전달하는 데 효과적입니다.</p>
+          <div class="trait-list">
+            <span class="trait trait-navy">클래식 배지형</span>
+            <span class="trait trait-brass">바느질 스티치</span>
+            <span class="trait trait-outline">즉각적 인지</span>
+            <span class="trait trait-outline">워크웨어 감성</span>
+            <span class="trait trait-outline">내구성·전통</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-grid cols-2" style="margin-bottom:16px;">
+        <div class="ref-card span-2">
+          <img src="ideation/patch_1.png" alt="Patch Concept Overview — Craftsman's Patch 전체 개요">
+          <div class="ref-label">
+            <p class="ref-name">Craftsman's Patch — 전체 컨셉 개요</p>
+            <p class="ref-desc">로고 변형 시스템 · 워드마크 락업 · 적용 예시 · 컬러 &amp; 타이포그래피</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-grid cols-2" style="margin-bottom:16px;">
+        <div class="ref-card">
+          <img src="ideation/patch_2.png" alt="Badge Variations + Color Palette">
+          <div class="ref-label">
+            <p class="ref-name">배지 형태 &amp; 워드마크 변형</p>
+            <p class="ref-desc">Primary Badge · Rounded · Shield · Circle · Light Patch — 비율 가이드 및 차량 래핑 적용</p>
+          </div>
+        </div>
+        <div class="ref-card">
+          <img src="ideation/patch_5.png" alt="Boat Patch Close-up">
+          <div class="ref-label">
+            <p class="ref-name">보트 패치 — 클로즈업</p>
+            <p class="ref-desc">육각형 뱃지 · 가죽 패치 질감 · 골드 스티치 테두리 · 보트 실루엣 아이콘</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-grid cols-2">
+        <div class="ref-card">
+          <img src="ideation/patch_3.png" alt="C/D Series Patch Variations">
+          <div class="ref-label">
+            <p class="ref-name">C Series · D Series 변형</p>
+            <p class="ref-desc">C — 가죽 패치 영감 (가위·앵커 아이콘) &nbsp;·&nbsp; D — 파도·스티치 영감</p>
+          </div>
+        </div>
+        <div class="ref-card">
+          <img src="ideation/patch_4.png" alt="C2/C3 Series Close-up">
+          <div class="ref-label">
+            <p class="ref-name">C2 · C3 Series — 세부 변형</p>
+            <p class="ref-desc">C2 — 가죽 패치 심화 &nbsp;·&nbsp; C3 — 바늘·실 아이콘 통합 스티치 크래프트 버전</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       CONCEPT B — MONOGRAM
+  ══════════════════════════════ -->
+  <section class="monogram-section">
+    <div class="max-w">
+
+      <div class="concept-header">
+        <p class="concept-num">B</p>
+        <div class="concept-info">
+          <p class="ci-label">Concept B — PU Monogram</p>
+          <h2>PU 모노그램<br>스타일</h2>
+          <p>P를 바늘, U를 실 또는 바느질 곡선으로 형상화한 모노그램 방향. 두 글자가 유기적으로 연결되며 업종 정체성(바느질·봉제)을 로고 자체에 내재화합니다. 패치 방식보다 미니멀하고 현대적이며, 자수·엠보싱 등 다양한 소재 적용에 유리합니다.</p>
+          <div class="trait-list">
+            <span class="trait trait-navy">P = 바늘</span>
+            <span class="trait trait-brass">U = 실·곡선</span>
+            <span class="trait trait-outline">미니멀·현대적</span>
+            <span class="trait trait-outline">자수·엠보싱 최적</span>
+            <span class="trait trait-outline">브랜드 고유성</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-grid cols-2" style="margin-bottom:16px;">
+        <div class="ref-card span-2">
+          <img src="ideation/monogram_1.png" alt="PU Monogram Mark Variations">
+          <div class="ref-label">
+            <p class="ref-name">PU 모노그램 마크 — 전체 변형 (PU-1 ~ PU-6)</p>
+            <p class="ref-desc">모노그램 심볼 6종 · 워드마크 락업 6종 · 자수·컵·명함·차량 래핑 적용 예시</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-grid cols-2">
+        <div class="ref-card">
+          <img src="ideation/monogram_3.png" alt="PU Monogram Concept 1 — Classic PU Detail">
+          <div class="ref-label">
+            <p class="ref-name">Classic PU — 핵심 컨셉 상세</p>
+            <p class="ref-desc">바늘(P) + 실(U) 구조 설명 · 마크 변형 (Primary / Circle / Square / Icon) · 투톤 &amp; 단색 버전 · 적용 예시</p>
+          </div>
+        </div>
+        <div class="ref-card">
+          <img src="ideation/monogram_2.png" alt="PU Monogram — 3 Sub-concepts">
+          <div class="ref-label">
+            <p class="ref-name">3가지 세부 컨셉 비교</p>
+            <p class="ref-desc">① Classic PU &nbsp;·&nbsp; ② Continuous Thread PU &nbsp;·&nbsp; ③ Needle P + Stitched U — 가로형 락업 및 실용 적용 예시</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── DECISION ── -->
+  <section class="decision-section">
+    <div class="max-w">
+      <p class="section-label">Direction Decision</p>
+      <h2 class="cinzel">어떤 방향으로 가시겠습니까?</h2>
+      <p>두 컨셉 모두 Pacific Upholstery의 업종과 클래식한 브랜드 방향성에 잘 맞습니다.<br>최종 결정 후 선택된 방향으로 로고 디자인을 진행합니다.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <p class="cc-num">Concept A</p>
+          <h3>Craftsman's<br>Patch</h3>
+          <ul class="compare-list">
+            <li>클래식 배지·패치 형태 — 즉각적 업종 인지</li>
+            <li>바느질 스티치 테두리 질감으로 장인 감성 강조</li>
+            <li>현지 워크웨어·마린 문화에 익숙한 비주얼</li>
+            <li>다양한 배지 형태(원형·방패·헥사곤)로 활용 폭 넓음</li>
+            <li>차량 래핑, 유니폼 자수 등 B2B 마케팅에 강함</li>
+          </ul>
+        </div>
+        <div class="compare-card">
+          <p class="cc-num">Concept B</p>
+          <h3>PU<br>Monogram</h3>
+          <ul class="compare-list">
+            <li>P(바늘) + U(실) — 업종 정체성이 로고에 내재화</li>
+            <li>미니멀·현대적 — 명함, 자수, 엠보싱에 최적</li>
+            <li>브랜드 고유의 심볼로 장기적 인지도 구축 용이</li>
+            <li>3가지 세부 방향(Classic / Continuous / Needle+Stitch)</li>
+            <li>패치 방식에 비해 고급스럽고 확장 적용 유리</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span>© 2026 Lee &amp; Ko Enterprises Inc.</span>
+    <span>Pacific Upholstery · 태평양 소파천막 — Logo Ideation</span>
+    <span>Vancouver, BC · Canada</span>
+  </footer>
+
+</body>
+</html>
