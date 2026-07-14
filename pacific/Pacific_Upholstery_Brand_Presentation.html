@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacific Upholstery — Brand Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'KBLJump';
+      src: url('src/font/KBLJump_R.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'KBLJump';
+      src: url('src/font/KBLJump_B.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'KBLJump Condensed';
+      src: url('src/font/KBLJump_EB_Condensed.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'KBLJump Extended';
+      src: url('src/font/KBLJump_EB_Extended.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'KBLCourt';
+      src: url('src/font/KBLCourt_EB.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy:       #002842;
+      --navy-mid:   #003a5c;
+      --navy-light: #0a4a72;
+      --gold:       #CE8B31;
+      --gold-light: #e0a04a;
+      --cream:      #F5F0E8;
+      --cream-dark: #EDE5D6;
+      --warm-white: #FDFAF5;
+      --border:     #DDD5C4;
+      --text-mid:   #5a4a35;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--navy);
+      font-family: 'Playfair Display', 'Noto Sans KR', serif;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--navy);
+      padding: 12px 56px;
+      border-bottom: 1px solid rgba(206,139,49,0.15);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-btn:hover { color: var(--gold-light); }
+
+    /* ── SITE HEADER ── */
+    .site-header {
+      background: var(--navy);
+      padding: 18px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--gold);
+    }
+    .site-header .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+    }
+    .site-header .brand-label {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 96px 56px 84px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold) 70%, transparent 100%);
+    }
+    .hero .logo-hero {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .hero .logo-hero img {
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+    }
+    .hero-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 24px;
+      border-radius: 1px;
+    }
+    .hero .tagline {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .hero .sub-tagline {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.22);
+      margin-top: 10px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 56px; }
+    .max-w { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.2;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .section-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-mid);
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+
+    /* ── BRAND IDENTITY ── */
+    .identity-section { background: var(--warm-white); }
+    .identity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .identity-card {
+      padding: 40px 32px;
+      background: var(--warm-white);
+      border-right: 1px solid var(--border);
+    }
+    .identity-card:last-child { border-right: none; }
+    .ic-label {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .identity-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .identity-card p {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .stag {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--cream);
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    /* ── COLOR PALETTE ── */
+    .palette-section { background: var(--navy); }
+    .palette-section .section-label { color: rgba(206,139,49,0.5); }
+    .palette-section .section-title { color: var(--cream); }
+    .palette-section .section-sub { color: rgba(245,240,232,0.35); margin-bottom: 40px; }
+    .palette-grid {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .swatch-item { flex: 1; min-width: 120px; }
+    .swatch-block {
+      height: 100px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .swatch-name {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(245,240,232,0.85);
+      margin-bottom: 3px;
+    }
+    .swatch-hex {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      color: rgba(245,240,232,0.3);
+      letter-spacing: 0.1em;
+    }
+    .swatch-role {
+      font-size: 10px;
+      color: rgba(245,240,232,0.22);
+      margin-top: 3px;
+      font-weight: 300;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .typo-section { background: var(--cream); }
+    .typo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .typo-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .typo-card .typo-preview {
+      padding: 36px 32px 28px;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border);
+      min-height: 180px;
+    }
+    .typo-card .tp-label {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .typo-card .tp-sample {
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .typo-card .tp-alphabet {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-mid);
+      line-height: 1.9;
+      opacity: 0.6;
+    }
+    .typo-card .typo-meta {
+      padding: 18px 24px;
+      background: var(--warm-white);
+    }
+    .typo-card .typo-name {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 3px;
+      letter-spacing: 0.06em;
+    }
+    .typo-card .typo-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      color: var(--text-mid);
+      margin-bottom: 10px;
+    }
+    .typo-card .typo-weights {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    .wpill {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: var(--cream);
+      color: var(--text-mid);
+      border: 1px solid var(--border);
+    }
+    .wpill.primary {
+      background: rgba(0,40,66,0.07);
+      color: var(--navy);
+      border-color: rgba(0,40,66,0.15);
+    }
+
+    /* ── LOGO SYSTEM ── */
+    .logo-section { background: var(--warm-white); }
+    .logo-group { margin-bottom: 60px; }
+    .logo-group-title {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-group-title .dash {
+      width: 20px;
+      height: 2px;
+      background: var(--gold);
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+    .logo-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .logo-cards.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .logo-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .logo-card .img-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 40px;
+      min-height: 220px;
+      background: var(--cream);
+    }
+    .logo-card .img-wrap.bg-navy { background: var(--navy); }
+    .logo-card .img-wrap img {
+      max-width: 100%;
+      max-height: 160px;
+      object-fit: contain;
+    }
+    .logo-card .img-wrap.wide img {
+      max-height: 100px;
+    }
+    .logo-card .card-meta {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--warm-white);
+    }
+    .logo-card .meta-name {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .logo-card .tags {
+      display: flex;
+      gap: 5px;
+    }
+    .tag {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+    .tag-navy  { background: rgba(0,40,66,0.08); color: var(--navy); }
+    .tag-gold  { background: rgba(206,139,49,0.12); color: var(--gold); }
+    .tag-grey  { background: var(--cream); color: var(--text-mid); border: 1px solid var(--border); }
+    .card-downloads {
+      padding: 10px 20px 14px;
+      display: flex;
+      gap: 7px;
+      background: var(--warm-white);
+    }
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      background: var(--cream);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .dl-btn:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    /* ── APPLICATIONS ── */
+    .render-section { background: var(--navy); padding: 80px 56px; }
+    .render-section .section-label { color: rgba(206,139,49,0.45); }
+    .render-section .section-title { color: var(--cream); }
+    .render-section .section-sub { color: rgba(245,240,232,0.3); }
+    .render-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .render-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .render-card.full { grid-column: 1 / -1; }
+    .render-card img {
+      width: 100%;
+      display: block;
+    }
+    .render-card .render-label {
+      padding: 18px 22px;
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .render-card .render-name {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .render-card .render-desc {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(245,240,232,0.35);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(206,139,49,0.15);
+      padding: 28px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+
+    @media (max-width: 768px) {
+      section, .render-section { padding: 60px 24px; }
+      .topbar, .site-header, footer { padding-left: 24px; padding-right: 24px; }
+      .hero { padding: 72px 24px 60px; }
+      .identity-grid,
+      .typo-grid,
+      .logo-cards,
+      .logo-cards.cols-3,
+      .render-grid { grid-template-columns: 1fr; }
+      .render-card.full { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOPBAR ── -->
+  <div class="topbar">
+    <a href="../index.html" class="back-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Main
+    </a>
+  </div>
+
+  <!-- ── SITE HEADER ── -->
+  <header class="site-header">
+    <span class="eyebrow">Lee &amp; Ko Enterprises — Brand Presentation</span>
+    <span class="brand-label">Pacific Upholstery · 태평양 소파</span>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="logo-hero">
+      <img src="src/Eng_기본형.png" alt="Pacific Upholstery 기본형 로고">
+    </div>
+    <div class="hero-divider"></div>
+    <p class="tagline">Brand Identity · 2026</p>
+    <p class="sub-tagline">태평양 소파천막 · Vancouver, BC, Canada</p>
+  </section>
+
+  <!-- ── BRAND IDENTITY ── -->
+  <section class="identity-section">
+    <div class="max-w">
+      <p class="section-label">Brand Identity</p>
+      <h2 class="section-title">브랜드 아이덴티티</h2>
+      <p class="section-sub">밴쿠버 기반 소재 교체 전문 업체 — 장인 기술과 신뢰감을 클래식한 브랜드로 표현</p>
+
+      <div class="identity-grid">
+        <div class="identity-card">
+          <p class="ic-label">Brand Personality</p>
+          <h3>Craftsmanship &amp; Trust</h3>
+          <p>수십 년의 기술력과 내구성, 장인 정신. 현대적이되 과하지 않은 클래식 톤으로 현지 고객과 한인 커뮤니티 모두에게 신뢰를 전달합니다.</p>
+        </div>
+        <div class="identity-card">
+          <p class="ic-label">Services</p>
+          <h3>Marine · Commercial · RV</h3>
+          <p>보트 좌석 및 캔버스 교체, 식당·카페 의자 소재, 어닝(차양막) 제작 및 교체, RV 인테리어 소재. 밴쿠버 오프라인 기반 직접 시공.</p>
+          <div class="service-tags">
+            <span class="stag">보트 천</span>
+            <span class="stag">의자 소재</span>
+            <span class="stag">어닝</span>
+            <span class="stag">RV</span>
+          </div>
+        </div>
+        <div class="identity-card">
+          <p class="ic-label">Brand Promise</p>
+          <h3>Built to Last</h3>
+          <p>한 번 맡기면 오래 쓰는 소재와 시공. 현지인과 한인 고객 모두를 위한 한·영 이중 언어 서비스로 밴쿠버 최고의 업홀스터리 전문점을 목표로 합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COLOR PALETTE ── -->
+  <section class="palette-section">
+    <div class="max-w">
+      <p class="section-label">Color Palette</p>
+      <h2 class="section-title" style="color:var(--cream);">브랜드 컬러</h2>
+      <p class="section-sub">태평양의 깊은 네이비와 황동 골드를 중심으로 한 클래식 팔레트</p>
+
+      <div class="palette-grid">
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#002842;"></div>
+          <p class="swatch-name">Pacific Navy</p>
+          <p class="swatch-hex">#002842</p>
+          <p class="swatch-role">Primary / 메인 브랜드 컬러</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#003a5c;"></div>
+          <p class="swatch-name">Navy Mid</p>
+          <p class="swatch-hex">#003A5C</p>
+          <p class="swatch-role">Supporting / 보조 네이비</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#CE8B31;"></div>
+          <p class="swatch-name">Brass Gold</p>
+          <p class="swatch-hex">#CE8B31</p>
+          <p class="swatch-role">Accent / 황동·장식·포인트</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#F5F0E8; border:1px solid rgba(255,255,255,0.1);"></div>
+          <p class="swatch-name">Warm Cream</p>
+          <p class="swatch-hex">#F5F0E8</p>
+          <p class="swatch-role">Background / 캔버스</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#EDE5D6; border:1px solid rgba(255,255,255,0.08);"></div>
+          <p class="swatch-name">Canvas Beige</p>
+          <p class="swatch-hex">#EDE5D6</p>
+          <p class="swatch-role">Background / 보조</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TYPOGRAPHY ── -->
+  <section class="typo-section">
+    <div class="max-w">
+      <p class="section-label">Typography</p>
+      <h2 class="section-title">폰트 시스템</h2>
+      <p class="section-sub">영문과 국문 각각 헤딩·본문에 최적화된 서체 시스템</p>
+
+      <div class="typo-grid">
+
+        <!-- Cinzel -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="tp-label">EN / Heading</p>
+            <p class="tp-sample" style="font-family:'Cinzel',serif; font-size:32px; font-weight:700; letter-spacing:0.06em;">Pacific<br>Upholstery</p>
+            <p class="tp-alphabet" style="font-family:'Cinzel',serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz · 0–9</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">Cinzel</p>
+            <p class="typo-role">영문 메인 — 헤딩, 레이블, 배지 텍스트</p>
+            <div class="typo-weights">
+              <span class="wpill primary">Regular 400</span>
+              <span class="wpill primary">Medium 500</span>
+              <span class="wpill primary">SemiBold 600</span>
+              <span class="wpill primary">Bold 700</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KBL Extended -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="tp-label">KR / Display — KBL Extended</p>
+            <p class="tp-sample" style="font-family:'KBLJump Extended',sans-serif; font-size:36px; font-weight:800; color:#002842;">태평양 소파</p>
+            <p class="tp-alphabet" style="font-family:'KBLJump Extended',sans-serif; font-size:13px;">가나다라마바사아자차카타파하<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">KBL Jump Extended</p>
+            <p class="typo-role">국문 디스플레이 — 로고 메인 텍스트, 대형 헤딩</p>
+            <div class="typo-weights">
+              <span class="wpill primary">ExtraBold 800</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Playfair Display -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="tp-label">EN / Body</p>
+            <p class="tp-sample" style="font-family:'Playfair Display',serif; font-size:22px; font-weight:400;">Quality Craftsmanship<br>Built to Last.</p>
+            <p class="tp-alphabet" style="font-family:'Playfair Display',serif; font-size:13px;">Seating Installation · Repair · Replacement<br><em>Marine · Commercial · RV — Vancouver, BC</em></p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">Playfair Display</p>
+            <p class="typo-role">영문 본문 — 단락, 설명, 서브헤딩</p>
+            <div class="typo-weights">
+              <span class="wpill">Regular 400</span>
+              <span class="wpill">Medium 500</span>
+              <span class="wpill">SemiBold 600</span>
+              <span class="wpill">Bold 700</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KBL Condensed -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="tp-label">KR / Sub-heading — KBL Condensed</p>
+            <p class="tp-sample" style="font-family:'KBLJump Condensed',sans-serif; font-size:34px; font-weight:800; color:#002842;">커머셜 · 보트 · RV</p>
+            <p class="tp-alphabet" style="font-family:'KBLJump Condensed',sans-serif; font-size:13px;">소파 &amp; 시트 설치 · 수리 · 교체<br>가나다라마바사아자차카타파하</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">KBL Jump Condensed</p>
+            <p class="typo-role">국문 서브헤딩 — 서비스명, 태그라인</p>
+            <div class="typo-weights">
+              <span class="wpill primary">ExtraBold 800</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KBL Regular -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="tp-label">KR / Body — KBL Jump Regular</p>
+            <p class="tp-sample" style="font-family:'KBLJump',sans-serif; font-size:22px; font-weight:400; color:#002842;">밴쿠버 소재 교체 전문</p>
+            <p class="tp-alphabet" style="font-family:'KBLJump',sans-serif; font-size:13px;">보트, 의자, 어닝 — 오래 견디는 시공<br>가나다라마바사아자차카타파하</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">KBL Jump Regular</p>
+            <p class="typo-role">국문 본문 — 단락, 설명, UI 레이블</p>
+            <div class="typo-weights">
+              <span class="wpill">Regular 400</span>
+              <span class="wpill">Bold 700</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Noto Sans KR -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="tp-label">KR / Body — Noto Sans KR</p>
+            <p class="tp-sample" style="font-family:'Noto Sans KR',sans-serif; font-size:20px; font-weight:400; color:#002842;">소파 &amp; 시트 설치·수리·교체</p>
+            <p class="tp-alphabet" style="font-family:'Noto Sans KR',sans-serif; font-size:13px; line-height:1.9;">보트, 의자, 어닝 — 오래 견디는 소재와 기술로<br>밴쿠버 고객과 함께합니다.</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">Noto Sans KR</p>
+            <p class="typo-role">국문 보조 본문 — 웹·디지털 매체 가독성</p>
+            <div class="typo-weights">
+              <span class="wpill">Light 300</span>
+              <span class="wpill">Regular 400</span>
+              <span class="wpill">Medium 500</span>
+              <span class="wpill">SemiBold 600</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LOGO SYSTEM ── -->
+  <section class="logo-section">
+    <div class="max-w">
+      <p class="section-label">Logo System</p>
+      <h2 class="section-title">로고 시스템</h2>
+      <p class="section-sub">영문 3종 · 국문 2종 — 용도에 따른 로고 변형 시스템</p>
+
+      <!-- 영문 로고 -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dash"></span>English Logo — 영문 로고 3종</p>
+        <div class="logo-cards cols-3">
+
+          <div class="logo-card">
+            <div class="img-wrap">
+              <img src="src/Eng_기본형.png" alt="영문 기본형">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">기본형</span>
+              <div class="tags">
+                <span class="tag tag-navy">배지형</span>
+                <span class="tag tag-grey">EN</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/Eng_기본형.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/Eng_기본형.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap">
+              <img src="src/Eng_가로형.png" alt="영문 가로형">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">가로형</span>
+              <div class="tags">
+                <span class="tag tag-navy">배지형</span>
+                <span class="tag tag-grey">EN</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/Eng_가로형.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/Eng_가로형.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap" style="padding: 48px 24px;">
+              <img src="src/Eng_글자형.png" alt="영문 글자형" class="wide">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">글자형</span>
+              <div class="tags">
+                <span class="tag tag-gold">텍스트</span>
+                <span class="tag tag-grey">EN</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/Eng_글자형.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/Eng_글자형.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 한글 로고 -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dash"></span>Korean Logo — 한글 로고 2종</p>
+        <div class="logo-cards">
+
+          <div class="logo-card">
+            <div class="img-wrap">
+              <img src="src/Kor_기본형.png" alt="한글 기본형">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">기본형</span>
+              <div class="tags">
+                <span class="tag tag-navy">배지형</span>
+                <span class="tag tag-grey">KR</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/Kor_기본형.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/Kor_기본형.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap" style="padding: 48px 24px;">
+              <img src="src/Kor_글자형.png" alt="한글 글자형">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">글자형</span>
+              <div class="tags">
+                <span class="tag tag-gold">텍스트</span>
+                <span class="tag tag-grey">KR</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/Kor_글자형.png" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG</a>
+              <a href="src/Kor_글자형.svg" download class="dl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── APPLICATIONS ── -->
+  <section class="render-section">
+    <div class="max-w">
+      <p class="section-label">Applications</p>
+      <h2 class="section-title" style="color:var(--cream);">브랜드 적용 예시</h2>
+      <p class="section-sub">사이니지, 옥외 광고, 차량 래핑에 적용된 Pacific Upholstery 브랜드</p>
+
+      <div class="render-grid">
+
+        <div class="render-card">
+          <img src="src/render_1.png" alt="야드 사인 — 영문">
+          <div class="render-label">
+            <p class="render-name">Yard Sign — English</p>
+            <p class="render-desc">영문 기본형 · 야외 간판 · 주거지 사이니지</p>
+          </div>
+        </div>
+
+        <div class="render-card">
+          <img src="src/render_2.png" alt="야드 사인 — 한글">
+          <div class="render-label">
+            <p class="render-name">야드 사인 — 한글</p>
+            <p class="render-desc">한글 기본형 · 야외 간판 · 한인 밀집 지역 사이니지</p>
+          </div>
+        </div>
+
+        <div class="render-card full">
+          <img src="src/render_3.png" alt="버스정류장 광고">
+          <div class="render-label">
+            <p class="render-name">버스정류장 광고 — Transit Ad</p>
+            <p class="render-desc">한글 글자형 · 밴쿠버 대중교통 광고 · 한인 커뮤니티 타겟</p>
+          </div>
+        </div>
+
+        <div class="render-card full">
+          <img src="src/render_4.png" alt="차량 래핑">
+          <div class="render-label">
+            <p class="render-name">Vehicle Wrap — 차량 래핑</p>
+            <p class="render-desc">영문 기본형 · 픽업트럭 래핑 · 이동형 브랜드 노출</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span>© 2026 Lee &amp; Ko Enterprises Inc.</span>
+    <span>Pacific Upholstery · 태평양 소파 — Brand Identity</span>
+    <span>Vancouver, BC · Canada</span>
+  </footer>
+
+</body>
+</html>
