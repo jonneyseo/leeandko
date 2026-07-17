@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grizzly — Brand Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Recipekorea';
+      src: url('src/Recipekorea 饭内眉 FONT.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brown-deep:  #2A1505;
+      --brown-mid:   #6B4226;
+      --brown-light: #9B6B42;
+      --maple:       #A31621;
+      --beige:       #F0E4C8;
+      --beige-dark:  #E2D0B0;
+      --cream:       #FBF8F1;
+      --warm-white:  #FFFFFF;
+      --text-mid:    #7a5a3a;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--brown-deep);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--brown-deep);
+      padding: 12px 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .back-btn:hover { color: var(--beige); }
+
+    /* ── SITE HEADER ── */
+    .site-header {
+      background: var(--brown-deep);
+      padding: 18px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--maple);
+    }
+    .site-header .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+    }
+    .site-header .brand-label {
+      font-family: 'Recipekorea', sans-serif;
+      font-size: 18px;
+      color: var(--beige);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--brown-deep);
+      padding: 96px 56px 84px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--maple) 30%, var(--maple) 70%, transparent 100%);
+    }
+    .hero::before {
+      content: 'G';
+      position: absolute;
+      font-family: 'Recipekorea', sans-serif;
+      font-size: 52vw;
+      color: rgba(255,255,255,0.02);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -48%);
+      pointer-events: none;
+      line-height: 1;
+    }
+    .hero-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 56px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .hero-logo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero-logo-item img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+    }
+    .hero-logo-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+    .hero-divider-v {
+      width: 1px;
+      height: 100px;
+      background: rgba(163,22,33,0.3);
+      align-self: center;
+    }
+    .hero-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--maple);
+      margin: 0 auto 24px;
+      border-radius: 1px;
+    }
+    .hero .tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .hero .sub-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.18);
+      margin-top: 10px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 56px; }
+    .max-w { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--maple);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Recipekorea', sans-serif;
+      font-size: clamp(26px, 3vw, 38px);
+      color: var(--brown-deep);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-mid);
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+
+    /* ── BRAND IDENTITY ── */
+    .identity-section { background: var(--cream); }
+    .identity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      border: 1px solid var(--beige-dark);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .identity-card {
+      padding: 40px 32px;
+      background: var(--warm-white);
+      border-right: 1px solid var(--beige-dark);
+    }
+    .identity-card:last-child { border-right: none; }
+    .ic-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--maple);
+      margin-bottom: 14px;
+    }
+    .identity-card h3 {
+      font-family: 'Recipekorea', sans-serif;
+      font-size: 20px;
+      color: var(--brown-deep);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    .identity-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+    .dir-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+    .dtag {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--beige);
+      color: var(--brown-mid);
+      border: 1px solid var(--beige-dark);
+    }
+
+    /* ── COLOR PALETTE ── */
+    .palette-section { background: var(--brown-deep); }
+    .palette-section .section-label { color: rgba(163,22,33,0.6); }
+    .palette-section .section-title { color: var(--beige); }
+    .palette-section .section-sub { color: rgba(240,228,200,0.35); }
+    .palette-grid {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .swatch-item { flex: 1; min-width: 120px; }
+    .swatch-block {
+      height: 96px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .swatch-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(240,228,200,0.85);
+      margin-bottom: 3px;
+    }
+    .swatch-hex {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: rgba(240,228,200,0.3);
+      letter-spacing: 0.1em;
+    }
+    .swatch-role {
+      font-size: 10px;
+      color: rgba(240,228,200,0.22);
+      margin-top: 3px;
+      font-weight: 300;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .typo-section { background: var(--beige); }
+    .typo-section .section-title { color: var(--brown-deep); }
+    .typo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .typo-card {
+      border: 1px solid var(--beige-dark);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .typo-card .typo-preview {
+      padding: 36px 32px 28px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--beige-dark);
+      min-height: 180px;
+    }
+    .typo-card.dark .typo-preview {
+      background: var(--brown-deep);
+    }
+    .typo-card .tp-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--maple);
+      margin-bottom: 16px;
+    }
+    .typo-card.dark .tp-label { color: rgba(163,22,33,0.6); }
+    .typo-card .tp-sample {
+      color: var(--brown-deep);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .typo-card.dark .tp-sample { color: var(--beige); }
+    .typo-card .tp-alphabet {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      opacity: 0.7;
+    }
+    .typo-card.dark .tp-alphabet { color: rgba(240,228,200,0.35); opacity: 1; }
+    .typo-card .typo-meta {
+      padding: 18px 24px;
+      background: var(--cream);
+    }
+    .typo-card.dark .typo-meta { background: var(--brown-deep); border-top: 1px solid rgba(255,255,255,0.07); }
+    .typo-card .typo-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brown-deep);
+      margin-bottom: 3px;
+      letter-spacing: 0.04em;
+    }
+    .typo-card.dark .typo-name { color: var(--beige); }
+    .typo-card .typo-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-mid);
+      margin-bottom: 10px;
+    }
+    .typo-card.dark .typo-role { color: rgba(240,228,200,0.4); }
+    .typo-card .typo-weights {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    .wpill {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: var(--beige);
+      color: var(--text-mid);
+      border: 1px solid var(--beige-dark);
+    }
+    .typo-card.dark .wpill {
+      background: rgba(255,255,255,0.07);
+      color: rgba(240,228,200,0.5);
+      border-color: rgba(255,255,255,0.08);
+    }
+    .wpill.primary {
+      background: rgba(42,21,5,0.08);
+      color: var(--brown-deep);
+      border-color: rgba(42,21,5,0.15);
+    }
+
+    /* ── LOGO SYSTEM ── */
+    .logo-section { background: var(--cream); }
+    .logo-group { margin-bottom: 60px; }
+    .logo-group:last-child { margin-bottom: 0; }
+    .logo-group-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--brown-deep);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--beige-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-group-title .dash {
+      width: 20px;
+      height: 2px;
+      background: var(--maple);
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+    .logo-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .logo-card {
+      background: white;
+      border: 1px solid var(--beige-dark);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .logo-card:hover { box-shadow: 0 6px 24px rgba(42,21,5,0.08); }
+    .logo-card .img-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 28px;
+      min-height: 200px;
+      background: var(--cream);
+    }
+    .logo-card .img-wrap.bg-beige { background: var(--beige); }
+    .logo-card .img-wrap.bg-dark  { background: var(--brown-deep); }
+    .logo-card .img-wrap img {
+      max-width: 100%;
+      max-height: 140px;
+      object-fit: contain;
+    }
+    .logo-card .card-meta {
+      padding: 12px 16px;
+      border-top: 1px solid var(--beige-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+    }
+    .logo-card .meta-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--brown-deep);
+      letter-spacing: 0.06em;
+    }
+    .logo-card .tags {
+      display: flex;
+      gap: 4px;
+    }
+    .tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 20px;
+    }
+    .tag-kr  { background: #e8edf5; color: #2a4a8a; }
+    .tag-en  { background: #f5e8e8; color: #8a2a2a; }
+    .tag-h   { background: var(--beige); color: var(--brown-mid); border: 1px solid var(--beige-dark); }
+    .tag-v   { background: var(--beige); color: var(--brown-mid); border: 1px solid var(--beige-dark); }
+    .tag-mkt { background: rgba(42,21,5,0.08); color: var(--brown-deep); border: 1px solid rgba(42,21,5,0.1); }
+    .tag-col { background: rgba(163,22,33,0.08); color: var(--maple); border: 1px solid rgba(163,22,33,0.12); }
+    .card-downloads {
+      padding: 10px 16px 14px;
+      display: flex;
+      gap: 6px;
+      background: white;
+    }
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 5px 11px;
+      border-radius: 20px;
+      border: 1px solid var(--beige-dark);
+      color: var(--text-mid);
+      background: var(--cream);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .dl-btn:hover {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      color: #fff;
+    }
+    .dl-btn.disabled {
+      opacity: 0.35;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    /* ── APPLICATIONS ── */
+    .render-section { background: var(--brown-deep); padding: 80px 56px; }
+    .render-section .section-label { color: rgba(163,22,33,0.5); }
+    .render-section .section-title { color: var(--beige); }
+    .render-section .section-sub { color: rgba(240,228,200,0.3); }
+    .render-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .render-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .render-card.full { grid-column: 1 / -1; }
+    .render-card img {
+      width: 100%;
+      display: block;
+    }
+    .render-card .render-label {
+      padding: 18px 22px;
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .render-card .render-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--beige);
+      margin-bottom: 4px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .render-card .render-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(240,228,200,0.35);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown-deep);
+      border-top: 1px solid rgba(163,22,33,0.2);
+      padding: 28px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+
+    @media (max-width: 900px) {
+      .logo-cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      section, .render-section { padding: 60px 24px; }
+      .topbar, .site-header, footer { padding-left: 24px; padding-right: 24px; }
+      .hero { padding: 72px 24px 60px; }
+      .identity-grid,
+      .typo-grid,
+      .render-grid { grid-template-columns: 1fr; }
+      .logo-cards { grid-template-columns: 1fr 1fr; }
+      .render-card.full { grid-column: auto; }
+      .hero-logos { gap: 28px; }
+      .hero-logo-item img { max-width: 130px; }
+      .hero-divider-v { height: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOPBAR ── -->
+  <div class="topbar">
+    <a href="../index.html" class="back-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Main
+    </a>
+  </div>
+
+  <!-- ── SITE HEADER ── -->
+  <header class="site-header">
+    <span class="eyebrow">Lee &amp; Ko Enterprises — Brand Presentation</span>
+    <span class="brand-label">그리즐리 컬렉션 &amp; 마켓</span>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-logos">
+      <div class="hero-logo-item">
+        <img src="src/기본_컬렉션_한글.png" alt="그리즐리 컬렉션">
+        <span class="hero-logo-label">Grizzly Collection</span>
+      </div>
+      <div class="hero-divider-v"></div>
+      <div class="hero-logo-item">
+        <img src="src/기본_마켓_한글.png" alt="그리즐리 마켓">
+        <span class="hero-logo-label">Grizzly Market</span>
+      </div>
+    </div>
+    <div class="hero-divider"></div>
+    <p class="tagline">Brand Identity · 2026</p>
+    <p class="sub-tagline">그리즐리 컬렉션 &amp; 그리즐리 마켓 · Vancouver, BC, Canada</p>
+  </section>
+
+  <!-- ── BRAND IDENTITY ── -->
+  <section class="identity-section">
+    <div class="max-w">
+      <p class="section-label">Brand Identity</p>
+      <h2 class="section-title">브랜드 아이덴티티</h2>
+      <p class="section-sub">캐나다와 한국을 잇는 신뢰할 수 있는 공동구매 커뮤니티 — 두 개의 방향, 하나의 브랜드</p>
+
+      <div class="identity-grid">
+
+        <div class="identity-card">
+          <p class="ic-label">Brand Concept</p>
+          <h3>그리즐리<br>브랜드</h3>
+          <p>캐나다 현지의 강인함을 상징하는 그리즐리 곰을 토템으로. 신뢰와 품질을 중심에 두고, 캐나다와 한국을 잇는 양방향 공동구매 플랫폼을 구축합니다.</p>
+          <div class="dir-tags">
+            <span class="dtag">공동구매</span>
+            <span class="dtag">한·캐 양방향</span>
+            <span class="dtag">커뮤니티</span>
+          </div>
+        </div>
+
+        <div class="identity-card">
+          <p class="ic-label">Canada → Korea</p>
+          <h3>그리즐리<br>컬렉션</h3>
+          <p>캐나다의 좋은 것들을 한국으로. 메이플 시럽, 건강식품, 프리미엄 캐나다산 상품을 신뢰할 수 있는 공동구매 채널로 한국 소비자에게 직접 전달합니다.</p>
+          <div class="dir-tags">
+            <span class="dtag">메이플 시럽</span>
+            <span class="dtag">건강식품</span>
+            <span class="dtag">캐나다산</span>
+          </div>
+        </div>
+
+        <div class="identity-card">
+          <p class="ic-label">Korea → Canada</p>
+          <h3>그리즐리<br>마켓</h3>
+          <p>한국의 좋은 것들을 캐나다로. K-식품, 뷰티, 라이프스타일 제품을 캐나다 현지 매장과 온라인을 통해 교민 및 현지 소비자에게 공급합니다.</p>
+          <div class="dir-tags">
+            <span class="dtag">K-식품</span>
+            <span class="dtag">뷰티</span>
+            <span class="dtag">라이프스타일</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COLOR PALETTE ── -->
+  <section class="palette-section">
+    <div class="max-w">
+      <p class="section-label">Color Palette</p>
+      <h2 class="section-title">브랜드 컬러</h2>
+      <p class="section-sub">그리즐리 곰의 짙은 브라운과 캐나다의 메이플 레드를 중심으로 한 웜 팔레트</p>
+
+      <div class="palette-grid">
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#2A1505;"></div>
+          <p class="swatch-name">Bear Deep Brown</p>
+          <p class="swatch-hex">#2A1505</p>
+          <p class="swatch-role">Primary / 메인 브랜드 컬러</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#6B4226;"></div>
+          <p class="swatch-name">Grizzly Brown</p>
+          <p class="swatch-hex">#6B4226</p>
+          <p class="swatch-role">Secondary / 보조 브라운</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#9B6B42;"></div>
+          <p class="swatch-name">Warm Tan</p>
+          <p class="swatch-hex">#9B6B42</p>
+          <p class="swatch-role">Tertiary / 액센트</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#A31621;"></div>
+          <p class="swatch-name">Canada Red</p>
+          <p class="swatch-hex">#A31621</p>
+          <p class="swatch-role">Accent / 캐나다 포인트</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#F0E4C8; border:1px solid rgba(255,255,255,0.1);"></div>
+          <p class="swatch-name">Warm Beige</p>
+          <p class="swatch-hex">#F0E4C8</p>
+          <p class="swatch-role">Background / 배경</p>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-block" style="background:#FBF8F1; border:1px solid rgba(255,255,255,0.08);"></div>
+          <p class="swatch-name">Cream</p>
+          <p class="swatch-hex">#FBF8F1</p>
+          <p class="swatch-role">Background / 밝은 배경</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TYPOGRAPHY ── -->
+  <section class="typo-section">
+    <div class="max-w">
+      <p class="section-label">Typography</p>
+      <h2 class="section-title">폰트 시스템</h2>
+      <p class="section-sub" style="color:rgba(42,21,5,0.5);">헤딩과 본문에 최적화된 두 가지 서체</p>
+
+      <div class="typo-grid">
+
+        <!-- Recipekorea Light -->
+        <div class="typo-card">
+          <div class="typo-preview">
+            <p class="tp-label">KR · EN / Display — 레코체</p>
+            <p class="tp-sample" style="font-family:'Recipekorea',sans-serif; font-size:40px;">그리즐리<br>컬렉션</p>
+            <p class="tp-alphabet" style="font-family:'Recipekorea',sans-serif; font-size:14px; color: var(--text-mid);">가나다라마바사아자차카타파하<br>Grizzly Collection &amp; Market</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">Recipekorea · 레코체</p>
+            <p class="typo-role">헤딩, 로고 텍스트, 디스플레이 — 국문·영문 공용</p>
+            <div class="typo-weights">
+              <span class="wpill primary">Regular 400</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recipekorea Dark -->
+        <div class="typo-card dark">
+          <div class="typo-preview">
+            <p class="tp-label">Dark BG — 레코체</p>
+            <p class="tp-sample" style="font-family:'Recipekorea',sans-serif; font-size:40px;">그리즐리<br>마켓</p>
+            <p class="tp-alphabet" style="font-family:'Recipekorea',sans-serif; font-size:14px;">가나다라마바사아자차카타파하<br>Grizzly Collection &amp; Market</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">Recipekorea · 레코체</p>
+            <p class="typo-role">다크 배경 헤딩 — 브랜드 컬러 위 사용</p>
+            <div class="typo-weights">
+              <span class="wpill">Regular 400</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inter body -->
+        <div class="typo-card" style="grid-column: 1 / -1;">
+          <div class="typo-preview" style="min-height: 140px;">
+            <p class="tp-label">Body / UI — Inter</p>
+            <p class="tp-sample" style="font-family:'Inter',sans-serif; font-size:20px; font-weight:400; color:var(--brown-deep);">캐나다의 좋은 것들을 한국으로,<br>한국의 좋은 것들을 캐나다로.</p>
+            <p class="tp-alphabet" style="font-family:'Inter',sans-serif; font-size:13px; margin-top:8px;">Vancouver, BC · Canada — Community · Trust · Quality<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ · 0123456789</p>
+          </div>
+          <div class="typo-meta">
+            <p class="typo-name">Inter</p>
+            <p class="typo-role">본문, UI 레이블, 태그, 설명 텍스트 — 디지털 최적화 산세리프</p>
+            <div class="typo-weights">
+              <span class="wpill">Light 300</span>
+              <span class="wpill">Regular 400</span>
+              <span class="wpill primary">Medium 500</span>
+              <span class="wpill primary">SemiBold 600</span>
+              <span class="wpill primary">Bold 700</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LOGO SYSTEM + DOWNLOAD ── -->
+  <section class="logo-section">
+    <div class="max-w">
+      <p class="section-label">Logo System</p>
+      <h2 class="section-title">로고 시스템 &amp; 다운로드</h2>
+      <p class="section-sub">마켓 4종 · 컬렉션 4종 — 가로형 &amp; 세로형 · 한글 &amp; 영문</p>
+
+      <!-- 그리즐리 마켓 -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dash"></span>Grizzly Market — 그리즐리 마켓 4종</p>
+        <div class="logo-cards">
+
+          <div class="logo-card">
+            <div class="img-wrap bg-beige">
+              <img src="src/기본_마켓_한글.png" alt="기본 마켓 한글">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">기본 · 한글</span>
+              <div class="tags">
+                <span class="tag tag-mkt">마켓</span>
+                <span class="tag tag-v">세로</span>
+                <span class="tag tag-kr">KR</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/기본_마켓_한글.png" download="grizzly_market_vertical_kr.png" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG
+              </a>
+              <a href="src/기본_마켓_한글.svg" download="grizzly_market_vertical_kr.svg" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG
+              </a>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-beige">
+              <img src="src/기본_마켓_영문.png" alt="기본 마켓 영문">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">기본 · 영문</span>
+              <div class="tags">
+                <span class="tag tag-mkt">마켓</span>
+                <span class="tag tag-v">세로</span>
+                <span class="tag tag-en">EN</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/기본_마켓_영문.png" download="grizzly_market_vertical_en.png" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG
+              </a>
+              <a href="src/기본_마켓_영문.svg" download="grizzly_market_vertical_en.svg" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG
+              </a>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap">
+              <img src="src/가로_마켓_한글.png" alt="가로 마켓 한글">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">가로 · 한글</span>
+              <div class="tags">
+                <span class="tag tag-mkt">마켓</span>
+                <span class="tag tag-h">가로</span>
+                <span class="tag tag-kr">KR</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/가로_마켓_한글.png" download="grizzly_market_horizontal_kr.png" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG
+              </a>
+              <a href="src/가로_마켓_한글.svg" download="grizzly_market_horizontal_kr.svg" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG
+              </a>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap">
+              <img src="src/가로_마켓_영문.png" alt="가로 마켓 영문">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">가로 · 영문</span>
+              <div class="tags">
+                <span class="tag tag-mkt">마켓</span>
+                <span class="tag tag-h">가로</span>
+                <span class="tag tag-en">EN</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/가로_마켓_영문.png" download="grizzly_market_horizontal_en.png" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG
+              </a>
+              <a href="src/가로_마켓_영문.svg" download="grizzly_market_horizontal_en.svg" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 그리즐리 컬렉션 -->
+      <div class="logo-group">
+        <p class="logo-group-title"><span class="dash" style="background:var(--maple);"></span>Grizzly Collection — 그리즐리 컬렉션 4종</p>
+        <div class="logo-cards">
+
+          <div class="logo-card">
+            <div class="img-wrap bg-beige">
+              <img src="src/기본_컬렉션_한글.png" alt="기본 컬렉션 한글">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">기본 · 한글</span>
+              <div class="tags">
+                <span class="tag tag-col">컬렉션</span>
+                <span class="tag tag-v">세로</span>
+                <span class="tag tag-kr">KR</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/기본_컬렉션_한글.png" download="grizzly_collection_vertical_kr.png" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG
+              </a>
+              <a href="src/기본_컬렉션_한글.svg" download="grizzly_collection_vertical_kr.svg" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG
+              </a>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap bg-beige">
+              <img src="src/기본_컬렉션_영문.png" alt="기본 컬렉션 영문">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">기본 · 영문</span>
+              <div class="tags">
+                <span class="tag tag-col">컬렉션</span>
+                <span class="tag tag-v">세로</span>
+                <span class="tag tag-en">EN</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/기본_컬렉션_영문.png" download="grizzly_collection_vertical_en.png" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG
+              </a>
+              <a href="src/기본_컬렉션_영문.svg" download="grizzly_collection_vertical_en.svg" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG
+              </a>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap">
+              <img src="src/가로_컬렉션_한글.svg" alt="가로 컬렉션 한글">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">가로 · 한글</span>
+              <div class="tags">
+                <span class="tag tag-col">컬렉션</span>
+                <span class="tag tag-h">가로</span>
+                <span class="tag tag-kr">KR</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <a href="src/가로_컬렉션_한글.png" download="grizzly_collection_horizontal_kr.png" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>PNG
+              </a>
+              <a href="src/가로_컬렉션_한글.svg" download="grizzly_collection_horizontal_kr.svg" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG
+              </a>
+            </div>
+          </div>
+
+          <div class="logo-card">
+            <div class="img-wrap">
+              <img src="src/가로_컬렉션_영문.svg" alt="가로 컬렉션 영문">
+            </div>
+            <div class="card-meta">
+              <span class="meta-name">가로 · 영문</span>
+              <div class="tags">
+                <span class="tag tag-col">컬렉션</span>
+                <span class="tag tag-h">가로</span>
+                <span class="tag tag-en">EN</span>
+              </div>
+            </div>
+            <div class="card-downloads">
+              <span class="dl-btn disabled">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>PNG
+              </span>
+              <a href="src/가로_컬렉션_영문.svg" download="grizzly_collection_horizontal_en.svg" class="dl-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>SVG
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── APPLICATIONS ── -->
+  <section class="render-section">
+    <div class="max-w">
+      <p class="section-label">Applications</p>
+      <h2 class="section-title">브랜드 적용 예시</h2>
+      <p class="section-sub">실제 환경에 적용된 그리즐리 브랜드 렌더링</p>
+
+      <div class="render-grid">
+
+        <div class="render-card">
+          <img src="ref_images/gcollection_website_rendering.png" alt="그리즐리 컬렉션 웹사이트">
+          <div class="render-label">
+            <p class="render-name">그리즐리 컬렉션 — 웹사이트</p>
+            <p class="render-desc">캐나다 상품 공동구매 이커머스 플랫폼 · 한국 시장</p>
+          </div>
+        </div>
+
+        <div class="render-card">
+          <img src="ref_images/gmarket_store_rendering.png" alt="그리즐리 마켓 오프라인 매장">
+          <div class="render-label">
+            <p class="render-name">그리즐리 마켓 — 오프라인 매장</p>
+            <p class="render-desc">한국 상품 리테일 스토어 · 캐나다 밴쿠버</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span>© 2026 Lee &amp; Ko Enterprises Inc.</span>
+    <span>Grizzly Collection &amp; Grizzly Market — Brand Identity</span>
+    <span>Vancouver, BC · Canada</span>
+  </footer>
+
+</body>
+</html>
